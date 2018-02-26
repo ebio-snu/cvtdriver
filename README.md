@@ -14,8 +14,9 @@ git clone https://github.com/ebio-snu/cvtdriver.git
 
 ### 빌드를 위한 패키지 설치
 ```
-sudo apt install build-essential cmake libgoogle-glog-dev libasio-dev libjansson-dev
+sudo apt install build-essential cmake libgoogle-glog-dev libasio-dev libjansson-dev libboost-all-dev
 ```
+boost.dll 은 1.61이후 버전부터 지원한다. Raspbian stretch를 사용하는 경우 libboost-all-dev는 1.62.0.1 버전이지만, jessie나 wheezy를 사용하는 경우에는 버전이 낮아서 1.61 이상의 소스를 받아서 설치해야 한다. 
 
 ### 소스코드 업데이트 및 빌드
 ```
@@ -35,6 +36,13 @@ make test
 
 ## 새로운 드라이버의 제작
 
-추후 업데이트될 예정입니다.
+새로운 드라이버 제작을 하는 경우, samples 폴더 중 하나의 샘플을 복사하여 시작하는 것을 추천한다.
+개발한 드라이버는 다음과 같이 테스트한다. 모든 테스트를 통과하면 사용가능한 드라이버가 된다.
+
+```
+make driver_test {lib_new_driver_name.so}
+```
+
+상세한 내용은 추후 업데이트될 예정이다.
 
 
