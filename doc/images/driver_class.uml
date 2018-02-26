@@ -23,7 +23,7 @@ package stdcvt {
      + virtual int postprocess (); // write sensor data, execute commands
 
      .. Process ..
-     + virtual Device getdevice (int index);
+     + virtual CvtDevice *getdevice (int index);
     }
 
     abstract class CvtDevice {
@@ -66,15 +66,19 @@ package stdcvt {
     }
 
     abstract class CvtMotor {
+     - target : double
+     - current : double
+     - cmdid : int
      + double getcurrentposition ();
      + double gettargetposition ();
-     + int setposition (double position);
-     + int setstop ();
+     + int setposition (int cmdid, double position);
+     + int setstop (int cmdid);
     }
 
     abstract class CvtSwitch {
-     + int seton ();
-     + int setoff ();
+     - cmdid : int
+     + int seton (int cmdid);
+     + int setoff (int cmdid);
     }
 
     CvtDriver *- CvtDevice
