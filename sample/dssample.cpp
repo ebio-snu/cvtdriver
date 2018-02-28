@@ -1,7 +1,7 @@
 /**
  Copyright © 2018 ebio lab. SNU. All Rights Reserved.
 
- @file sampledriver.h
+ @file dssample.h
  @date 2018-02-27, JoonYong
  @author Kim, JoonYong <tombraid@snu.ac.kr>
 
@@ -9,57 +9,66 @@
  refer from: https://github.com/ebio-snu/cvtdriver
 */
 
-#include <boost/config.hpp>
 #include <iostream>
+#include <sstream>
 #include <string>
-#include <boost/bind.hpp>
-#include <boost/asio.hpp>
 
+#include <boost/config.hpp>
+
+#include <glog/logging.h>
+
+#include "../spec/cvtdevice.h"
 #include "../spec/cvtdriver.h"
 
+#define BUFSIZE     128
+
+namespace ebiodriver {
+
+using namespace std;
 using namespace stdcvt;
 
-namespace sampledriver {
+class DSSensor : public CvtSensor {
+public:
+    DSSensor(int devid, stdcvt::devtype_t devtype, stdcvt::devsec_t section,
+        stdcvt::devtarget_t target, stdcvt::devstat_t devstatus, stdcvt::obsunit_t unit)
+        : stdcvt::CvtSensor (devid, devtype, section, target, devstatus, unit) {
+    }
+};
 
-class SampleDriver : stdcvt::CvtDriver {
+class DSMotor : public CvtMotor{
+public:
+    DSMotor(int devid, stdcvt::devtype_t devtype, stdcvt::devsec_t section,
+        stdcvt::devtarget_t target, stdcvt::devstat_t devstatus)
+        : stdcvt::CvtMotor(devid, devtype, section, target, devstatus) {
+    }
+};
+class DSDevice : public CvtDevice{
+public:
+    DSDevice(int devid, stdcvt::devtype_t devtype, stdcvt::devsec_t section,
+        stdcvt::devtarget_t target, stdcvt::devstat_t devstatus)
+        : stdcvt::CvtDevice(devid, devtype, section, target, devstatus) {
+    }
+};
+
+class DSDriver : public CvtDriver {
 private:
-    boost::asio::serial_port _port;
-    char _buf[BUFSIZE];
-    SampleSensor *_psensor;
-    SampleMotor *_pmotor;
-    SampleSwitch *_pswitch;
-
-    void startread() {
-        _port.async_read_until (asio::buffer(_buf, BUFSIZE), '\n',
-            boost::bind(&serial::echo, this,
-                asio::placeholders::error, asio::placeholders::bytes_transferred) );
-    }
-
-    void handlewrite(const asio::error_code& error, size_t bytes_transferred) {
-        std::cout << bytes_transferred << " bytes, error: " << error << std::endl;
-    }
-
-    void readmessage (const asio::error_code& error, size_t bytes_transferred) {
-        if (error || !bytes_transferred) {
-            std::cout << "read nothing." << std::endl;
-        } else {
-            _buf[bytes_transferred]=0;
-            // parse
-        }
-        startread ();
-    }
+    DSSensor _sensor;
+    DSDevice _switch;
+    DSMotor _motor;
 
 public:
     /**
-     새로운 드라이버를 생성한다.
+     새로운 DS드라이버를 생성한다.
      @param modelcode 모델코드
      @param apispec API 버전
     */
-    SampleDriver(int modelcode, int apispec, asio::io_service& io) 
-        : _port(io), stdcvt::CvtDriver (modelcode, apispec) {
+    DSDriver() : stdcvt::CvtDriver (2001, 100),
+        _sensor(10, DT_SEN_TEMPERATURE, 10103000002, DO_ENV_ATMOSPHERE, DS_SEN_NORMAL, OU_CELSIUS),
+        _motor(20, DT_MOT_SIDEWINDOW, 10103000002, DO_EQUIPMENT, DS_MOT_STOP),
+        _switch(30, DT_SWC_FAN, 10103000002, DO_EQUIPMENT, DS_SWC_OFF) {
     }
 
-    ~SampleDriver () {
+    ~DSDriver () {
         finalize ();
     }
 
@@ -67,7 +76,7 @@ public:
      드라이버 제작자가 부여하는 버전번호를 확인한다.
      @return 문자열 형식의 버전번호
     */
-    string getversion () {
+    const char *getversion () {
         return "V0.1.0";
     }
 
@@ -75,8 +84,8 @@ public:
      드라이버 제작자가 부여하는 모델번호를 확인한다.
      @return 문자열 형식의 모델번호
     */
-    string getmodel () {
-        return "ebionode_v1";
+    const char *getmodel () {
+        return "ebiods_v1";
     }
 
     /**
@@ -84,7 +93,7 @@ public:
      컨버터에서는 제조사명을 로깅용도로만 사용한다.
      @return 문자열 형식의 제조사명
     */
-    string getcompany () {
+    const char *getcompany () {
         return "EBIO lab. SNU.";
     }
 
@@ -94,10 +103,6 @@ public:
      @return 초기화 성공 여부
     */
     bool initialize (CvtConfig option) {
-        _port.open (option.get("port"));
-        _port.set_option (asio::serial_port_base::baud_rate(option.getint("baudrate")));
-
-        startread ();
         return true;
     }
 
@@ -106,9 +111,6 @@ public:
      @return 종료 성공 여부
     */
     bool finalize () {
-        psensor->finalize ();
-        pmotor->finalize ();
-        pswitch->finalize ();
         return true;
     }
 
@@ -125,10 +127,9 @@ public:
      @return 후처리 성공 여부
     */
     bool postprocess () {
-        asio::async_write(_port, asio::buffer(_buf, strlen(_buf)),
-                boost::bind(&serial::handle_write, this,
-                    asio::placeholders::error,
-                    asio::placeholders::bytes_transferred));
+        LOG(INFO) << _sensor.tostring ();
+        LOG(INFO) << _motor.tostring ();
+        LOG(INFO) << _switch.tostring ();
         return true;
     }
 
@@ -140,18 +141,47 @@ public:
     CvtDevice *getdevice(int index) {
         switch (index) {
             case 0:
-                return psensor;
+                return &_sensor;
             case 1:
-                return pmotor;
+                return &_motor;
             case 2:
-                return pswitch;
+                return &_switch;
             default:
                 return NULL;
         }
     }
+
+    /**
+      전달된 장비의 정보를 획득한다. 
+      다른 드라이버의 장비정보를 입력해주기 위해 컨버터가 호출한다.
+      @param pdevice 다른 드라이버의 장비 포인터
+      @return 성공여부. 관심이 없는 장비인 경우라도 문제가 없으면 true를 리턴한다.
+     */
+    bool sharedevice(CvtDevice *pdevice) {
+        return true;
+    }
+
+    /**
+      다른 드라이버가 관리하고 있는 장비를 제어하고자 할때 명령을 전달한다.
+      명령을 전달하지 않는 드라이버라면 그냥 NULL을 리턴하도록 만들면 된다.
+      @param index 얻고자 하는 명령의 인덱스 번호. 0에서 시작한다.
+      @return 인덱스에 해당하는 명령의 포인터. NULL 이라면 이후에 명령이 없다는 의미이다.
+     */
+    CvtCommand *getcommand(int index) {
+        return (CvtCommand *)0;
+    }
+
+    /**
+      다른 드라이버로부터 명령을 받아 처리한다.
+      @param pcmd 명령에 대한 포인터
+      @return 실제 명령의 처리 여부가 아니라 명령을 수신했는지 여부이다. 해당 명령을 실행할 장비가 없다면 false이다.
+     */
+    bool control(CvtCommand *pcmd) {
+        return false;
+    }
 };
 
-extern "C" BOOST_SYMBOL_EXPORT sampledriver plugin;
-sampledriver plugin;
+extern "C" BOOST_SYMBOL_EXPORT DSDriver plugin;
+DSDriver plugin;
 
-} // namespace sampledriver
+} // namespace ebiodriver

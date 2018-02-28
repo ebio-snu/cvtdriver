@@ -12,43 +12,47 @@
 #ifndef _CVT_DEVICE_
 #define _CVT_DEVICE_
 
+#include <iostream>
+#include <string> 
+#include <glog/logging.h>
+
+#include "cvtcode.h"
+#include "cvtconfig.h"
+#include "cvtdevicespec.h"
+#include "cvtcommand.h"
+
 namespace stdcvt {
 
+using namespace std;
+
 /*
- @brief CvtDevice is a virtual class for a smartfarm device.
+ @brief CvtDevice 는 개별 장비를 추상화한 클래스이다.
 */
-virtual class CvtDevice {
+class CvtDevice {
 private:
     int _id;                //< 장비 ID
-    devtype_t _type;        //< 장비 종류
+    CvtDeviceSpec _devspec; //< 장비의 스펙
     devstat_t _status;      //< 장비 상태
-    devsec_t _section;      //< 장비 설치 구역
-    devtarget_t _target;    //< 장비의 대상
-
-protected:
-    /**
-     아이디를 제외한 장비의 속성을 복사한다.
-     @param pdev 복사할 소스 장비에 대한 포인터
-    */
-    bool copyproperites (CvtDevice *pdev) {
-        _type = *pdev->_type;
-        _status = *pdev->_status;
-    }
 
 public:
     /**
      새로운 장비를 생성한다.
      @param devid 장비의 아이디
      @param devtype 장비의 종류
+     @param section 장비 설치 구역
+     @param target 장비의 대상
      @param devstatus 장비의 상태
     */
-    CvtDevice(int devid, devtype_t devtype, devstat_t devstatus) {
+    CvtDevice(int devid, devtype_t devtype, 
+        devsec_t section, devtarget_t target, devstat_t devstatus) 
+        : _devspec(devtype, section, target) {
+
         _id = devid;
-        _type = devtype;
         _status = devstatus;
     }
 
-    ~CvtDevice();
+    ~CvtDevice() {
+    }
 
     /**
      장비에 부여된 아이디를 리턴한다.
@@ -59,11 +63,11 @@ public:
     }
 
     /**
-     장비의 종류를 리턴한다.
-     @return 장비의 종류
+     장비의 스펙을 리턴한다.
+     @return 장비 스펙의 포인터
     */
-    devtype_t gettype () {
-        return _type;
+    CvtDeviceSpec *getspec() {
+        return &_devspec;
     }
 
     /**
@@ -85,16 +89,18 @@ public:
     }
 
     /**
-     장비의 상태를 전이하는데 사용되는 메소드이다.
-     드라이버 제작자가 꼭 구현해야 하는 메소드이다.
-     copyproperties 를 활용할 수 있다.
-     @param pdev 소스 장비에 대한 포인터
-     @return 상태전이의 성공여부로 true라면 성공이다.
+     장비의 상태를 문자열로 내보낸다. 
     */
-    virtual bool stream(CvtDevice *pdevice);
+    string tostring() {
+        return "CvtDevice(" + std::to_string(_id) + ") [" +  _devspec.tostring() 
+            + "], status : " + std::to_string(_status);
+    }
 };
 
-virtual class CvtSensor : public CvtDevice {
+/*
+ @brief CvtSensor는 CvtDevice를 상속하여, 개별 센서를 추상화한 클래스이다.
+*/
+class CvtSensor : public CvtDevice {
 private:
     obsunit_t _unit;          //< 관측치의 단위
     double _value;            //< 센서의 관측치
@@ -104,11 +110,15 @@ public:
     /**
      새로운 센서를 생성한다.
      @param devid 센서의 아이디
+     @param devtype 장비의 종류
+     @param section 장비 설치 구역
+     @param target 장비의 대상
      @param devstatus 센서의 상태
      @param unit 관측치의 단위
     */
-    CvtSensor (int devid, devstat_t devstatus, obsunit_t unit) {
-        CvtDevice (devid, DT_SENSOR, devstatus);
+    CvtSensor (int devid, devtype_t devtype, devsec_t section, 
+        devtarget_t target, devstat_t devstatus, obsunit_t unit) 
+        : CvtDevice (devid, devtype, section, target, devstatus) {
         _unit = unit;
     }
 
@@ -149,18 +159,61 @@ public:
     }
 
     /**
-     장비의 상태를 전이하는데 사용되는 메소드이다.
-     드라이버 제작자가 꼭 구현해야 하는 메소드이다.
-     copyproperties 를 활용할 수 있다.
-     @code
-
-    bool stream(CvtDevice *pdevice) {
-        CvtSensor *psensor = <static>(CvtSensor *)(pdevice);
-        _unit = psensor->_unit;
-        _value = psensor->_value;
-        return copyproperites(pdevice);
-    }
+     센서의 상태를 문자열로 내보낸다. 
     */
+    string tostring() {
+        return "CvtSensor [" + CvtDevice::tostring() 
+            + "] observation : " + std::to_string(_value) 
+            + ", unit : " + std::to_string(_unit);
+    }
+};
+
+/*
+ @brief CvtMotor는 CvtDevice를 상속하여, 개별 모터형 구동기를 추상화한 클래스이다.
+*/
+class CvtMotor : public CvtDevice {
+private:
+    double _ratio;      //< 현재 위치 비율. 0~1 사이의 값
+
+public:
+    /**
+     새로운 모터형 구동기를 생성한다.
+     @param devid 장비의 아이디
+     @param devtype 장비의 종류
+     @param section 장비 설치 구역
+     @param target 장비의 대상
+     @param devstatus 장비의 상태
+    */
+    CvtMotor (int devid, devtype_t devtype, 
+        devsec_t section, devtarget_t target, devstat_t devstatus) 
+        : CvtDevice (devid, devtype, section, target, devstatus) {
+    }
+
+    /**
+     모터형 구동기의 위치를 세팅한다.
+     @param ratio 세팅할 위치
+     @return 세팅된 위치
+    */
+    double setratio(double ratio) {
+         _ratio = ratio;
+         return _ratio;
+    }
+
+    /**
+     모터형 구동기의 위치를 확인한다.
+     @return 구동기의 위치
+    */
+    double getratio() {
+        return _ratio;
+    }
+
+    /**
+     모터형 구동기의 상태를 문자열로 내보낸다. 
+    */
+    string tostring() {
+        return "CvtMotor [" + CvtDevice::tostring() 
+            + "], ratio : " + std::to_string(_ratio);
+    }
 };
 
 } // namespace stdcvt

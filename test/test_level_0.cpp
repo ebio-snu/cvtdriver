@@ -9,38 +9,46 @@
  refer from: https://github.com/ebio-snu/cvtdriver
 */
 
+
+#include <iostream>
+
+#include <boost/dll/import.hpp> // for import_alias
+#include <boost/asio.hpp>
+#include <glog/logging.h>
+
 #include "cvtdriver.h"
-#include <gtest/gtest.h>
 
-namespace {
+using namespace std;
+using namespace stdcvt;
 
-class CvtDriverTest : public ::testing::Test {
-protected:
-    CvtDriverTest() {
-    }
+namespace dll = boost::dll;
 
-    virtual ~CvtDriverTest() {
-    }
+int main(int argc, char* argv[]) {
 
-    virtual void SetUp() {
-    }
+    google::InitGoogleLogging (argv[0]);
 
-    virtual void TearDown() {
-    }
+    boost::asio::io_service io_service;
+    boost::filesystem::path lib_path(argv[1]);
+    boost::shared_ptr<CvtDriver> plugin;
 
-};
+    CvtConfig option;
+    option.setobject ("boost_io_service", (void *)&io_service);
 
-TEST_F(CvtDriverTest, LOAD) {
-    EXPECT_EQ(0, 0);
+    std::cout << "Loading the plugin" << std::endl;
+
+    plugin = dll::import<CvtDriver>(  
+            //lib_path / "libdssample.so",
+            "libdssample.so",
+            "plugin",                
+            dll::load_mode::append_decorations
+            );
+
+    plugin->initialize (option);
+    CvtDevice *pdevice = plugin->getdevice(0);
+    CvtSensor *psensor = static_cast<CvtSensor *>(pdevice);
+    std::cout << "psensor->getid() : " << psensor->getid() << std::endl;
+
+    return 0;
 }
 
-TEST_F(CvtDriverTest, DoesXyz) {
-}
-
-}  // namespace
-
-int main(int argc, char **argv) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
 

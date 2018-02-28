@@ -15,6 +15,7 @@ PROJECT (cvtdriver)
 
 SET(CMAKE_VERBOSE_MAKEFILE ON)
 SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
+SET(CMAKE_CXX_STANDARD 11)
 
 FIND_PACKAGE(Doxygen)
 IF(DOXYGEN_FOUND)
@@ -25,7 +26,7 @@ IF(DOXYGEN_FOUND)
 	)
 ENDIF(DOXYGEN_FOUND)
 
-FIND_PACKAGE(Boost 1.62 REQUIRED COMPONENTS date_time filesystem iostreams)
+FIND_PACKAGE(Boost 1.62 REQUIRED COMPONENTS system date_time filesystem iostreams)
 IF(Boost_FOUND)
     INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIRS})
 ENDIF(Boost_FOUND)
@@ -47,14 +48,16 @@ SET (LIBRARY_OUTPUT_PATH ../lib)
 INCLUDE_DIRECTORIES (spec)
 
 ADD_LIBRARY (dssample SHARED sample/dssample.cpp)
-TARGET_LINK_LIBRARIES(dssample ${Boost_LIBRARIES})
+TARGET_LINK_LIBRARIES(dssample ${Boost_LIBRARIES} ${GLOG_LIBRARIES} pthread)
 ADD_LIBRARY (sssample SHARED sample/sssample.cpp)
-TARGET_LINK_LIBRARIES(sssample ${Boost_LIBRARIES})
+TARGET_LINK_LIBRARIES(sssample ${Boost_LIBRARIES} ${GLOG_LIBRARIES} pthread)
 
 ENABLE_TESTING ()
 
 ADD_EXECUTABLE (test_level_0 test/test_level_0.cpp)
+TARGET_LINK_LIBRARIES(test_level_0 ${Boost_LIBRARIES} ${GLOG_LIBRARIES} pthread dl ${GTEST_LIBRARIES})
 ADD_EXECUTABLE (test_level_1 test/test_level_1.cpp)
+TARGET_LINK_LIBRARIES(test_level_1 ${Boost_LIBRARIES} ${GLOG_LIBRARIES} pthread dl ${GTEST_LIBRARIES})
 
 ADD_TEST (dstest_0 test_level_0 dssample)
 ADD_TEST (dstest_1 test_level_1 dssample)
