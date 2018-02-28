@@ -21,17 +21,17 @@
 **(구동기에 대한 특이사항을 정리할 방안이 필요할 수 있다. 예를 들어 3중창같은 경우!!)**
 
 ```
-typedef enum {
-    DO_UNKNOWN = 1,
-    DO_ENV_ATMOSPHERE = 1001,
-    DO_ENV_SOIL = 1002,
-    DO_ENV_NUTRIENTSOLUTION = 1003,
-    DO_PLANT_STEM = 2001,
-    DO_PLANT_LEAF = 2002,
-    DO_PLANT_FRUIT = 2003,
-    DO_PLANT_ROOT = 2004,
-    DO_EQUIPMENT = 3001,
-    DO_EQUIPMENT_NORTH = 3002,
-    DO_EQUIPMENT_SOUTH = 3003
+typedef enum { 
+    DO_UNKNOWN = 1,                 //< 대상을 알지 못함
+    DO_ENV_ATMOSPHERE = 1001,       //< 대기를 대상으로 함
+    DO_ENV_SOIL = 1002,             //< 토양을 대상으로 함
+    DO_ENV_NUTRIENTSOLUTION = 1003, //< 양액을 대상으로 함
+    DO_PLANT_STEM = 2001,           //< 작물의 줄기를 대상으로 함
+    DO_PLANT_LEAF = 2002,           //< 작물의 잎을 대상으로 함
+    DO_PLANT_FRUIT = 2003,          //< 작물의 과실을 대상으로 함
+    DO_PLANT_ROOT = 2004,           //< 작물의 뿌리를 대상으로 함
+    DO_EQUIPMENT = 3001,            //< 농장의 장비를 대상으로 함
+    DO_EQUIPMENT_NORTH = 3002,      //< 장비가 좌우대칭인 경우 북쪽에 가까운 장비를 대상으로 함
+    DO_EQUIPMENT_SOUTH = 3003       //< 장비가 좌우대칭인 경우 남쪽에 가까운 장비를 대상으로 함
 } devtarget_t;
 ```
