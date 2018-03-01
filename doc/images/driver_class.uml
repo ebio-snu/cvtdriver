@@ -24,37 +24,44 @@ package stdcvt {
 
      .. Process ..
      + virtual CvtDevice *getdevice (int index);
+     + virtual bool *sharedevice(CvtDevice *pdevice);
+     + virtual CvtCommand *getcommand(int index);
+     + virtual bool control(CvtCommand *pcmd);
+    }
+
+    class CvtDeviceSpec {
+     - type : devtype_t
+     - section : devsec_t
+     - target : devtarget_t
+
+     devtype_t gettype ();
+     devsec_t getsection ();
+     devtarget_t gettarget ();
     }
 
     abstract class CvtDevice {
      - id : int
      - status : devstat_t
-     - devtype : devtype_t
+     - devspec : CvtDeviceSpec
      - errno : int
      - errmsg : string
-
-     - bool copyproperites (CvtDevice *pdevice);
 
      .. Device ID ..
      + int getid ();
 
      .. Device Status ..
      + devstat_t getstatus ();
+     + devstat_t setstatus (devstat_t devstat);
      + errno_t geterrno ();
      + string geterrmsg ();
 
-     .. Device Type ..
-     + devtype_t gettype (); // Sensor, Motor, Switch, Controller
+     .. Device Spec ..
+     + CvtDeviceSpec *getspec(); // Sensor, Motor, Switch, Controller
 
-     .. Installed section ..
-     + section_t getsection (); // installation position
-     + section_t setsection (section_t loc); // installation position
-
-     .. Data Flow ..
-     + virtual bool stream(CvtDevice *pdevice);
+     + string tostring();
     }
 
-    abstract class CvtSensor {
+    class CvtSensor {
      - unit : obsunit_t
      - value : double
      - bool copyproperites (CvtDevice *pdevice);
@@ -63,53 +70,78 @@ package stdcvt {
      + obsunit_t setunit (obsunit_t unit);
      + double writeobservation (double value);
      + double readobservation ();
+     + string tostring();
     }
 
-    abstract class CvtMotor {
+    class CvtMotor {
      - target : double
      - current : double
-     - cmdid : int
+     - lastcmdid : int
      + double getcurrentposition ();
      + double gettargetposition ();
      + int setposition (int cmdid, double position);
      + int setstop (int cmdid);
+     + string tostring();
     }
 
-    abstract class CvtSwitch {
-     - cmdid : int
+    class CvtSwitch {
+     - lastcmdid : int
      + int seton (int cmdid);
      + int setoff (int cmdid);
+     + string tostring();
     }
 
-    CvtDriver *- CvtDevice
+    class CvtCommand {
+     - id : int
+     - driverspec : CvtDriverSpec
+     - onoff : bool
+
+     bool getonoff ();
+     bool setonoff (bool onoff);
+    }
+
+    class CvtRatioCommand {
+     - ratio : double
+     double getratio();
+     double setratio(double ratio);
+    }
+
+    CvtCommand <|-- CvtRatioCommand
+
+    CvtDriver "1" *- "n" CvtDevice
 
     CvtDevice <|-- CvtSensor
     CvtDevice <|-- CvtMotor
     CvtDevice <|-- CvtSwitch
+
+    CvtDevice "1" *- "1" CvtDeviceSpec
+
+    CvtMotor -- CvtRatioCommand : > use
+    CvtSwitch -- CvtCommand : > use
 }
 
 package "Sample CvtDriver" #DDDDDD {
-    class EBIOSerialCvtDriver {
+    class SampleCvtDriver {
     }
 
-    CvtDriver <|-- EBIOSerialCvtDriver
+    CvtDriver <|-- SampleCvtDriver
 
-    class EBIOSensor {
+    class SampleSensor {
     }
 
-    class EBIOMotor {
+    class SampleMotor {
     }
 
-    class EBIOSwitch {
+    class SampleSwitch {
     }
 
-    CvtSensor <|-- EBIOSensor
-    CvtMotor <|-- EBIOMotor
-    CvtSwitch <|-- EBIOSwitch
+    CvtSensor <|-- SampleSensor
+    CvtMotor <|-- SampleMotor
+    CvtSwitch <|-- SampleSwitch
 
-    EBIOSerialCvtDriver *-- EBIOSensor
-    EBIOSerialCvtDriver *-- EBIOMotor
-    EBIOSerialCvtDriver *-- EBIOSwitch
+    SampleSerialCvtDriver *-- SampleSensor
+    SampleSerialCvtDriver *-- SampleMotor
+    SampleSerialCvtDriver *-- SampleSwitch
 }
 
 @enduml

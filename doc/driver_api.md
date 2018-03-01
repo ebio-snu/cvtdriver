@@ -17,3 +17,6 @@
 드라이버는 CvtDriver 클래스를 상속받아 구현한다.
 드라이버 클래스 다이어그램은 다음과 같다.
 ![class_diagram](images/driver_class.png)
+
+## 드라이버 종류
+드라이버는 크게 2종류로 구분된다. 센서노드, 제어노드, 컨트롤러와 직접 연결되는 장비측(Device Side)드라이버와 데이터 수집기와 연결되는 서버측(Servier Side)드라이버로 구성된다. 각 드라이버를 DSDriver, SSDriver 라고 한다.
