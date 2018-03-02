@@ -29,6 +29,8 @@ namespace stdcvt {
 */
 class CvtDeviceSpec {
 private:
+    string _manufacturer;   //< 장비 제조사
+    string _model;          //< 장비 모델
     devtype_t _type;        //< 장비 종류
     devsec_t _section;      //< 장비 설치 구역
     devtarget_t _target;    //< 장비의 대상
@@ -44,6 +46,8 @@ public:
         _type = devtype;
         _section = section;
         _target = target;
+        _manufacturer = "";
+        _model = "";
     }
 
     ~CvtDeviceSpec() {
@@ -74,13 +78,51 @@ public:
     }
 
     /**
+     장비의 제조사를 세팅한다.
+     @param manufacturer 장비 제조사
+     @return 세팅된 장비 제조사
+    */
+    string setmanufacturer(string manufacturer) {
+        _manufacturer = manufacturer;
+        return _manufacturer;
+    }
+
+    /**
+     장비의 제조사를 확인한다.
+     @return 세팅된 장비 제조사
+    */
+    string getmanufacturer() {
+        return _manufacturer;
+    }
+
+    /**
+     장비의 모델을 세팅한다.
+     @param model 장비 모델
+     @return 세팅된 장비 모델
+    */
+    string setmodel(string model) {
+        _model = model;
+        return _model;
+    }
+
+    /**
+     장비의 모델을 확인한다.
+     @return 세팅된 장비 모델
+    */
+    string getmodel() {
+        return _model;
+    }
+
+    /**
      장비의 속성을 복사한다.
-     @param pdev 복사할 소스 장비스펙에 대한 포인터
+     @param pdevspec 복사할 소스 장비스펙에 대한 포인터
     */
     bool copyspec(CvtDeviceSpec *pdevspec) {
         _type = pdevspec->_type;
         _section = pdevspec->_section;
         _target = pdevspec->_target;
+        _manufacturer = pdevspec->_manufacturer;
+        _model = pdevspec->_model;
         return true;
     }
 
@@ -89,9 +131,9 @@ public:
     */
     string tostring() {
         return "CvtDeviceSpec type : " + std::to_string(_type) 
-            + ", target : " + std::to_string(_target) + ", section : " + std::to_string(_section);
+            + ", target : " + std::to_string(_target) + ", section : " + std::to_string(_section)
+            + ", manufacturer : " + std::to_string(_manufacturer) + ", model : " + std::to_string(_model);
     }
-
 };
 
 }
