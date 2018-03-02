@@ -38,7 +38,7 @@ public:
      @return 옵션의 값
     */
     char *get (char *key) {
-        return "/dev/ttyACM0";
+        return "/dev/ttyUSB0";
     }
 
     /**
@@ -47,7 +47,7 @@ public:
      @return 옵션의 값
     */
     int getint (char *key) {
-        return 9600;
+        return 115200;
     }
 
     /**

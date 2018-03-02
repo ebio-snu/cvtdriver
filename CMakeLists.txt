@@ -47,20 +47,22 @@ SET (LIBRARY_OUTPUT_PATH ../lib)
 
 INCLUDE_DIRECTORIES (spec)
 
-ADD_LIBRARY (dssample SHARED sample/dssample.cpp)
+SET (ALLSRC sample/dssampledriver.cpp sample/sssampledriver.cpp)
+
+ADD_LIBRARY (dssample SHARED sample/dssampledriver.cpp)
 TARGET_LINK_LIBRARIES(dssample ${Boost_LIBRARIES} ${GLOG_LIBRARIES} pthread)
-ADD_LIBRARY (sssample SHARED sample/sssample.cpp)
+ADD_LIBRARY (sssample SHARED sample/sssampledriver.cpp)
 TARGET_LINK_LIBRARIES(sssample ${Boost_LIBRARIES} ${GLOG_LIBRARIES} pthread)
 
 ENABLE_TESTING ()
 
-ADD_EXECUTABLE (test_level_0 test/test_level_0.cpp)
-TARGET_LINK_LIBRARIES(test_level_0 ${Boost_LIBRARIES} ${GLOG_LIBRARIES} pthread dl ${GTEST_LIBRARIES})
-ADD_EXECUTABLE (test_level_1 test/test_level_1.cpp)
-TARGET_LINK_LIBRARIES(test_level_1 ${Boost_LIBRARIES} ${GLOG_LIBRARIES} pthread dl ${GTEST_LIBRARIES})
+ADD_EXECUTABLE (test_so_load test/test_so_load.cpp)
+TARGET_LINK_LIBRARIES (test_so_load ${Boost_LIBRARIES} ${GLOG_LIBRARIES} pthread dl ${GTEST_LIBRARIES})
+ADD_EXECUTABLE (test_asio test/test_asio.cpp)
+TARGET_LINK_LIBRARIES (test_asio ${Boost_LIBRARIES} ${GLOG_LIBRARIES} pthread dl ${GTEST_LIBRARIES})
 
-ADD_TEST (dstest_0 test_level_0 dssample)
-ADD_TEST (dstest_1 test_level_1 dssample)
+ADD_TEST (dstest_0 test_so_load ../lib/libdssample.so)
+ADD_TEST (dstest_1 test_asio ../lib/libdssample.so)
 
-ADD_TEST (sstest_0 test_level_0 sssample)
-ADD_TEST (sstest_1 test_level_1 sssample)
+ADD_TEST (sstest_0 test_so_load ../lib/libsssample.so)
+ADD_TEST (sstest_1 test_asio ../lib/libsssample.so)

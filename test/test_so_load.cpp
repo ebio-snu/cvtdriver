@@ -1,18 +1,19 @@
 /*
  Copyright © 2018 ebio lab. SNU. All Rights Reserved.
 
- @file test_level_0.cpp
+ @file test_so_load.cpp
  @date 2018-02-27, JoonYong
  @author Kim, JoonYong <tombraid@snu.ac.kr>
 
  This file is for unit tests of a driver.
+ It test to load a shared library.
  refer from: https://github.com/ebio-snu/cvtdriver
 */
 
 
 #include <iostream>
 
-#include <boost/dll/import.hpp> // for import_alias
+#include <boost/dll/import.hpp>
 #include <boost/asio.hpp>
 #include <glog/logging.h>
 
@@ -28,7 +29,6 @@ int main(int argc, char* argv[]) {
     google::InitGoogleLogging (argv[0]);
 
     boost::asio::io_service io_service;
-    boost::filesystem::path lib_path(argv[1]);
     boost::shared_ptr<CvtDriver> plugin;
 
     CvtConfig option;
@@ -37,8 +37,7 @@ int main(int argc, char* argv[]) {
     std::cout << "Loading the plugin" << std::endl;
 
     plugin = dll::import<CvtDriver>(  
-            //lib_path / "libdssample.so",
-            "libdssample.so",
+            argv[1],
             "plugin",                
             dll::load_mode::append_decorations
             );

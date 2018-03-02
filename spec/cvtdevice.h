@@ -120,6 +120,7 @@ public:
         devtarget_t target, devstat_t devstatus, obsunit_t unit) 
         : CvtDevice (devid, devtype, section, target, devstatus) {
         _unit = unit;
+        _value = 0;
     }
 
     /**
