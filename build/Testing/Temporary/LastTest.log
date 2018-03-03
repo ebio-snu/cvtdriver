@@ -1,0 +1,73 @@
+Start testing: Mar 03 15:04 KST
+----------------------------------------------------------
+1/4 Testing: dstest_0
+1/4 Test: dstest_0
+Command: "/home/tombraid/Works/ebio/cvtdriver/build/test_so_load" "dsdriver" "../lib/libdssample.so"
+Directory: /home/tombraid/Works/ebio/cvtdriver/build
+"dstest_0" start time: Mar 03 15:04 KST
+Output:
+----------------------------------------------------------
+Loading the plugin
+terminate called after throwing an instance of 'boost::exception_detail::clone_impl<boost::exception_detail::error_info_injector<boost::system::system_error> >'
+  what():  boost::dll::shared_library::load() failed (dlerror system message: ./libdssample.so: cannot open shared object file: No such file or directory): Bad file descriptor
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Failed.
+"dstest_0" end time: Mar 03 15:04 KST
+"dstest_0" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/4 Testing: dstest_1
+2/4 Test: dstest_1
+Command: "/home/tombraid/Works/ebio/cvtdriver/build/test_asio" "dsdriver" "../lib/libdssample.so"
+Directory: /home/tombraid/Works/ebio/cvtdriver/build
+"dstest_1" start time: Mar 03 15:04 KST
+Output:
+----------------------------------------------------------
+Loading the plugin
+boost::dll::shared_library::load() failed (dlerror system message: ./libdssample.so: cannot open shared object file: No such file or directory): Bad file descriptor
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"dstest_1" end time: Mar 03 15:04 KST
+"dstest_1" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/4 Testing: sstest_0
+3/4 Test: sstest_0
+Command: "/home/tombraid/Works/ebio/cvtdriver/build/test_so_load" "ssdriver" "../lib/libsssample.so"
+Directory: /home/tombraid/Works/ebio/cvtdriver/build
+"sstest_0" start time: Mar 03 15:04 KST
+Output:
+----------------------------------------------------------
+Loading the plugin
+terminate called after throwing an instance of 'boost::exception_detail::clone_impl<boost::exception_detail::error_info_injector<boost::system::system_error> >'
+  what():  boost::dll::shared_library::load() failed (dlerror system message: ./libsssample.so: cannot open shared object file: No such file or directory): Bad file descriptor
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Failed.
+"sstest_0" end time: Mar 03 15:04 KST
+"sstest_0" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/4 Testing: sstest_1
+4/4 Test: sstest_1
+Command: "/home/tombraid/Works/ebio/cvtdriver/build/test_asio" "ssdriver" "../lib/libsssample.so"
+Directory: /home/tombraid/Works/ebio/cvtdriver/build
+"sstest_1" start time: Mar 03 15:04 KST
+Output:
+----------------------------------------------------------
+Loading the plugin
+boost::dll::shared_library::load() failed (dlerror system message: ./libsssample.so: cannot open shared object file: No such file or directory): Bad file descriptor
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"sstest_1" end time: Mar 03 15:04 KST
+"sstest_1" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Mar 03 15:04 KST

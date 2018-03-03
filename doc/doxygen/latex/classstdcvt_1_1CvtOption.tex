@@ -1,0 +1,132 @@
+\hypertarget{classstdcvt_1_1CvtOption}{}\section{stdcvt\+:\+:Cvt\+Option 클래스 참조}
+\label{classstdcvt_1_1CvtOption}\index{stdcvt\+::\+Cvt\+Option@{stdcvt\+::\+Cvt\+Option}}
+\subsection*{Public 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classstdcvt_1_1CvtOption_ad649195a46bae2714aafe069084bea7a}{Cvt\+Option} (json $\ast$poption)
+\item 
+json \hyperlink{classstdcvt_1_1CvtOption_a912926db2ba4ae39269cdbdfcd0a82b4}{getjson} (string path)
+\item 
+string \hyperlink{classstdcvt_1_1CvtOption_add9602ed4e44ebb336dcb177b19210d2}{get} (string key)
+\item 
+double \hyperlink{classstdcvt_1_1CvtOption_a04d78e7d48c97fd268638cb16ec72e7b}{getdouble} (string key)
+\item 
+int \hyperlink{classstdcvt_1_1CvtOption_a769258713a6968362866a3a8b7753acd}{getint} (string key)
+\item 
+void $\ast$ \hyperlink{classstdcvt_1_1CvtOption_add9d9f444a0cc5fcbf476cc87abd4de4}{getobject} (string key)
+\item 
+void $\ast$ \hyperlink{classstdcvt_1_1CvtOption_a552fcb035d6288e44cd3f5da11be28aa}{setobject} (string key, void $\ast$object)
+\end{DoxyCompactItemize}
+
+
+\subsection{생성자 \& 소멸자 문서화}
+\index{stdcvt\+::\+Cvt\+Option@{stdcvt\+::\+Cvt\+Option}!Cvt\+Option@{Cvt\+Option}}
+\index{Cvt\+Option@{Cvt\+Option}!stdcvt\+::\+Cvt\+Option@{stdcvt\+::\+Cvt\+Option}}
+\subsubsection[{\texorpdfstring{Cvt\+Option(json $\ast$poption)}{CvtOption(json *poption)}}]{\setlength{\rightskip}{0pt plus 5cm}stdcvt\+::\+Cvt\+Option\+::\+Cvt\+Option (
+\begin{DoxyParamCaption}
+\item[{json $\ast$}]{poption}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstdcvt_1_1CvtOption_ad649195a46bae2714aafe069084bea7a}{}\label{classstdcvt_1_1CvtOption_ad649195a46bae2714aafe069084bea7a}
+새로운 옵션를 생성한다. 
+\begin{DoxyParams}{매개변수}
+{\em poption} & 특정 드라이버를 위한 옵션. json 타입의 포인터. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{멤버 함수 문서화}
+\index{stdcvt\+::\+Cvt\+Option@{stdcvt\+::\+Cvt\+Option}!get@{get}}
+\index{get@{get}!stdcvt\+::\+Cvt\+Option@{stdcvt\+::\+Cvt\+Option}}
+\subsubsection[{\texorpdfstring{get(string key)}{get(string key)}}]{\setlength{\rightskip}{0pt plus 5cm}string stdcvt\+::\+Cvt\+Option\+::get (
+\begin{DoxyParamCaption}
+\item[{string}]{key}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstdcvt_1_1CvtOption_add9602ed4e44ebb336dcb177b19210d2}{}\label{classstdcvt_1_1CvtOption_add9602ed4e44ebb336dcb177b19210d2}
+옵션의 값을 문자열로 리턴한다. 
+\begin{DoxyParams}{매개변수}
+{\em key} & 옵션을 선택하기 위한 키 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+옵션의 문자열 값 
+\end{DoxyReturn}
+\index{stdcvt\+::\+Cvt\+Option@{stdcvt\+::\+Cvt\+Option}!getdouble@{getdouble}}
+\index{getdouble@{getdouble}!stdcvt\+::\+Cvt\+Option@{stdcvt\+::\+Cvt\+Option}}
+\subsubsection[{\texorpdfstring{getdouble(string key)}{getdouble(string key)}}]{\setlength{\rightskip}{0pt plus 5cm}double stdcvt\+::\+Cvt\+Option\+::getdouble (
+\begin{DoxyParamCaption}
+\item[{string}]{key}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstdcvt_1_1CvtOption_a04d78e7d48c97fd268638cb16ec72e7b}{}\label{classstdcvt_1_1CvtOption_a04d78e7d48c97fd268638cb16ec72e7b}
+옵션의 값을 실수형으로 리턴한다. 
+\begin{DoxyParams}{매개변수}
+{\em key} & 옵션을 선택하기 위한 키 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+옵션의 실수형값 
+\end{DoxyReturn}
+\index{stdcvt\+::\+Cvt\+Option@{stdcvt\+::\+Cvt\+Option}!getint@{getint}}
+\index{getint@{getint}!stdcvt\+::\+Cvt\+Option@{stdcvt\+::\+Cvt\+Option}}
+\subsubsection[{\texorpdfstring{getint(string key)}{getint(string key)}}]{\setlength{\rightskip}{0pt plus 5cm}int stdcvt\+::\+Cvt\+Option\+::getint (
+\begin{DoxyParamCaption}
+\item[{string}]{key}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstdcvt_1_1CvtOption_a769258713a6968362866a3a8b7753acd}{}\label{classstdcvt_1_1CvtOption_a769258713a6968362866a3a8b7753acd}
+옵션의 값을 정수형으로 리턴한다. 
+\begin{DoxyParams}{매개변수}
+{\em key} & 옵션을 선택하기 위한 키 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+옵션의 값 
+\end{DoxyReturn}
+\index{stdcvt\+::\+Cvt\+Option@{stdcvt\+::\+Cvt\+Option}!getjson@{getjson}}
+\index{getjson@{getjson}!stdcvt\+::\+Cvt\+Option@{stdcvt\+::\+Cvt\+Option}}
+\subsubsection[{\texorpdfstring{getjson(string path)}{getjson(string path)}}]{\setlength{\rightskip}{0pt plus 5cm}json stdcvt\+::\+Cvt\+Option\+::getjson (
+\begin{DoxyParamCaption}
+\item[{string}]{path}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstdcvt_1_1CvtOption_a912926db2ba4ae39269cdbdfcd0a82b4}{}\label{classstdcvt_1_1CvtOption_a912926db2ba4ae39269cdbdfcd0a82b4}
+복잡한 옵션을 사용하고자 할때에는 옵션의 값을 리턴한다. 
+\begin{DoxyParams}{매개변수}
+{\em } & \\
+\hline
+\end{DoxyParams}
+\index{stdcvt\+::\+Cvt\+Option@{stdcvt\+::\+Cvt\+Option}!getobject@{getobject}}
+\index{getobject@{getobject}!stdcvt\+::\+Cvt\+Option@{stdcvt\+::\+Cvt\+Option}}
+\subsubsection[{\texorpdfstring{getobject(string key)}{getobject(string key)}}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ stdcvt\+::\+Cvt\+Option\+::getobject (
+\begin{DoxyParamCaption}
+\item[{string}]{key}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstdcvt_1_1CvtOption_add9d9f444a0cc5fcbf476cc87abd4de4}{}\label{classstdcvt_1_1CvtOption_add9d9f444a0cc5fcbf476cc87abd4de4}
+옵션의 값을 void $\ast$로 리턴한다. 
+\begin{DoxyParams}{매개변수}
+{\em key} & 옵션을 선택하기 위한 키 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+옵션의 값 
+\end{DoxyReturn}
+\index{stdcvt\+::\+Cvt\+Option@{stdcvt\+::\+Cvt\+Option}!setobject@{setobject}}
+\index{setobject@{setobject}!stdcvt\+::\+Cvt\+Option@{stdcvt\+::\+Cvt\+Option}}
+\subsubsection[{\texorpdfstring{setobject(string key, void $\ast$object)}{setobject(string key, void *object)}}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ stdcvt\+::\+Cvt\+Option\+::setobject (
+\begin{DoxyParamCaption}
+\item[{string}]{key, }
+\item[{void $\ast$}]{object}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstdcvt_1_1CvtOption_a552fcb035d6288e44cd3f5da11be28aa}{}\label{classstdcvt_1_1CvtOption_a552fcb035d6288e44cd3f5da11be28aa}
+옵션의 값을 세팅한다. 
+\begin{DoxyParams}{매개변수}
+{\em key} & 옵션을 선택하기 위한 키 \\
+\hline
+{\em object} & 옵션값 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+옵션의 값 
+\end{DoxyReturn}
+
+
+이 클래스에 대한 문서화 페이지는 다음의 파일로부터 생성되었습니다.\+:\begin{DoxyCompactItemize}
+\item 
+spec/\hyperlink{cvtoption_8h}{cvtoption.\+h}\end{DoxyCompactItemize}
