@@ -30,10 +30,14 @@ package stdcvt {
     }
 
     class CvtDeviceSpec {
+     - manufacturer : string
+     - model : string
      - type : devtype_t
      - section : devsec_t
      - target : devtarget_t
 
+     string getmanufacturer ();
+     string getmodel ();
      devtype_t gettype ();
      devsec_t getsection ();
      devtarget_t gettarget ();
@@ -106,9 +110,20 @@ package stdcvt {
      double setratio(double ratio);
     }
 
+    class CvtOption {
+     - option : json
+     - objects : map
+
+     int getint (string key);
+     double getdouble (string key);
+     string get (string key);
+     void *getobject (string key);
+    }
+
     CvtCommand <|-- CvtRatioCommand
 
     CvtDriver "1" *- "n" CvtDevice
+    CvtDriver "1" *-- "1" CvtOption
 
     CvtDevice <|-- CvtSensor
     CvtDevice <|-- CvtMotor
