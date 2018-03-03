@@ -154,9 +154,9 @@ package "Sample CvtDriver" #DDDDDD {
     CvtMotor <|-- SampleMotor
     CvtSwitch <|-- SampleSwitch
 
-    SampleSerialCvtDriver *-- SampleSensor
-    SampleSerialCvtDriver *-- SampleMotor
-    SampleSerialCvtDriver *-- SampleSwitch
+    SampleCvtDriver *-- SampleSensor
+    SampleCvtDriver *-- SampleMotor
+    SampleCvtDriver *-- SampleSwitch
 }
 
 @enduml
