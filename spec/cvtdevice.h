@@ -30,7 +30,7 @@ using namespace std;
 */
 class CvtDevice {
 private:
-    int _id;                //< 장비 ID
+    string _id;                //< 장비 ID
     CvtDeviceSpec _devspec; //< 장비의 스펙
     devstat_t _status;      //< 장비 상태
 
@@ -43,7 +43,7 @@ public:
      @param target 장비의 대상
      @param devstatus 장비의 상태
     */
-    CvtDevice(int devid, devtype_t devtype, 
+    CvtDevice(string devid, devtype_t devtype, 
         devsec_t section, devtarget_t target, devstat_t devstatus) 
         : _devspec(devtype, section, target) {
 
@@ -58,7 +58,7 @@ public:
      장비에 부여된 아이디를 리턴한다.
      @return 장비의 아이디
     */
-    int getid() {
+    string getid() {
         return _id;
     }
 
@@ -92,7 +92,7 @@ public:
      장비의 상태를 문자열로 내보낸다. 
     */
     string tostring() {
-        return "CvtDevice(" + std::to_string(_id) + ") [" +  _devspec.tostring() 
+        return "CvtDevice(" + _id + ") [" +  _devspec.tostring() 
             + "], status : " + std::to_string(_status);
     }
 };
@@ -116,7 +116,7 @@ public:
      @param devstatus 센서의 상태
      @param unit 관측치의 단위
     */
-    CvtSensor (int devid, devtype_t devtype, devsec_t section, 
+    CvtSensor (string devid, devtype_t devtype, devsec_t section, 
         devtarget_t target, devstat_t devstatus, obsunit_t unit) 
         : CvtDevice (devid, devtype, section, target, devstatus) {
         _unit = unit;
@@ -185,7 +185,7 @@ public:
      @param target 장비의 대상
      @param devstatus 장비의 상태
     */
-    CvtMotor (int devid, devtype_t devtype, 
+    CvtMotor (string devid, devtype_t devtype, 
         devsec_t section, devtarget_t target, devstat_t devstatus) 
         : CvtDevice (devid, devtype, section, target, devstatus) {
     }

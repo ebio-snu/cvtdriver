@@ -57,21 +57,21 @@ public:
      문자열 비교를 통해 후순위가 더 높은 버전이 된다.
      @return 문자열 형식의 버전번호
     */
-    virtual const char *getversion () = 0;
+    virtual string getversion () = 0;
 
     /**
      드라이버 제작자가 부여하는 모델번호를 확인한다.
      컨버터에서는 모델코드만 확인하고, 모델번호에 대해서는 로깅용도로만 사용한다.
      @return 문자열 형식의 모델번호
     */
-    virtual const char *getmodel () = 0;
+    virtual string getmodel () = 0;
 
     /**
      드라이버 제조사명을 확인한다.
      컨버터에서는 제조사명을 로깅용도로만 사용한다.
      @return 문자열 형식의 제조사명
     */
-    virtual const char *getcompany () = 0;
+    virtual string getcompany () = 0;
 
     /**
      드라이버를 초기화 한다. 드라이버 동작을 위한 option 은 key-value 형식으로 전달된다.

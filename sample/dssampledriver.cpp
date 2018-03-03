@@ -125,9 +125,10 @@ public:
     */
     DSSampleDriver()
         : stdcvt::CvtDriver (2001, 100),
-        _sensor(10, DT_SEN_TEMPERATURE, 10103000002, DO_ENV_ATMOSPHERE, DS_SEN_NORMAL, OU_CELSIUS),
-        _motor(20, DT_MOT_SIDEWINDOW, 10103000002, DO_EQUIPMENT, DS_MOT_STOP),
-        _switch(30, DT_SWC_FAN, 10103000002, DO_EQUIPMENT, DS_SWC_OFF) {
+        _sensor("10", DT_SEN_TEMPERATURE, DL_DEFAULT_PLANTZONE, 
+                DO_ENV_ATMOSPHERE, DS_SEN_NORMAL, OU_CELSIUS),
+        _motor("20", DT_MOT_SIDEWINDOW, DL_DEFAULT_PLANTZONE, DO_EQUIPMENT, DS_MOT_STOP),
+        _switch("30", DT_SWC_FAN, DL_DEFAULT_PLANTZONE, DO_EQUIPMENT, DS_SWC_OFF) {
 
         _msglen = 0;
     }
@@ -140,7 +141,7 @@ public:
      드라이버 제작자가 부여하는 버전번호를 확인한다.
      @return 문자열 형식의 버전번호
     */
-    const char *getversion () {
+    string getversion () {
         return "V0.1.0";
     }
 
@@ -148,7 +149,7 @@ public:
      드라이버 제작자가 부여하는 모델번호를 확인한다.
      @return 문자열 형식의 모델번호
     */
-    const char *getmodel () {
+    string getmodel () {
         return "ebionode_v1";
     }
 
@@ -157,7 +158,7 @@ public:
      컨버터에서는 제조사명을 로깅용도로만 사용한다.
      @return 문자열 형식의 제조사명
     */
-    const char *getcompany () {
+    string getcompany () {
         return "EBIO lab. SNU.";
     }
 

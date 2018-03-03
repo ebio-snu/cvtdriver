@@ -31,7 +31,7 @@ class SSSensor : public CvtSensor {
 public:
     SSSensor(int devid, stdcvt::devtype_t devtype, stdcvt::devsec_t section,
         stdcvt::devtarget_t target, stdcvt::devstat_t devstatus, stdcvt::obsunit_t unit)
-        : stdcvt::CvtSensor (devid, devtype, section, target, devstatus, unit) {
+        : stdcvt::CvtSensor (to_string(devid), devtype, section, target, devstatus, unit) {
     }
 };
 
@@ -39,14 +39,14 @@ class SSMotor : public CvtMotor{
 public:
     SSMotor(int devid, stdcvt::devtype_t devtype, stdcvt::devsec_t section,
         stdcvt::devtarget_t target, stdcvt::devstat_t devstatus)
-        : stdcvt::CvtMotor(devid, devtype, section, target, devstatus) {
+        : stdcvt::CvtMotor(to_string(devid), devtype, section, target, devstatus) {
     }
 };
 class SSSwitch : public CvtDevice{
 public:
     SSSwitch(int devid, stdcvt::devtype_t devtype, stdcvt::devsec_t section,
         stdcvt::devtarget_t target, stdcvt::devstat_t devstatus)
-        : stdcvt::CvtDevice(devid, devtype, section, target, devstatus) {
+        : stdcvt::CvtDevice(to_string(devid), devtype, section, target, devstatus) {
     }
 };
 
@@ -76,7 +76,7 @@ public:
      드라이버 제작자가 부여하는 버전번호를 확인한다.
      @return 문자열 형식의 버전번호
     */
-    const char *getversion () {
+    string getversion () {
         return "V0.1.0";
     }
 
@@ -84,7 +84,7 @@ public:
      드라이버 제작자가 부여하는 모델번호를 확인한다.
      @return 문자열 형식의 모델번호
     */
-    const char *getmodel () {
+    string getmodel () {
         return "ebiods_v1";
     }
 
@@ -93,7 +93,7 @@ public:
      컨버터에서는 제조사명을 로깅용도로만 사용한다.
      @return 문자열 형식의 제조사명
     */
-    const char *getcompany () {
+    string getcompany () {
         return "EBIO lab. SNU.";
     }
 
