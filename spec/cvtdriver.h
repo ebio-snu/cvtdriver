@@ -78,7 +78,7 @@ public:
      @param option 드라이버동작을 위한 옵션
      @return 초기화 성공 여부
     */
-    virtual bool initialize (CvtConfig option) = 0;
+    virtual bool initialize (CvtOption option) = 0;
 
     /**
      드라이버를 종료한다.

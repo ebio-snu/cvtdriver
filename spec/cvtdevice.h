@@ -17,7 +17,7 @@
 #include <glog/logging.h>
 
 #include "cvtcode.h"
-#include "cvtconfig.h"
+#include "cvtoption.h"
 #include "cvtdevicespec.h"
 #include "cvtcommand.h"
 

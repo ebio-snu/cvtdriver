@@ -45,7 +45,7 @@ ADD_DEFINITIONS(-fsigned-char -Wall)
 
 SET (LIBRARY_OUTPUT_PATH ../lib)
 
-INCLUDE_DIRECTORIES (spec)
+INCLUDE_DIRECTORIES (include spec)
 
 SET (ALLSRC sample/dssampledriver.cpp sample/sssampledriver.cpp)
 
@@ -61,8 +61,8 @@ TARGET_LINK_LIBRARIES (test_so_load ${Boost_LIBRARIES} ${GLOG_LIBRARIES} pthread
 ADD_EXECUTABLE (test_asio test/test_asio.cpp)
 TARGET_LINK_LIBRARIES (test_asio ${Boost_LIBRARIES} ${GLOG_LIBRARIES} pthread dl ${GTEST_LIBRARIES})
 
-ADD_TEST (dstest_0 test_so_load ../lib/libdssample.so)
-ADD_TEST (dstest_1 test_asio ../lib/libdssample.so)
+ADD_TEST (dstest_0 test_so_load dsdriver)
+ADD_TEST (dstest_1 test_asio dsdriver)
 
-ADD_TEST (sstest_0 test_so_load ../lib/libsssample.so)
-ADD_TEST (sstest_1 test_asio ../lib/libsssample.so)
+ADD_TEST (sstest_0 test_so_load ssdriver)
+#ADD_TEST (sstest_1 test_asio ssdriver)

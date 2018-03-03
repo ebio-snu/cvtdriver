@@ -5,12 +5,14 @@
  @date 2018-02-24, JoonYong
  @author Kim, JoonYong <tombraid@snu.ac.kr>
 
- This file is template of CvtConfig.
+ This file has various common codes.
  refer from: https:///github.com/ebio-snu/stdcvt
 */
 
 #ifndef _CVT_CODE_
 #define _CVT_CODE_
+
+#define CVT_OPTION_ASIO_SERVICE     "opt_asio_service"
 
 namespace stdcvt {
     /** 장비 설치 구역 타입 */

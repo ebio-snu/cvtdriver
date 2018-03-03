@@ -9,9 +9,10 @@ cvtdriver 는 [스마트팜장비 연동을 위한 컨버터 개발](https://git
 
 드라이버 클래스 구조는 다음과 같다.
 
-![class_diagram](https://github.com/ebio-snu/cvtdriver/blob/master/doc/images/driver_class.png)
+![class_diagram](https://raw.githubusercontent.com/ebio-snu/cvtdriver/master/doc/images/driver_class.png)
 
 * [CvtDriver](@ref stdcvt::CvtDriver) : 드라이버의 인터페이스가 되는 가상 클래스이다. 
+* [CvtOption](@ref stdcvt::CvtOption) : 드라이버 구동을 위한 옵션을 전달하는 클래스이다.
 * [CvtDeviceSpec](@ref stdcvt::CvtDeviceSpec) : 드라이버에서 다루는 장비의 스펙을 다루는 클래스이다. 장비종류, 설치위치, 장비의 작동대상, 제조사, 모델명을 처리한다.
 * [CvtDevice](@ref stdcvt::CvtDevice) : 드라이버에서 다루는 장비의 인터페이스가 되는 가상 클래스이다. 
   * [CvtSensor](@ref stdcvt::CvtSensor) : 센서의 인터페이스가 되는 클래스이다. 간단한 경우라면 직접 사용이 가능하다.

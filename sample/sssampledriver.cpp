@@ -102,7 +102,7 @@ public:
      @param option 드라이버동작을 위한 옵션
      @return 초기화 성공 여부
     */
-    bool initialize (CvtConfig option) {
+    bool initialize (CvtOption option) {
         return true;
     }
 

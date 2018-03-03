@@ -18,7 +18,7 @@
 #include <glog/logging.h>
 
 #include "cvtcode.h"
-#include "cvtconfig.h"
+#include "cvtoption.h"
 
 using namespace std;
 
@@ -130,9 +130,9 @@ public:
       장비의 스펙을 문자열로 내보낸다. 
     */
     string tostring() {
-        return "CvtDeviceSpec type : " + std::to_string(_type) 
-            + ", target : " + std::to_string(_target) + ", section : " + std::to_string(_section)
-            + ", manufacturer : " + std::to_string(_manufacturer) + ", model : " + std::to_string(_model);
+        return "CvtDeviceSpec type : " + to_string(_type) 
+            + ", target : " + to_string(_target) + ", section : " + to_string(_section)
+            + ", manufacturer : " + _manufacturer + ", model : " + _model;
     }
 };
 

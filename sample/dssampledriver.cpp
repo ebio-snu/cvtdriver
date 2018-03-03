@@ -166,8 +166,8 @@ public:
      @param option 드라이버동작을 위한 옵션
      @return 초기화 성공 여부
     */
-    bool initialize (CvtConfig option) {
-        boost::asio::io_service *io_service = (boost::asio::io_service *) option.getobject("boost_io_service");
+    bool initialize (CvtOption option) {
+        boost::asio::io_service *io_service = (boost::asio::io_service *) option.getobject(CVT_OPTION_ASIO_SERVICE);
         _port = new boost::asio::serial_port(*io_service);
         _port->open (option.get("port"));
         _port->set_option (boost::asio::serial_port_base::baud_rate(option.getint("baudrate")));

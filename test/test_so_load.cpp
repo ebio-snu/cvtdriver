@@ -30,17 +30,19 @@ int main(int argc, char* argv[]) {
 
     boost::asio::io_service io_service;
     boost::shared_ptr<CvtDriver> plugin;
+    ifstream is("../conf/cvtdriver.json");
+    json config = json::parse(is);
 
-    CvtConfig option;
-    option.setobject ("boost_io_service", (void *)&io_service);
+    json temp = config[argv[1]][0]["driver"];
+    string driver = "../lib/" + temp.as<string>();
+    json tmpoption = config[argv[1]][0]["option"];
+    CvtOption option(&tmpoption);
+    option.setobject (CVT_OPTION_ASIO_SERVICE, (void *)&io_service);
 
     std::cout << "Loading the plugin" << std::endl;
 
-    plugin = dll::import<CvtDriver>(  
-            argv[1],
-            "plugin",                
-            dll::load_mode::append_decorations
-            );
+    plugin = dll::import<CvtDriver>(driver, "plugin",                
+                    dll::load_mode::append_decorations);
 
     plugin->initialize (option);
     CvtDevice *pdevice = plugin->getdevice(0);

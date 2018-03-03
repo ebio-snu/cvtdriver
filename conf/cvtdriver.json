@@ -1,0 +1,16 @@
+{
+  "ssdriver": [{
+    "driver": "libsssample.so",
+    "option": {
+      "value": "value.json",
+      "command": "command.json"
+    }
+  }],
+  "dsdriver": [{
+    "driver": "libdssample.so",
+    "option": {
+      "port": "/dev/ttyUSB0",
+      "baudrate": 115200
+    }
+  }]
+}
