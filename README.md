@@ -18,7 +18,6 @@
 
 
 ## 사용법
-
 ### 소스 코드의 획득
 ```
 sudo apt install git
@@ -47,15 +46,28 @@ make
 make test
 ```
 
-## 새로운 드라이버의 제작
+## 신규드라이버 개발시 테스트 방법
 
-새로운 드라이버 제작을 하는 경우, samples 폴더 중 하나의 샘플을 복사하여 시작하는 것을 추천한다.
-개발한 드라이버는 다음과 같이 테스트한다. 모든 테스트를 통과하면 사용가능한 드라이버가 된다.
+신규 드라이버를 개발하는 경우 코드를 공개할 의무가 없기 때문에 개발사에서 드라이버를 테스트 하는 것이 매우 중요하다.
 
-```
-make driver_test {lib_new_driver_name.so}
-```
+test 폴더에는 드라이버 테스트를 위한 코드들이 들어있는데, 이 코드를 활용하면 신규 드라이버를 테스트할 수 있다. 
+* test_so_load : 드라이버가 로딩되는지 테스트 한다.
+* test_asio : asio::io_service 를 전달하여 이를 통한 통신이 진행되는지 테스트한다.
+* 테스트가 추가되는데로 여기에 기록한다.
 
-상세한 내용은 추후 업데이트될 예정이다.
+테스트 코드들은 설정파일을 기반으로 동작하기 때문에 /conf/cvtdriver.json 파일의 내용을 개발하는 드라이버의 정보로 변경한 뒤 make test 명령을 통해 신규 드라이버 테스트가 가능하다.
 
 
+## 개발관련 공통사항
+* 라이브러리
+  * [google glog](https://github.com/google/glog) : Google 에서 공개한 로깅라이브러리
+  * [jsoncons](https://danielaparker.github.io/jsoncons/) : JSON 라이브러리
+  * [Boost](http://www.boost.org/) : [asio](https://think-async.com/)와 [dll](http://www.boost.org/doc/libs/1_65_1/doc/html/boost_dll.html)을 주로 사용
+  * 개별 드라이버 개발을 위해 필요한 라이브러리를 사용할 수 있다.
+
+* 개발환경
+  * g++ : 기본 설정으로 g++을 사용. VC에서 테스트되지는 않았지만 큰 문제는 없을것으로 기대.
+  * cmake : 빌드환경
+
+* 개발문서
+  * [doxygen](http://www.stack.nl/~dimitri/doxygen/) : 코드 문서화를 위해 활용
