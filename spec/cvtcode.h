@@ -12,11 +12,18 @@
 #ifndef _CVT_CODE_
 #define _CVT_CODE_
 
-#define CVT_OPTION_ASIO_SERVICE     "opt_asio_service"
+#define CVT_OPTION_ASIO_SERVICE     "opt_asio_service"    ///< boost::asio::io_service 를 위한 옵션 키
 
 namespace stdcvt {
     /** 장비 설치 구역 타입 */
     typedef long devsec_t;
+
+#define DL_UNKOWN               -2              ///< 설치구역 알수 없음
+#define DL_OUTSIDE              -1              ///< 설치구역 외부
+#define DL_DEFAULT_ROOTZONE     10103010101     ///< 디폴트 설치구역 지하부
+#define DL_DEFAULT_PLANTZONE    10103010102     ///< 디폴트 설치구역 작물부
+#define DL_DEFAULT_ROOFZONE     10103010103     ///< 디폴드 설치구역 작물상부
+
 
     /** 장비 상태 타입 */
     typedef enum {
