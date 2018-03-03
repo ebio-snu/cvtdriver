@@ -7,7 +7,8 @@ var indexSectionsWithContent =
   4: "d",
   5: "do",
   6: "do",
-  7: "cëì"
+  7: "cd",
+  8: "cëì"
 };
 
 var indexSectionNames =
@@ -19,7 +20,8 @@ var indexSectionNames =
   4: "typedefs",
   5: "enums",
   6: "enumvalues",
-  7: "pages"
+  7: "defines",
+  8: "pages"
 };
 
 var indexSectionLabels =
@@ -31,6 +33,7 @@ var indexSectionLabels =
   4: "타입정의",
   5: "열거형 타입",
   6: "열거형 멤버",
-  7: "페이지들"
+  7: "매크로",
+  8: "페이지들"
 };
 

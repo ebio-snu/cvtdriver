@@ -1,7 +1,0 @@
-dstest_0 0 0
-dstest_1 1 0.00164604
-sstest_0 0 0
-sstest_1 1 0.00173593
----
-dstest_0
-sstest_0

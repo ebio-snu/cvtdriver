@@ -1,1 +1,0 @@
-/usr/bin/c++      CMakeFiles/test_so_load.dir/test/test_so_load.cpp.o  -o test_so_load -rdynamic /usr/local/lib/libboost_system.so /usr/local/lib/libboost_date_time.so /usr/local/lib/libboost_filesystem.so /usr/local/lib/libboost_iostreams.so -lglog -lpthread -ldl -lgtest -Wl,-rpath,/usr/local/lib 

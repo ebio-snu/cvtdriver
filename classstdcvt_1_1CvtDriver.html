@@ -113,12 +113,12 @@ Public 멤버 함수</h2></td></tr>
 <tr class="separator:a86ffa63425176824f6b0493be4e41cda"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6e0edc0bc47015d446215e98b7bfc2f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstdcvt_1_1CvtDriver.html#ad6e0edc0bc47015d446215e98b7bfc2f">getapispec</a> ()</td></tr>
 <tr class="separator:ad6e0edc0bc47015d446215e98b7bfc2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c813cb2be4b0f3bb02c99125488ac24"><td class="memItemLeft" align="right" valign="top">virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstdcvt_1_1CvtDriver.html#a8c813cb2be4b0f3bb02c99125488ac24">getversion</a> ()=0</td></tr>
-<tr class="separator:a8c813cb2be4b0f3bb02c99125488ac24"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a384233eb993e566102cbcc5e87db3e96"><td class="memItemLeft" align="right" valign="top">virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstdcvt_1_1CvtDriver.html#a384233eb993e566102cbcc5e87db3e96">getmodel</a> ()=0</td></tr>
-<tr class="separator:a384233eb993e566102cbcc5e87db3e96"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af77365bd31120078fa2eae4ddece3028"><td class="memItemLeft" align="right" valign="top">virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstdcvt_1_1CvtDriver.html#af77365bd31120078fa2eae4ddece3028">getcompany</a> ()=0</td></tr>
-<tr class="separator:af77365bd31120078fa2eae4ddece3028"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b21fdbbee5e251ce8b65932108db51e"><td class="memItemLeft" align="right" valign="top">virtual string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstdcvt_1_1CvtDriver.html#a4b21fdbbee5e251ce8b65932108db51e">getversion</a> ()=0</td></tr>
+<tr class="separator:a4b21fdbbee5e251ce8b65932108db51e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a276c9154120dc41563a6604dc9d8e15b"><td class="memItemLeft" align="right" valign="top">virtual string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstdcvt_1_1CvtDriver.html#a276c9154120dc41563a6604dc9d8e15b">getmodel</a> ()=0</td></tr>
+<tr class="separator:a276c9154120dc41563a6604dc9d8e15b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7566cb63ae741c1df91972f185dbc88c"><td class="memItemLeft" align="right" valign="top">virtual string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstdcvt_1_1CvtDriver.html#a7566cb63ae741c1df91972f185dbc88c">getcompany</a> ()=0</td></tr>
+<tr class="separator:a7566cb63ae741c1df91972f185dbc88c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71322934c5b5ad0d5b167219cd23a0bb"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstdcvt_1_1CvtDriver.html#a71322934c5b5ad0d5b167219cd23a0bb">initialize</a> (<a class="el" href="classstdcvt_1_1CvtOption.html">CvtOption</a> option)=0</td></tr>
 <tr class="separator:a71322934c5b5ad0d5b167219cd23a0bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22b39da5aafabec2ee9677ed138256e9"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstdcvt_1_1CvtDriver.html#a22b39da5aafabec2ee9677ed138256e9">finalize</a> ()=0</td></tr>
@@ -295,7 +295,7 @@ Public 멤버 함수</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="af77365bd31120078fa2eae4ddece3028"></a>
+<a class="anchor" id="a7566cb63ae741c1df91972f185dbc88c"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -303,7 +303,7 @@ Public 멤버 함수</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual const char* stdcvt::CvtDriver::getcompany </td>
+          <td class="memname">virtual string stdcvt::CvtDriver::getcompany </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -317,7 +317,7 @@ Public 멤버 함수</h2></td></tr>
 </div><div class="memdoc">
 <p>드라이버 제조사명을 확인한다. 컨버터에서는 제조사명을 로깅용도로만 사용한다. </p><dl class="section return"><dt>반환값</dt><dd>문자열 형식의 제조사명 </dd></dl>
 
-<p><a class="el" href="classebiodriver_1_1DSSampleDriver.html#aa0f1649252e066e3543ee962b09521e5">ebiodriver::DSSampleDriver</a>, <a class="el" href="classebiodriver_1_1SSSampleDriver.html#a34f317b0b97ad61cb6b9efe0f1920e21">ebiodriver::SSSampleDriver</a>에서 구현되었습니다.</p>
+<p><a class="el" href="classebiodriver_1_1DSSampleDriver.html#a6c7281bb4d01245c1b5087a1fbcc2b80">ebiodriver::DSSampleDriver</a>, <a class="el" href="classebiodriver_1_1SSSampleDriver.html#ac5db03ba9751cabd78fd00bbe8a4330b">ebiodriver::SSSampleDriver</a>에서 구현되었습니다.</p>
 
 </div>
 </div>
@@ -354,7 +354,7 @@ Public 멤버 함수</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a384233eb993e566102cbcc5e87db3e96"></a>
+<a class="anchor" id="a276c9154120dc41563a6604dc9d8e15b"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -362,7 +362,7 @@ Public 멤버 함수</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual const char* stdcvt::CvtDriver::getmodel </td>
+          <td class="memname">virtual string stdcvt::CvtDriver::getmodel </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -376,7 +376,7 @@ Public 멤버 함수</h2></td></tr>
 </div><div class="memdoc">
 <p>드라이버 제작자가 부여하는 모델번호를 확인한다. 컨버터에서는 모델코드만 확인하고, 모델번호에 대해서는 로깅용도로만 사용한다. </p><dl class="section return"><dt>반환값</dt><dd>문자열 형식의 모델번호 </dd></dl>
 
-<p><a class="el" href="classebiodriver_1_1DSSampleDriver.html#adf31d39b45faa75dec37919861c99d9d">ebiodriver::DSSampleDriver</a>, <a class="el" href="classebiodriver_1_1SSSampleDriver.html#ac901fe0974866f1fa494b0bad342c562">ebiodriver::SSSampleDriver</a>에서 구현되었습니다.</p>
+<p><a class="el" href="classebiodriver_1_1DSSampleDriver.html#aa99ba3c94b288a61a07a73393fec0f81">ebiodriver::DSSampleDriver</a>, <a class="el" href="classebiodriver_1_1SSSampleDriver.html#a5964515c4297caa276cf7dc7959c3b0b">ebiodriver::SSSampleDriver</a>에서 구현되었습니다.</p>
 
 </div>
 </div>
@@ -404,7 +404,7 @@ Public 멤버 함수</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a8c813cb2be4b0f3bb02c99125488ac24"></a>
+<a class="anchor" id="a4b21fdbbee5e251ce8b65932108db51e"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -412,7 +412,7 @@ Public 멤버 함수</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual const char* stdcvt::CvtDriver::getversion </td>
+          <td class="memname">virtual string stdcvt::CvtDriver::getversion </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -426,7 +426,7 @@ Public 멤버 함수</h2></td></tr>
 </div><div class="memdoc">
 <p>드라이버 제작자가 부여하는 버전번호를 확인한다. 컨버터에서는 해당 버전을 로깅용도로만 사용한다. 문자열 비교를 통해 후순위가 더 높은 버전이 된다. </p><dl class="section return"><dt>반환값</dt><dd>문자열 형식의 버전번호 </dd></dl>
 
-<p><a class="el" href="classebiodriver_1_1DSSampleDriver.html#a0ce406b8c18871ab2ac506d5137543c1">ebiodriver::DSSampleDriver</a>, <a class="el" href="classebiodriver_1_1SSSampleDriver.html#a63d048b6c45e48bfc8f27e6a000a17fb">ebiodriver::SSSampleDriver</a>에서 구현되었습니다.</p>
+<p><a class="el" href="classebiodriver_1_1DSSampleDriver.html#ac2173224ee7e59f6386f9dab1a8cb4b6">ebiodriver::DSSampleDriver</a>, <a class="el" href="classebiodriver_1_1SSSampleDriver.html#a1f8d8cdf1b0580c72379282531b55175">ebiodriver::SSSampleDriver</a>에서 구현되었습니다.</p>
 
 </div>
 </div>
@@ -554,7 +554,7 @@ Public 멤버 함수</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-생성시간 : 토 3월 3 2018 15:11:54, 프로젝트명 : cvtdriver, 생성자 :  &#160;<a href="http://www.doxygen.org/index.html">
+생성시간 : 토 3월 3 2018 20:01:56, 프로젝트명 : cvtdriver, 생성자 :  &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>
