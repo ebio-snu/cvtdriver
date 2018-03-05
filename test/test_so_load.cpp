@@ -27,6 +27,7 @@ namespace dll = boost::dll;
 int main(int argc, char* argv[]) {
 
     google::InitGoogleLogging (argv[0]);
+    FLAGS_logtostderr = 1;
 
     boost::asio::io_service io_service;
     boost::shared_ptr<CvtDriver> plugin;
@@ -39,7 +40,7 @@ int main(int argc, char* argv[]) {
     CvtOption option(&tmpoption);
     option.setobject (CVT_OPTION_ASIO_SERVICE, (void *)&io_service);
 
-    std::cout << "Loading the plugin" << std::endl;
+    LOG(INFO) << "Loading the plugin" << std::endl;
 
     plugin = dll::import<CvtDriver>(driver, "plugin",                
                     dll::load_mode::append_decorations);
@@ -47,7 +48,7 @@ int main(int argc, char* argv[]) {
     plugin->initialize (option);
     CvtDevice *pdevice = plugin->getdevice(0);
     CvtSensor *psensor = static_cast<CvtSensor *>(pdevice);
-    std::cout << "psensor->getid() : " << psensor->getid() << std::endl;
+    LOG(INFO) << "psensor->getid() : " << psensor->getid() << std::endl;
 
     return 0;
 }

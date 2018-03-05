@@ -49,14 +49,14 @@ private:
     }
 
     void handlewrite(const boost::system::error_code& error, size_t bytes_transferred) {
-        cout << bytes_transferred << " bytes, error: " << error << endl;
+        //LOG(INFO) << bytes_transferred << " bytes, error: " << error << endl;
     }
 
     bool parsemessage () {
         double num;
 
         if (_msg[0] != SMARK) {
-            LOG(INFO) << "incomplete message : " << _msg;
+            //LOG(INFO) << "incomplete message : " << _msg;
             return false;
         }
 
@@ -64,7 +64,7 @@ private:
         stringstream ss;
         ss.str(message);
         ss >> num; // devid
-        cout << "devid " << num << endl;
+        //LOG(INFO) << "devid " << num << endl;
 
         switch (_msg[1]) {
             case 's':
@@ -91,7 +91,7 @@ private:
                 break;
 
             default:
-                LOG(INFO) << "wrong message : " << _msg;
+                //LOG(INFO) << "wrong message : " << _msg;
                 return false;
         }
         return true;
@@ -99,10 +99,10 @@ private:
 
     void readmessage(const boost::system::error_code& error, size_t bytes_transferred) {
         if (error || !bytes_transferred) {
-            cout << "read nothing." << endl;
+            //LOG(INFO) << "read nothing." << endl;
         } else {
             _buf[bytes_transferred] = '\0';
-            cout << "read " << _buf << endl;
+            //LOG(INFO) << "read " << _buf << endl;
             for (size_t i = 0; i < bytes_transferred; i++) {
                 if (_buf[i] != EMARK) {
                     _msg[_msglen] = _buf[i];

@@ -103,6 +103,7 @@ public:
      @return 초기화 성공 여부
     */
     bool initialize (CvtOption option) {
+        LOG(INFO) << "SSSampleDriver initialized.";
         return true;
     }
 
