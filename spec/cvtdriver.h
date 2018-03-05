@@ -21,8 +21,8 @@ namespace stdcvt {
 */
 class CvtDriver {
 private:
-    int _modelcode;     //< 모델코드. 회사코드에 개별모델의 번호를 합하여 만든다.
-    int _apispec;       //< 적용API버전. API 버전에 따라 메소드구성에 차이가 있을 수 있다.
+    int _modelcode;     ///< 모델코드. 회사코드에 개별모델의 번호를 합하여 만든다.
+    int _apispec;       ///< 적용API버전. API 버전에 따라 메소드구성에 차이가 있을 수 있다.
 
 public:
     /**

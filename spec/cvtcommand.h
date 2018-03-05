@@ -21,9 +21,9 @@ namespace stdcvt {
 */
 class CvtCommand {
 private:
-    int _id;                    //< 명령 ID
-    CvtDeviceSpec *_pdevspec;   //< 명령 수행 장비의 스펙
-    bool _onoff;                //< on/off 명령 true면 on
+    int _id;                    ///< 명령 ID
+    CvtDeviceSpec *_pdevspec;   ///< 명령 수행 장비의 스펙
+    bool _onoff;                ///< on/off 명령 true면 on
 
 public:
     /**
@@ -71,7 +71,7 @@ public:
 */
 class CvtRatioCommand : public CvtCommand {
 private:
-    double _ratio;          //< 타겟 비율. 0~1 사이값으로 한다.
+    double _ratio;          ///< 타겟 비율. 0~1 사이값으로 한다.
 
 public:
     /**
@@ -99,9 +99,9 @@ public:
 */
 class CvtRawCommand : public CvtCommand {
 private:
-    int _modelcode;         // 명령의 인자를 해석할 수 있는 드라이버의 모델코드
-    string _devid;          // 명령을 처리할 장비의 ID
-    string _base64arg;      // 전달할 명령의 인자. 바이너리인경우를 고려하여 base64인코딩을 수행.
+    int _modelcode;         ///< 명령의 인자를 해석할 수 있는 드라이버의 모델코드
+    string _devid;          ///< 명령을 처리할 장비의 ID
+    string _base64arg;      ///< 전달할 명령의 인자. 바이너리인경우를 고려하여 base64인코딩을 수행.
     
 public:
     /**

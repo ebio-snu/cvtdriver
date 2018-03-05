@@ -30,9 +30,9 @@ using namespace std;
 */
 class CvtDevice {
 private:
-    string _id;                //< 장비 ID
-    CvtDeviceSpec _devspec; //< 장비의 스펙
-    devstat_t _status;      //< 장비 상태
+    string _id;             ///< 장비 ID
+    CvtDeviceSpec _devspec; ///< 장비의 스펙
+    devstat_t _status;      ///< 장비 상태
 
 public:
     /**
@@ -102,8 +102,8 @@ public:
 */
 class CvtSensor : public CvtDevice {
 private:
-    obsunit_t _unit;          //< 관측치의 단위
-    double _value;            //< 센서의 관측치
+    obsunit_t _unit;          ///< 관측치의 단위
+    double _value;            ///< 센서의 관측치
 
 public:
 
@@ -174,7 +174,7 @@ public:
 */
 class CvtMotor : public CvtDevice {
 private:
-    double _ratio;      //< 현재 위치 비율. 0~1 사이의 값
+    double _ratio;      ///< 현재 위치 비율. 0~1 사이의 값
 
 public:
     /**

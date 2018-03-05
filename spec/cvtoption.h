@@ -28,8 +28,8 @@ namespace stdcvt {
 */
 class CvtOption {
 private:
-    map<string, void *> _objects;
-    json *_poption;
+    map<string, void *> _objects;   ///< 컨버터에서 등록해주는 Objects
+    json *_poption;                 ///< 설정파일에서 드라이버에 할당된 옵션
 
 public:
     /**
