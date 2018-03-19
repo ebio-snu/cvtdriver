@@ -38,9 +38,35 @@ private:
     char _msg[BUFSIZE];
     int _msglen;
 
-    CvtSensor _sensor;
-    CvtDevice _switch;
-    CvtMotor _motor;
+    map<string, CvtSensor *> _sensor;
+    map<string, CvtDevice *> _switch;
+    map<string, CvtMotor *> _motor;
+    vector<CvtDevice *> _devices;
+
+    void loaddevices(CvtOption option) {
+        _sensor["10"] = new CvtSensor ("10", DT_SEN_HUMIDITY, DL_DEFAULT_PLANTZONE, 
+                DO_ENV_ATMOSPHERE, DS_SEN_NORMAL, OU_PERCENT);
+        _devices.push_back(_sensor["10"]);
+
+        _sensor["11"] = new CvtSensor ("11", DT_SEN_TEMPERATURE, DL_DEFAULT_PLANTZONE, 
+                DO_ENV_ATMOSPHERE, DS_SEN_NORMAL, OU_CELSIUS);
+        _devices.push_back(_sensor["11"]);
+
+        _motor["20"] = new CvtMotor ("20", DT_MOT_SIDEWINDOW, 
+                DL_DEFAULT_PLANTZONE, DO_EQUIPMENT, DS_MOT_STOP);
+        _devices.push_back(_motor["20"]);
+
+        _motor["21"] = new CvtMotor ("21", DT_MOT_SIDEWINDOW, 
+                DL_DEFAULT_PLANTZONE, DO_EQUIPMENT, DS_MOT_STOP);
+        _devices.push_back(_motor["21"]);
+
+        _switch["30"] = new CvtDevice ("30", DT_SWC_FAN, DL_DEFAULT_PLANTZONE, DO_EQUIPMENT, DS_SWC_OFF);
+        _devices.push_back(_switch["30"]);
+
+        _switch["31"] = new CvtDevice ("31", DT_SWC_FAN, DL_DEFAULT_PLANTZONE, DO_EQUIPMENT, DS_SWC_OFF);
+        _devices.push_back(_switch["31"]);
+    }
+
 
     void startread() {
         _port->async_read_some (boost::asio::buffer(_buf, BUFSIZE),
@@ -53,6 +79,7 @@ private:
     }
 
     bool parsemessage () {
+        string devid;
         double num;
 
         if (_msg[0] != SMARK) {
@@ -63,31 +90,31 @@ private:
         string message(_msg + 3);
         stringstream ss;
         ss.str(message);
-        ss >> num; // devid
+        ss >> devid;
         //LOG(INFO) << "devid " << num << endl;
 
         switch (_msg[1]) {
             case 's':
                 ss >> num; // obs
-                _sensor.writeobservation (num);
+                _sensor[devid]->writeobservation (num);
                 ss >> num; // status
-                _sensor.setstatus (num > 0 ? DS_SEN_NORMAL : DS_DEV_ABNORMAL);
+                _sensor[devid]->setstatus (num > 0 ? DS_SEN_NORMAL : DS_DEV_ABNORMAL);
                 break;
 
             case 'm':
                 ss >> num; // current position
-                _motor.setratio (num / 100);
+                _motor[devid]->setratio (num / 100);
                 ss >> num; // target position
                 ss >> num; // status
                 if (num == 0)
-                    _motor.setstatus (DS_MOT_STOP);
+                    _motor[devid]->setstatus (DS_MOT_STOP);
                 else
-                    _motor.setstatus (num == 1 ? DS_MOT_OPEN : DS_MOT_CLOSE);
+                    _motor[devid]->setstatus (num == 1 ? DS_MOT_OPEN : DS_MOT_CLOSE);
                 break;
 
             case 'w':
                 ss >> num; // status
-                _switch.setstatus (num > 0 ? DS_SWC_ON : DS_SWC_OFF);
+                _switch[devid]->setstatus (num > 0 ? DS_SWC_ON : DS_SWC_OFF);
                 break;
 
             default:
@@ -124,11 +151,7 @@ public:
      @param apispec API 버전
     */
     DSSampleDriver()
-        : stdcvt::CvtDriver (2001, 100),
-        _sensor("10", DT_SEN_TEMPERATURE, DL_DEFAULT_PLANTZONE, 
-                DO_ENV_ATMOSPHERE, DS_SEN_NORMAL, OU_CELSIUS),
-        _motor("20", DT_MOT_SIDEWINDOW, DL_DEFAULT_PLANTZONE, DO_EQUIPMENT, DS_MOT_STOP),
-        _switch("30", DT_SWC_FAN, DL_DEFAULT_PLANTZONE, DO_EQUIPMENT, DS_SWC_OFF) {
+        : stdcvt::CvtDriver (2001, 100) {
 
         _msglen = 0;
     }
@@ -168,6 +191,9 @@ public:
      @return 초기화 성공 여부
     */
     bool initialize (CvtOption option) {
+        // load device
+        loaddevices (option);
+
         boost::asio::io_service *io_service = (boost::asio::io_service *) option.getobject(CVT_OPTION_ASIO_SERVICE);
         _port = new boost::asio::serial_port(*io_service);
         _port->open (option.get("port"));
@@ -183,6 +209,16 @@ public:
     */
     bool finalize () {
         _port->close ();
+        for (map<string, CvtSensor *>::iterator iter = _sensor.begin(); iter != _sensor.end(); ++iter) {
+            delete (*iter).second;
+        }
+        for (map<string, CvtMotor *>::iterator iter = _motor.begin(); iter != _motor.end(); ++iter) {
+            delete (*iter).second;
+        }
+        for (map<string, CvtDevice *>::iterator iter = _switch.begin(); iter != _switch.end(); ++iter) {
+            delete (*iter).second;
+        }
+
         return true;
     }
 
@@ -212,15 +248,10 @@ public:
      @return 인덱스에 해당하는 장비의 포인터. NULL 이라면 이후에 장비가 없다는 의미이다.
     */
     CvtDevice *getdevice(int index) {
-        switch (index) {
-            case 0:
-                return &_sensor;
-            case 1:
-                return &_motor;
-            case 2:
-                return &_switch;
-            default:
-                return NULL;
+        try {
+            return _devices.at(index);
+        } catch (...) {
+            return (CvtDevice *)0;
         }
     }
 
