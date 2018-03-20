@@ -1,7 +1,7 @@
 /*
  Copyright © 2018 ebio lab. SNU. All Rights Reserved.
 
- @file test_multi_sensor.cpp
+ @file test_multi_device.cpp
  @date 2018-03-20, JoonYong
  @author Kim, JoonYong <tombraid@snu.ac.kr>
 
@@ -47,14 +47,14 @@ public:
 
         _pio = &io;
         _plugin = plugin;
-        _timer.async_wait(boost::bind(&timer::print, this));
+        _timer.async_wait(boost::bind(&timer::test, this));
     }
 
     ~timer() {
         LOG(INFO) << "Final count is " << _count << std::endl;
     }
 
-    void print() {
+    void test() {
         LOG(INFO) << _count << std::endl;
 
         time_t lastupdated = (*_plugin)->getlastupdated ();
@@ -69,7 +69,7 @@ public:
         } else {
             ++_count;
             _timer.expires_at(_timer.expires_at() + boost::posix_time::seconds(1));
-            _timer.async_wait(boost::bind(&timer::print, this));
+            _timer.async_wait(boost::bind(&timer::test, this));
         }
     }
 

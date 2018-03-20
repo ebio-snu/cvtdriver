@@ -47,14 +47,14 @@ public:
 
         _pio = &io;
         _plugin = plugin;
-        _timer.async_wait(boost::bind(&timer::print, this));
+        _timer.async_wait(boost::bind(&timer::test, this));
     }
 
     ~timer() {
         LOG(INFO) << "Final count is " << _count << std::endl;
     }
 
-    void print() {
+    void test() {
         LOG(INFO) << _count << std::endl;
 
         time_t lastupdated = (*_plugin)->getlastupdated();
@@ -63,7 +63,7 @@ public:
         } else {
             ++_count;
             _timer.expires_at(_timer.expires_at() + boost::posix_time::seconds(1));
-            _timer.async_wait(boost::bind(&timer::print, this));
+            _timer.async_wait(boost::bind(&timer::test, this));
         }
     }
 
