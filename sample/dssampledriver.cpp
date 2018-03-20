@@ -46,28 +46,25 @@ private:
     vector<CvtDevice *> _devices;
 
     // 관리하는 장비 초기화를 위한 메소드 
-    void loaddevices(CvtOption option) {
-        _sensor["10"] = new CvtSensor ("10", DT_SEN_HUMIDITY, DL_DEFAULT_PLANTZONE, 
-                DO_ENV_ATMOSPHERE, DS_SEN_NORMAL, OU_PERCENT);
-        _devices.push_back(_sensor["10"]);
-
-        _sensor["11"] = new CvtSensor ("11", DT_SEN_TEMPERATURE, DL_DEFAULT_PLANTZONE, 
-                DO_ENV_ATMOSPHERE, DS_SEN_NORMAL, OU_CELSIUS);
-        _devices.push_back(_sensor["11"]);
-
-        _motor["20"] = new CvtMotor ("20", DT_MOT_SIDEWINDOW, 
-                DL_DEFAULT_PLANTZONE, DO_EQUIPMENT, DS_MOT_STOP);
-        _devices.push_back(_motor["20"]);
-
-        _motor["21"] = new CvtMotor ("21", DT_MOT_SIDEWINDOW, 
-                DL_DEFAULT_PLANTZONE, DO_EQUIPMENT, DS_MOT_STOP);
-        _devices.push_back(_motor["21"]);
-
-        _switch["30"] = new CvtActuator ("30", DT_SWC_FAN, DL_DEFAULT_PLANTZONE, DO_EQUIPMENT, DS_SWC_OFF);
-        _devices.push_back(_switch["30"]);
-
-        _switch["31"] = new CvtActuator ("31", DT_SWC_FAN, DL_DEFAULT_PLANTZONE, DO_EQUIPMENT, DS_SWC_OFF);
-        _devices.push_back(_switch["31"]);
+    void loaddevices(CvtDeviceFactory devfac) {
+        CvtSensor *psensor;
+        for (int i = 0; (psensor = devfac.newsensor(i)) != nullptr; i++) {
+            LOG(INFO) << "add sensor: " << psensor->tostring ();
+            _sensor[psensor->getid ()] = psensor;
+            _devices.push_back(psensor);
+        }
+        CvtMotor *pmotor;
+        for (int i = 0; (pmotor = devfac.newmotor(i)) != nullptr; i++) {
+            LOG(INFO) << "add motor: " << pmotor->tostring ();
+            _motor[pmotor->getid ()] = pmotor;
+            _devices.push_back(pmotor);
+        }
+        CvtActuator *pswitch;
+        for (int i = 0; (pswitch = devfac.newswitch(i)) != nullptr; i++) {
+            LOG(INFO) << "add switch: " << pswitch->tostring ();
+            _switch[pswitch->getid ()] = pswitch;
+            _devices.push_back(pswitch);
+        }
     }
 
 
@@ -253,11 +250,12 @@ public:
     /**
      드라이버를 초기화 한다. 드라이버 동작을 위한 option 은 key-value 형식으로 전달된다.
      @param option 드라이버동작을 위한 옵션
+     @param devfac 드라이버설정에 포함된 장비
      @return 초기화 성공 여부
     */
-    bool initialize (CvtOption option) {
+    bool initialize (CvtOption option, CvtDeviceFactory devfac) {
         // load device
-        loaddevices (option);
+        loaddevices (devfac);
 
         boost::asio::io_service *io_service = (boost::asio::io_service *) 
                                     option.getobject(CVT_OPTION_ASIO_SERVICE);

@@ -1,7 +1,7 @@
 /*
  Copyright © 2018 ebio lab. SNU. All Rights Reserved.
 
- @file test_asio.cpp
+ @file tester.h
  @date 2018-02-27, JoonYong
  @author Kim, JoonYong <tombraid@snu.ac.kr>
 
@@ -10,6 +10,8 @@
  refer from: https://github.com/ebio-snu/cvtdriver
 */
 
+#ifndef _TESTER_
+#define _TESTER_
 
 #include <iostream>
 
@@ -25,28 +27,28 @@
 
 #include <glog/logging.h>
 
-#include "cvtdriver.h"
+class Tester {
+private:
+    boost::shared_ptr<CvtDriver> *_plugin;
+    boost::asio::io_service* _pio;
+    boost::asio::deadline_timer _timer;
+    int _count;
 
-using namespace std;
-using namespace stdcvt;
-using jsoncons::json;
-using jsoncons::jsonpath::json_query;
+public:
+    Tester(boost::asio::io_service& io, boost::shared_ptr<CvtDriver> *plugin)
+        : _timer(io, boost::posix_time::seconds(1)), _count(0) {
 
-namespace dll = boost::dll;
-
-#include "tester.h"
-
-
-void Tester::test() {
-    LOG(INFO) << _count << std::endl;
-
-    time_t lastupdated = (*_plugin)->getlastupdated();
-    if (lastupdated != 0) {
-        _pio->stop ();
-    } else {
-        ++_count;
-        _timer.expires_at(_timer.expires_at() + boost::posix_time::seconds(1));
+        _pio = &io;
+        _plugin = plugin;
         _timer.async_wait(boost::bind(&Tester::test, this));
     }
-}
+
+    ~Tester() {
+        LOG(INFO) << "Final count is " << _count << std::endl;
+    }
+
+    void test();
+};
+
+#endif
 

@@ -33,146 +33,92 @@ using jsoncons::json;
 using jsoncons::jsonpath::json_query;
 
 namespace dll = boost::dll;
+#include "tester.h"
 
 #define MAXWAIT     5
 
-class timer {
-private:
-    boost::shared_ptr<CvtDriver> *_plugin;
-    boost::asio::io_service* _pio;
-    boost::asio::deadline_timer _timer;
-    int _count;
-    int _updated;
-    int _tolerate;  
-    int _numact;
-
-public:
-    timer(boost::asio::io_service& io, boost::shared_ptr<CvtDriver> *plugin)
-        : _timer(io, boost::posix_time::seconds(1))  {
-            
-        _count = _updated = _tolerate = _numact = 0;
-        _pio = &io;
-        _plugin = plugin;
-        _timer.async_wait(boost::bind(&timer::test, this));
-    }
-
-    ~timer() {
-        LOG(INFO) << "Final count is " << _count << std::endl;
-    }
+int _count = 0;
+int _updated = 0;
+int _tolerate = 0;
+int _numact = 0;
 
 
-    int order () {
-        int i, n;
-        CvtDevice *pdevice;
-        CvtMotor *pmotor;
+int order (boost::shared_ptr<stdcvt::CvtDriver> plugin) {
+    int i, n;
+    CvtDevice *pdevice;
+    CvtMotor *pmotor;
 
-        for (i = n = 0; (pdevice = (*_plugin)->getdevice(i)) != nullptr; i++) {
-            if ((pdevice->getspec ())->getgrouptype() == DG_MOTOR) {
-                pmotor = dynamic_cast<CvtMotor *>(pdevice);
-                if (pmotor != nullptr) {
-                    CvtDeviceSpec *pspec = pdevice->getspec ();
-                    CvtRatioCommand cmd(1, pspec, true, 0.1);
-                    LOG(INFO) << "before : " << pmotor->tostring();
-                    pmotor->order (&cmd);
-                    LOG(INFO) << "after: " << pmotor->tostring();
-                    n++;
-                }
+    for (i = n = 0; (pdevice = (plugin)->getdevice(i)) != nullptr; i++) {
+        if ((pdevice->getspec ())->getgrouptype() == DG_MOTOR) {
+            pmotor = dynamic_cast<CvtMotor *>(pdevice);
+            if (pmotor != nullptr) {
+                CvtDeviceSpec *pspec = pdevice->getspec ();
+                CvtRatioCommand cmd(1, pspec, true, 0.1);
+                LOG(INFO) << "before : " << pmotor->tostring();
+                pmotor->order (&cmd);
+                LOG(INFO) << "after: " << pmotor->tostring();
+                n++;
             }
         }
-
-        return n;
     }
 
-    int check () {
-        int i, n;
-        CvtDevice *pdevice;
-        CvtMotor *pmotor;
+    return n;
+}
 
-        for (i = n = 0; (pdevice = (*_plugin)->getdevice(i)) != nullptr; i++) {
-            if ((pdevice->getspec ())->getgrouptype() == DG_MOTOR) {
-                pmotor = dynamic_cast<CvtMotor *>(pdevice);
-                if (pmotor != nullptr) {
-                    LOG(INFO) << "new message : " << pmotor->tostring();
-                    if ((pmotor->getstatus() == DS_MOT_STOP) &&
+int check (boost::shared_ptr<stdcvt::CvtDriver> plugin) {
+    int i, n;
+    CvtDevice *pdevice;
+    CvtMotor *pmotor;
+
+    for (i = n = 0; (pdevice = (plugin)->getdevice(i)) != nullptr; i++) {
+        if ((pdevice->getspec ())->getgrouptype() == DG_MOTOR) {
+            pmotor = dynamic_cast<CvtMotor *>(pdevice);
+            if (pmotor != nullptr) {
+                LOG(INFO) << "new message : " << pmotor->tostring();
+                if ((pmotor->getstatus() == DS_MOT_STOP) &&
                         (pmotor->getcurrent() == 0.1)) {
-                        n++;
-                    } else {
-                        // not applied
-                        LOG(WARNING) << pdevice->getid () << " is not applied yet. ";
-                    }
+                    n++;
+                } else {
+                    // not applied
+                    LOG(WARNING) << pdevice->getid () << " is not applied yet. ";
                 }
             }
         }
-        return n;
     }
+    return n;
+}
 
-    void test() {
-        time_t lastupdated = (*_plugin)->getlastupdated ();
+void Tester::test() {
+    time_t lastupdated = (*_plugin)->getlastupdated ();
 
-        LOG(INFO) << _count;
+    LOG(INFO) << _count;
 
-        if (_updated == 0 && lastupdated != 0) {
-            _numact = order ();
-            if (_numact > 0) {
-                _updated = lastupdated;
-                (*_plugin)->postprocess ();
-            } else {
-                _pio->stop (); // 스위치가 없다면 바로 중지
-               return ; 
-            }
-
-        } else if (_updated > 0 && lastupdated > _updated) { // message 전송이후
-            if (check() < _numact) {
-                _tolerate++;
-                if (_tolerate > MAXWAIT)
-                    throw _tolerate;
-                _updated = lastupdated;
-                LOG(INFO) << "wait once more.";
-            } else {
-                _pio->stop (); // 모두 완료
-                return ;
-            }
+    if (_updated == 0 && lastupdated != 0) {
+        _numact = order (*_plugin);
+        if (_numact > 0) {
+            _updated = lastupdated;
+            (*_plugin)->postprocess ();
+        } else {
+            _pio->stop (); // 스위치가 없다면 바로 중지
+            return ; 
         }
 
-        ++_count;
-        _timer.expires_at(_timer.expires_at() + boost::posix_time::seconds(1));
-        _timer.async_wait(boost::bind(&timer::test, this));
-    }
-};
-
-int main(int argc, char* argv[]) {
-    try {
-        google::InitGoogleLogging (argv[0]);
-        FLAGS_logtostderr = 1;
-
-        boost::asio::io_service io_service;
-        boost::shared_ptr<CvtDriver> plugin;
-        ifstream is("../conf/cvtdriver.json");
-        json config = json::parse(is);
-
-        json temp = config[argv[1]][0]["driver"];
-        string driver = "../lib/" + temp.as<string>();
-        json tmpoption = config[argv[1]][0]["option"];
-        CvtOption option(&tmpoption);
-        option.setobject (CVT_OPTION_ASIO_SERVICE, (void *)&io_service);
-
-        LOG(INFO) << "Loading the plugin" << std::endl;
-
-        plugin = dll::import<CvtDriver>(driver, "plugin",                
-                        dll::load_mode::append_decorations);
-
-        plugin->initialize (option);
-
-        timer t(io_service, &plugin);
-
-        io_service.run();
-
-    } catch (std::exception& e) {
-        std::cerr << e.what() << std::endl;
-        return -1;
+    } else if (_updated > 0 && lastupdated > _updated) { // message 전송이후
+        if (check(*_plugin) < _numact) {
+            _tolerate++;
+            if (_tolerate > MAXWAIT)
+                throw _tolerate;
+            _updated = lastupdated;
+            LOG(INFO) << "wait once more.";
+        } else {
+            _pio->stop (); // 모두 완료
+            return ;
+        }
     }
 
-    return 0;
+    ++_count;
+    _timer.expires_at(_timer.expires_at() + boost::posix_time::seconds(1));
+    _timer.async_wait(boost::bind(&Tester::test, this));
 }
 
 

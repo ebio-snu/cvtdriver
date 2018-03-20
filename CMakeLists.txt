@@ -40,27 +40,35 @@ ADD_DEFINITIONS(-fsigned-char -Wall)
 
 SET (LIBRARY_OUTPUT_PATH ../lib)
 
+SET (CODEDICSRC ${CMAKE_CURRENT_BINARY_DIR}/cvtcodedic.cpp)
+
+ADD_CUSTOM_COMMAND(
+    OUTPUT ${CODEDICSRC}
+    COMMAND scripts/code.sh ${CODEDICSRC}
+    WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
+    COMMENT "=================== Generating ${CODEDICSRC} ======================" 
+)
+
 INCLUDE_DIRECTORIES (include spec)
 
 SET (ALLSRC sample/dssampledriver.cpp sample/sssampledriver.cpp)
 
-ADD_LIBRARY (dssample SHARED sample/dssampledriver.cpp)
+ADD_LIBRARY (dssample SHARED sample/dssampledriver.cpp ${CODEDICSRC})
 TARGET_LINK_LIBRARIES(dssample ${Boost_LIBRARIES} ${GLOG_LIBRARIES} pthread)
-ADD_LIBRARY (sssample SHARED sample/sssampledriver.cpp)
+ADD_LIBRARY (sssample SHARED sample/sssampledriver.cpp ${CODEDICSRC})
 TARGET_LINK_LIBRARIES(sssample ${Boost_LIBRARIES} ${GLOG_LIBRARIES} pthread)
 
 ENABLE_TESTING ()
 
-ADD_EXECUTABLE (test_so_load test/test_so_load.cpp)
+ADD_EXECUTABLE (test_so_load test/test_so_load.cpp ${CODEDICSRC})
 TARGET_LINK_LIBRARIES (test_so_load ${Boost_LIBRARIES} ${GLOG_LIBRARIES} pthread dl ${GTEST_LIBRARIES})
-ADD_EXECUTABLE (test_asio test/test_asio.cpp)
-TARGET_LINK_LIBRARIES (test_asio ${Boost_LIBRARIES} ${GLOG_LIBRARIES} pthread dl ${GTEST_LIBRARIES})
-ADD_EXECUTABLE (test_multi_device test/test_multi_device.cpp)
-TARGET_LINK_LIBRARIES (test_multi_device ${Boost_LIBRARIES} ${GLOG_LIBRARIES} pthread dl ${GTEST_LIBRARIES})
-ADD_EXECUTABLE (test_actuator test/test_actuator.cpp)
-TARGET_LINK_LIBRARIES (test_actuator ${Boost_LIBRARIES} ${GLOG_LIBRARIES} pthread dl ${GTEST_LIBRARIES})
-ADD_EXECUTABLE (test_motor test/test_motor.cpp)
-TARGET_LINK_LIBRARIES (test_motor ${Boost_LIBRARIES} ${GLOG_LIBRARIES} pthread dl ${GTEST_LIBRARIES})
+
+SET (TESTSRC asio;multi_device;actuator;motor)
+
+foreach(TNAME ${TESTSRC}) 
+    ADD_EXECUTABLE (test_${TNAME} test/test.cpp test/test_${TNAME}.cpp ${CODEDICSRC})
+    TARGET_LINK_LIBRARIES (test_${TNAME} ${Boost_LIBRARIES} ${GLOG_LIBRARIES} pthread dl ${GTEST_LIBRARIES})
+endforeach()
 
 ADD_TEST (dstest_0 test_so_load dsdriver)
 ADD_TEST (dstest_1 test_asio dsdriver)

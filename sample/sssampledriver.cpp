@@ -102,9 +102,10 @@ public:
     /**
      드라이버를 초기화 한다. 드라이버 동작을 위한 option 은 key-value 형식으로 전달된다.
      @param option 드라이버동작을 위한 옵션
+     @param devfac 드라이버설정에 포함된 장비
      @return 초기화 성공 여부
     */
-    bool initialize (CvtOption option) {
+    bool initialize (CvtOption option, CvtDeviceFactory devfac) {
         LOG(INFO) << "SSSampleDriver initialized.";
         return true;
     }

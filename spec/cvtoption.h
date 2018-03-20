@@ -5,7 +5,7 @@
  @date 2018-03-03, JoonYong
  @author Kim, JoonYong <tombraid@snu.ac.kr>
 
- This file is template of CvtOption.
+ This file is for CvtOption.
  refer from: https://github.com/ebio-snu/stdcvt
 */
 
@@ -29,15 +29,15 @@ namespace stdcvt {
 class CvtOption {
 private:
     map<string, void *> _objects;   ///< 컨버터에서 등록해주는 Objects
-    json *_poption;                 ///< 설정파일에서 드라이버에 할당된 옵션
+    json _option;                   ///< 설정파일에서 드라이버에 할당된 옵션
 
 public:
     /**
      새로운 옵션를 생성한다.
      @param poption 특정 드라이버를 위한 옵션. json 타입의 포인터.
     */
-    CvtOption(json *poption) {
-        _poption = poption;
+    CvtOption(json option) {
+        _option = option;
     }
 
     ~CvtOption() {
@@ -50,7 +50,7 @@ public:
     */
     json getjson (string path) {
         string _path = "$." + path;
-        json ret = json_query(*_poption, path); 
+        json ret = json_query(_option, path); 
         return ret;
     }
 
@@ -60,7 +60,7 @@ public:
      @return 옵션의 문자열 값
     */
     string get (string key) {
-        json ret = (*_poption)[key];
+        json ret = (_option)[key];
         return ret.as<string>();
     }
 
@@ -70,7 +70,7 @@ public:
      @return 옵션의 실수형값
     */
     double getdouble (string key) {
-        json ret = (*_poption)[key];
+        json ret = (_option)[key];
         return ret.as<double>();
     }
 
@@ -80,7 +80,7 @@ public:
      @return 옵션의 값
     */
     int getint (string key) {
-        json ret = (*_poption)[key];
+        json ret = (_option)[key];
         return ret.as<int>();
     }
 

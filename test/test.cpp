@@ -24,8 +24,9 @@ using namespace stdcvt;
 
 namespace dll = boost::dll;
 
-int main(int argc, char* argv[]) {
+#include "tester.h"
 
+int main(int argc, char* argv[]) {
     google::InitGoogleLogging (argv[0]);
     FLAGS_logtostderr = 1;
 
@@ -63,10 +64,10 @@ int main(int argc, char* argv[]) {
                     dll::load_mode::append_decorations);
 
     plugin->initialize (option, devfac);
-    CvtDevice *pdevice = plugin->getdevice(0);
-    LOG(INFO) << "pdevice->getid() : " << pdevice->getid() << std::endl;
+
+    Tester t(io_service, &plugin);
+    io_service.run();
 
     return 0;
 }
-
 
