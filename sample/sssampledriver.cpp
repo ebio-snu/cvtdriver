@@ -42,11 +42,11 @@ public:
         : stdcvt::CvtMotor(to_string(devid), devtype, section, target, devstatus) {
     }
 };
-class SSSwitch : public CvtDevice{
+class SSSwitch : public CvtActuator {
 public:
     SSSwitch(int devid, stdcvt::devtype_t devtype, stdcvt::devsec_t section,
         stdcvt::devtarget_t target, stdcvt::devstat_t devstatus)
-        : stdcvt::CvtDevice(to_string(devid), devtype, section, target, devstatus) {
+        : stdcvt::CvtActuator(to_string(devid), devtype, section, target, devstatus) {
     }
 };
 

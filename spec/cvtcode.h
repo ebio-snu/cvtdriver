@@ -18,7 +18,7 @@ namespace stdcvt {
     /** 장비 설치 구역 타입 */
     typedef long devsec_t;
 
-#define DL_UNKOWN               -2              ///< 설치구역 알수 없음
+#define DL_UNKNOWN              -2              ///< 설치구역 알수 없음
 #define DL_OUTSIDE              -1              ///< 설치구역 외부
 #define DL_DEFAULT_ROOTZONE     10103010101     ///< 디폴트 설치구역 지하부
 #define DL_DEFAULT_PLANTZONE    10103010102     ///< 디폴트 설치구역 작물부

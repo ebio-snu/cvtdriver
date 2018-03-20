@@ -51,7 +51,7 @@ public:
         _status = devstatus;
     }
 
-    ~CvtDevice() {
+    virtual ~CvtDevice() {
     }
 
     /**
@@ -163,18 +163,118 @@ public:
      센서의 상태를 문자열로 내보낸다. 
     */
     string tostring() {
-        return "CvtSensor [" + CvtDevice::tostring() 
-            + "] observation : " + std::to_string(_value) 
-            + ", unit : " + std::to_string(_unit);
+        return "CvtSensor [" + CvtDevice::tostring () 
+            + "] observation : " + std::to_string (_value) 
+            + ", unit : " + std::to_string (_unit);
     }
 };
 
 /*
- @brief CvtMotor는 CvtDevice를 상속하여, 개별 모터형 구동기를 추상화한 클래스이다.
+ @brief CvtActuator는 CvtDevice를 상속하여, 개별 구동기를 추상화한 클래스이다.
 */
-class CvtMotor : public CvtDevice {
+class CvtActuator : public CvtDevice {
 private:
-    double _ratio;      ///< 현재 위치 비율. 0~1 사이의 값
+    int _lastcmdid;     ///< 마지막 명령 ID. 명령이 처리된 이후에 0으로 바꾼다.
+    bool _onoff;        ///< on/off 명령
+
+protected:
+    /**
+     명령을 세팅한다. order 구현시 한번씩 호출해주면 최종 아이디를 기억하도록 한다.
+     @param pcmd 명령에 대한 포인터
+    */
+    void setcommand (CvtCommand *pcmd) {
+        _lastcmdid = pcmd->getid ();
+    }
+
+public:
+    /**
+     새로운 구동기를 생성한다.
+     @param devid 장비의 아이디
+     @param devtype 장비의 종류
+     @param section 장비 설치 구역
+     @param target 장비의 대상
+     @param devstatus 장비의 상태
+    */
+    CvtActuator(string devid, devtype_t devtype, 
+        devsec_t section, devtarget_t target, devstat_t devstatus) 
+        : CvtDevice (devid, devtype, section, target, devstatus) {
+        _lastcmdid = -1;
+        _onoff = false; // off
+    }
+
+    /**
+     최종 명령의 아이디를 확인한다.
+     @return 최종 명령의 아이디. 없을경우 -1
+    */
+    int getlastcmdid () {
+        return _lastcmdid;
+    }
+
+    /**
+     장비를 작동시킨다.
+     @return 작동상태. true 면 on.
+    */
+    bool turnon () {
+        _onoff = true;
+        return _onoff;
+    }
+
+    /**
+     장비를 작동을 중지한다.
+     @return 작동상태. true 면 on.
+    */
+    bool turnoff () {
+        _onoff = false;
+        return _onoff;
+    }
+
+    /**
+     장비작동명령을 확인한다.
+     @return 작동상태. true 면 on.
+    */
+    bool getonoff () {
+        return _onoff;
+    }
+
+    /**
+     명령을 지시한다. 
+     실제 실행하는 것은 아니고 내부에 명령을 저장하고 있다가 실제 장비에게 전달하는 역할을 담당한다.
+     @param pcmd 명령의 포인터
+     @return 명령 저장 여부. 
+    */
+    bool order(CvtCommand *pcmd) {
+        pcmd->getonoff() ? turnon() : turnoff();
+        setcommand (pcmd);
+        return true;
+    }
+
+    /**
+     전달완료된 명령아이디를 세팅한다.
+     @param cmdid 전달완료된 명령아이디
+    */
+    void executed(int cmdid) {
+        if (cmdid >= _lastcmdid)
+            _lastcmdid = 0;
+    }
+
+    /**
+     구동기의 상태를 문자열로 내보낸다. 
+     @return 구동기의 상태 문자열
+    */
+    string tostring() {
+        return "CvtActuator [" + CvtDevice::tostring() 
+            + "], lastcmdid : " + std::to_string(getlastcmdid())
+            + ", onoff : " + std::to_string(getonoff());
+    }
+};
+
+/*
+ @brief CvtMotor는 CvtActuator를 상속하여, 개별 모터형 구동기를 추상화한 클래스이다.
+*/
+class CvtMotor : public CvtActuator {
+private:
+    double _current;      ///< 현재 위치 비율. 0~1 사이의 값
+    double _target;       ///< 목표 위치 비율. 0~1 사이의 값
 
 public:
     /**
@@ -187,33 +287,81 @@ public:
     */
     CvtMotor (string devid, devtype_t devtype, 
         devsec_t section, devtarget_t target, devstat_t devstatus) 
-        : CvtDevice (devid, devtype, section, target, devstatus) {
+        : CvtActuator (devid, devtype, section, target, devstatus) {
+        _current = 0;
+        _target = 0;
     }
 
     /**
-     모터형 구동기의 위치를 세팅한다.
+     모터형 구동기의 목표 위치를 세팅한다.
      @param ratio 세팅할 위치
      @return 세팅된 위치
     */
-    double setratio(double ratio) {
-         _ratio = ratio;
-         return _ratio;
+    double settarget(double ratio) {
+        _target= ratio;
+        return _target;
     }
 
     /**
-     모터형 구동기의 위치를 확인한다.
+     모터형 구동기의  목표 위치를 확인한다.
      @return 구동기의 위치
     */
-    double getratio() {
-        return _ratio;
+    double gettarget() {
+        return _target;
+    }
+
+    /**
+     모터형 구동기의 현재 위치를 세팅한다.
+     @param ratio 현재  위치
+     @return 현재 위치
+    */
+    double setcurrent(double ratio) {
+        _current = ratio;
+        return _current;
+    }
+
+    /**
+     모터형 구동기의 현재 위치를 확인한다.
+     @return 구동기의 위치
+    */
+    double getcurrent() {
+        return _current;
     }
 
     /**
      모터형 구동기의 상태를 문자열로 내보낸다. 
+     @return 모터형 구동기의 상태 문자열
     */
     string tostring() {
         return "CvtMotor [" + CvtDevice::tostring() 
-            + "], ratio : " + std::to_string(_ratio);
+            + "], lastcmdid : " + std::to_string(getlastcmdid())
+            + "], current : " + std::to_string(_current)
+            + ", onoff : " + std::to_string(getonoff())
+            + ", target : " + std::to_string(_target);
+    }
+
+    /**
+     명령을 지시한다. 
+     실제 실행하는 것은 아니고 내부에 명령을 저장하고 있다가 실제 장비에게 전달하는 역할을 담당한다.
+     @param pcmd 명령의 포인터
+     @return 실행명령이 저장되면 true, 실행할 명령이 아니면 false
+    */
+    bool order(CvtCommand *pcmd) {
+        CvtRatioCommand *prcmd = dynamic_cast<CvtRatioCommand *>(pcmd);
+        if (prcmd == nullptr) {
+            return false;
+        }
+
+        if (prcmd->getonoff()) {
+            // on
+            settarget (prcmd->getratio ());
+            turnon ();
+        } else {
+            // off
+            turnoff ();
+        }
+        setcommand (pcmd);
+        return true;
     }
 };
 

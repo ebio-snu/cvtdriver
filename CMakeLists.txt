@@ -57,11 +57,19 @@ ADD_EXECUTABLE (test_asio test/test_asio.cpp)
 TARGET_LINK_LIBRARIES (test_asio ${Boost_LIBRARIES} ${GLOG_LIBRARIES} pthread dl ${GTEST_LIBRARIES})
 ADD_EXECUTABLE (test_multi_device test/test_multi_device.cpp)
 TARGET_LINK_LIBRARIES (test_multi_device ${Boost_LIBRARIES} ${GLOG_LIBRARIES} pthread dl ${GTEST_LIBRARIES})
+ADD_EXECUTABLE (test_actuator test/test_actuator.cpp)
+TARGET_LINK_LIBRARIES (test_actuator ${Boost_LIBRARIES} ${GLOG_LIBRARIES} pthread dl ${GTEST_LIBRARIES})
+ADD_EXECUTABLE (test_motor test/test_motor.cpp)
+TARGET_LINK_LIBRARIES (test_motor ${Boost_LIBRARIES} ${GLOG_LIBRARIES} pthread dl ${GTEST_LIBRARIES})
 
 ADD_TEST (dstest_0 test_so_load dsdriver)
 ADD_TEST (dstest_1 test_asio dsdriver)
 ADD_TEST (dstest_2 test_multi_device dsdriver)
+ADD_TEST (dstest_3 test_actuator dsdriver)
+ADD_TEST (dstest_4 test_motor dsdriver)
 
 ADD_TEST (sstest_0 test_so_load ssdriver)
-#ADD_TEST (sstest_1 test_asio ssdriver)
+#ADD_TEST (sstest_1 test_asio ssdriver)         # ssdriver 는 시리얼 통신을 수행하지 않음
 ADD_TEST (sstest_2 test_multi_device ssdriver)
+#ADD_TEST (sstest_3 test_actuator ssdriver)     # ssdriver 는 명령을 처리하지 않음.
+#ADD_TEST (sstest_4 test_motor ssdriver)        # ssdriver 는 명령을 처리하지 않음.

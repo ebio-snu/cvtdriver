@@ -33,16 +33,19 @@ using namespace stdcvt;
 
 class DSSampleDriver : stdcvt::CvtDriver {
 private:
+    // 내부 통신을 위한 변수
     boost::asio::serial_port *_port;
     char _buf[BUFSIZE];
     char _msg[BUFSIZE];
     int _msglen;
 
+    // 장비 관리를 위한 변수
     map<string, CvtSensor *> _sensor;
-    map<string, CvtDevice *> _switch;
+    map<string, CvtActuator *> _switch;
     map<string, CvtMotor *> _motor;
     vector<CvtDevice *> _devices;
 
+    // 관리하는 장비 초기화를 위한 메소드 
     void loaddevices(CvtOption option) {
         _sensor["10"] = new CvtSensor ("10", DT_SEN_HUMIDITY, DL_DEFAULT_PLANTZONE, 
                 DO_ENV_ATMOSPHERE, DS_SEN_NORMAL, OU_PERCENT);
@@ -60,24 +63,30 @@ private:
                 DL_DEFAULT_PLANTZONE, DO_EQUIPMENT, DS_MOT_STOP);
         _devices.push_back(_motor["21"]);
 
-        _switch["30"] = new CvtDevice ("30", DT_SWC_FAN, DL_DEFAULT_PLANTZONE, DO_EQUIPMENT, DS_SWC_OFF);
+        _switch["30"] = new CvtActuator ("30", DT_SWC_FAN, DL_DEFAULT_PLANTZONE, DO_EQUIPMENT, DS_SWC_OFF);
         _devices.push_back(_switch["30"]);
 
-        _switch["31"] = new CvtDevice ("31", DT_SWC_FAN, DL_DEFAULT_PLANTZONE, DO_EQUIPMENT, DS_SWC_OFF);
+        _switch["31"] = new CvtActuator ("31", DT_SWC_FAN, DL_DEFAULT_PLANTZONE, DO_EQUIPMENT, DS_SWC_OFF);
         _devices.push_back(_switch["31"]);
     }
 
 
+    // 샘플 노드와의 통신을 위한 함수. 
+    // 업체별 구현에서는 불필요함
     void startread() {
         _port->async_read_some (boost::asio::buffer(_buf, BUFSIZE),
             boost::bind(&DSSampleDriver::readmessage, this,
                 boost::asio::placeholders::error, boost::asio::placeholders::bytes_transferred) );
     }
 
+    // 샘플 노드와의 통신을 위한 함수. 
+    // 업체별 구현에서는 불필요함
     void handlewrite(const boost::system::error_code& error, size_t bytes_transferred) {
         //LOG(INFO) << bytes_transferred << " bytes, error: " << error << endl;
     }
 
+    // 샘플 노드로 부터 받은 메세지를 파싱하는 함수.
+    // 업체별 구현에서는 불필요함
     bool parsemessage () {
         string devid;
         double num;
@@ -102,19 +111,25 @@ private:
                 break;
 
             case 'm':
+                ss >> num; // cmdid
+                _motor[devid]->executed(num);
                 ss >> num; // current position
-                _motor[devid]->setratio (num / 100);
+                _motor[devid]->setcurrent (num / 100);
                 ss >> num; // target position
                 ss >> num; // status
                 if (num == 0)
                     _motor[devid]->setstatus (DS_MOT_STOP);
                 else
                     _motor[devid]->setstatus (num == 1 ? DS_MOT_OPEN : DS_MOT_CLOSE);
+                motorcommand (_motor[devid]);
                 break;
 
             case 'w':
+                ss >> num; // cmdid
+                _switch[devid]->executed(num);
                 ss >> num; // status
                 _switch[devid]->setstatus (num > 0 ? DS_SWC_ON : DS_SWC_OFF);
+                switchcommand (_switch[devid]);
                 break;
 
             default:
@@ -126,6 +141,8 @@ private:
         return true;
     }
 
+    // 샘플 노드로 부터 받은 데이터를 메세지 단위로 자르는 함수.
+    // 업체별 구현에서는 불필요함
     void readmessage(const boost::system::error_code& error, size_t bytes_transferred) {
         if (error || !bytes_transferred) {
             //LOG(INFO) << "read nothing." << endl;
@@ -138,6 +155,7 @@ private:
                     _msglen++;
                 } else {
                     _msg[_msglen] = '\0';
+                    LOG(INFO) << "read message: " << _msg;
                     parsemessage ();
                     _msglen = 0;
                 }
@@ -145,6 +163,53 @@ private:
         }
         startread ();
     }
+
+    // 샘플 노드로 보낼 모터명령을 보내는 함수
+    // 업체별 구현에서는 불필요함
+    bool motorcommand (CvtMotor *pmot) {
+        if (pmot->getlastcmdid () > 0) { // 처리되지 않은 명령이 있다면
+            string cmd = "^m " + pmot->getid() + " " + 
+                std::to_string (pmot->getlastcmdid ()) + " ";
+            if (pmot->getonoff ()) {
+                cmd += std::to_string ((int)(pmot->gettarget () * 100)) + "$";
+            } else {
+                cmd += "-1$";
+            }
+            sendcommand (cmd);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    // 샘플 노드로 보낼 스위치명령을 보내는 함수
+    // 업체별 구현에서는 불필요함
+    bool switchcommand (CvtActuator *pact) {
+        if (pact->getlastcmdid () > 0) { // 처리되지 않은 명령이 있다면
+            string cmd = "^w " + pact->getid() + " " + 
+                std::to_string (pact->getlastcmdid ()) + " ";
+            if (pact->getonoff ()) {
+                cmd += "1$";
+            } else {
+                cmd += "0$";
+            }
+            sendcommand (cmd);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    // 샘플 노드로 명령을 보내는 함수.
+    // 업체별 구현에서는 불필요함
+    void sendcommand (string cmd) {
+        LOG(INFO) << "send command : " << cmd;
+        boost::asio::async_write(*_port, boost::asio::buffer(cmd),
+                boost::bind(&DSSampleDriver::handlewrite, this,
+                    boost::asio::placeholders::error,
+                    boost::asio::placeholders::bytes_transferred));
+    }
+
 
 public:
     /**
@@ -196,10 +261,12 @@ public:
         // load device
         loaddevices (option);
 
-        boost::asio::io_service *io_service = (boost::asio::io_service *) option.getobject(CVT_OPTION_ASIO_SERVICE);
+        boost::asio::io_service *io_service = (boost::asio::io_service *) 
+                                    option.getobject(CVT_OPTION_ASIO_SERVICE);
         _port = new boost::asio::serial_port(*io_service);
         _port->open (option.get("port"));
-        _port->set_option (boost::asio::serial_port_base::baud_rate(option.getint("baudrate")));
+        _port->set_option (boost::asio::serial_port_base::baud_rate
+                                                (option.getint("baudrate")));
 
         startread ();
         return true;
@@ -211,13 +278,16 @@ public:
     */
     bool finalize () {
         _port->close ();
-        for (map<string, CvtSensor *>::iterator iter = _sensor.begin(); iter != _sensor.end(); ++iter) {
+        for (map<string, CvtSensor *>::iterator iter = _sensor.begin(); 
+                                            iter != _sensor.end(); ++iter) {
             delete (*iter).second;
         }
-        for (map<string, CvtMotor *>::iterator iter = _motor.begin(); iter != _motor.end(); ++iter) {
+        for (map<string, CvtMotor *>::iterator iter = _motor.begin(); 
+                                            iter != _motor.end(); ++iter) {
             delete (*iter).second;
         }
-        for (map<string, CvtDevice *>::iterator iter = _switch.begin(); iter != _switch.end(); ++iter) {
+        for (map<string, CvtActuator *>::iterator iter = _switch.begin(); 
+                                            iter != _switch.end(); ++iter) {
             delete (*iter).second;
         }
 
@@ -237,10 +307,16 @@ public:
      @return 후처리 성공 여부
     */
     bool postprocess () {
-        boost::asio::async_write(*_port, boost::asio::buffer(_buf, strlen(_buf)),
-                boost::bind(&DSSampleDriver::handlewrite, this,
-                    boost::asio::placeholders::error,
-                    boost::asio::placeholders::bytes_transferred));
+        // 샘플노드로 메세지를 보내기 위한 코드
+        // 업체별로 재작성해야 함
+        for (map<string, CvtMotor *>::iterator iter = _motor.begin(); 
+                                            iter != _motor.end(); ++iter) {
+            motorcommand ((*iter).second);
+        }
+        for (map<string, CvtActuator *>::iterator iter = _switch.begin(); 
+                                            iter != _switch.end(); ++iter) {
+            switchcommand ((*iter).second);
+        }
         return true;
     }
 
@@ -260,6 +336,7 @@ public:
     /**
       전달된 장비의 정보를 획득한다. 
       다른 드라이버의 장비정보를 입력해주기 위해 컨버터가 호출한다.
+      일반적인 업체별 드라이버에서는 특별히 구현하지 않아도 된다.
       @param pdevice 다른 드라이버의 장비 포인터
       @return 성공여부. 관심이 없는 장비인 경우라도 문제가 없으면 true를 리턴한다.
     */
@@ -270,6 +347,7 @@ public:
     /**
       다른 드라이버가 관리하고 있는 장비를 제어하고자 할때 명령을 전달한다.
       명령을 전달하지 않는 드라이버라면 그냥 NULL을 리턴하도록 만들면 된다.
+      DSDriver 에서는 구현할 필요가 없다.
       @param index 얻고자 하는 명령의 인덱스 번호. 0에서 시작한다.
       @return 인덱스에 해당하는 명령의 포인터. NULL 이라면 이후에 명령이 없다는 의미이다.
     */
@@ -279,14 +357,37 @@ public:
 
     /**
       다른 드라이버로부터 명령을 받아 처리한다.
+      구동기를 다루어야 한다면 구현이 되어야 한다.
       @param pcmd 명령에 대한 포인터
-      @return 실제 명령의 처리 여부가 아니라 명령을 수신했는지 여부이다. 해당 명령을 실행할 장비가 없다
-      면 false이다.
+      @return 실제 명령의 처리 여부가 아니라 명령을 수신했는지 여부이다. 해당 명령을 실행할 장비가 없다면 false이다.
     */
     bool control(CvtCommand *pcmd) {
-        return false;
-    }
+        CvtRatioCommand *prcmd;
+        bool ret = false;
 
+        if ((prcmd = dynamic_cast<CvtRatioCommand *>(pcmd)) != nullptr) {
+            for (map<string, CvtMotor *>::iterator iter = _motor.begin(); 
+                                                iter != _motor.end(); ++iter) {
+                CvtMotor *pmot = (*iter).second;
+                if ((pmot->getspec())->ismatched (pcmd->getdevspec())) {
+                    pmot->order (prcmd);
+                    ret = true;
+                }
+            }
+
+        } else {
+            for (map<string, CvtActuator *>::iterator iter = _switch.begin(); 
+                                                iter != _switch.end(); ++iter) {
+                CvtActuator *pswc = (*iter).second;
+                if ((pswc->getspec())->ismatched (pcmd->getdevspec())) {
+                    pswc->order (pcmd);
+                    ret = true;
+                }
+            }
+        }
+
+        return ret;
+    }
 };
 
 extern "C" BOOST_SYMBOL_EXPORT DSSampleDriver plugin;

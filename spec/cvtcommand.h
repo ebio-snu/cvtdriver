@@ -29,14 +29,16 @@ public:
     /**
      새로운 명령를 생성한다.
      @param cmdid 명령의 아이디
-     @param pdev  명령을 수행할 장비스펙의 포인터
+     @param pdevspec  명령을 수행할 장비스펙의 포인터
+     @param onoff 작동상태
     */
-    CvtCommand(int cmdid, CvtDeviceSpec *pdevspec) {
+    CvtCommand(int cmdid, CvtDeviceSpec *pdevspec, bool onoff) {
         _id = cmdid;
+        _onoff = onoff;
         _pdevspec = pdevspec;
     }
 
-    ~CvtCommand() {
+    virtual ~CvtCommand() {
     }
 
     /**
@@ -45,6 +47,14 @@ public:
     */
     int getid() {
         return _id;
+    }
+
+    /**
+     명령에 부여된 장비스펙을 리턴한다.
+     @return 명령을 실행할 장비스펙
+    */
+    CvtDeviceSpec *getdevspec() {
+        return _pdevspec;
     }
 
     /**
@@ -77,11 +87,12 @@ public:
     /**
      새로운 명령를 생성한다.
      @param cmdid 명령의 아이디
-     @param pdev  명령을 수행할 장비스펙의 포인터
+     @param pdevspec  명령을 수행할 장비스펙의 포인터
+     @param onoff 작동상태
      @param ratio 지정된 비율
     */
-    CvtRatioCommand(int cmdid, CvtDeviceSpec *pdevspec, double ratio) 
-        : CvtCommand (cmdid, pdevspec) {
+    CvtRatioCommand(int cmdid, CvtDeviceSpec *pdevspec, bool onoff, double ratio) 
+        : CvtCommand (cmdid, pdevspec, onoff) {
         _ratio = ratio;
     }
 
@@ -107,13 +118,15 @@ public:
     /**
      새로운 명령를 생성한다.
      @param cmdid 명령의 아이디
-     @param pdev  명령을 수행할 장비스펙의 포인터
+     @param pdevspec  명령을 수행할 장비스펙의 포인터
+     @param onoff 작동상태
      @param modelcode 명령의 인자를 해석할 수 있는 드라이버의 모델코드
      @param devid 명령을 수행할 장비의 아이디
      @param arg 명령의 인자. 문자열 형으로 꼭 base64 인코딩 되어 있어야 함.
     */
-    CvtRawCommand(int cmdid, CvtDeviceSpec *pdevspec, int modelcode, string devid, string arg) 
-        : CvtCommand (cmdid, pdevspec) {
+    CvtRawCommand(int cmdid, CvtDeviceSpec *pdevspec, bool onoff, 
+                            int modelcode, string devid, string arg) 
+        : CvtCommand (cmdid, pdevspec, onoff) {
         _modelcode = modelcode;
         _devid = devid;
         _base64arg = arg;
