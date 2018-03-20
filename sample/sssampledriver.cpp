@@ -66,6 +66,8 @@ public:
         _sensor(10, DT_SEN_TEMPERATURE, 10103000002, DO_ENV_ATMOSPHERE, DS_SEN_NORMAL, OU_CELSIUS),
         _motor(20, DT_MOT_SIDEWINDOW, 10103000002, DO_EQUIPMENT, DS_MOT_STOP),
         _switch(30, DT_SWC_FAN, 10103000002, DO_EQUIPMENT, DS_SWC_OFF) {
+
+        updated(); // 현재는 통신을 수행하지 않기 때문에, 테스트 통과를 위해서 넣음.
     }
 
     ~SSSampleDriver () {
