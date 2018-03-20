@@ -57,14 +57,8 @@ public:
     void print() {
         LOG(INFO) << _count << std::endl;
 
-        CvtDevice *pdevice = (*_plugin)->getdevice(0);
-        CvtSensor *psensor = static_cast<CvtSensor *>(pdevice);
-        double value = psensor->readobservation();
-
-        LOG(INFO) << "psensor->getid() : " << psensor->getid() << std::endl;
-        LOG(INFO) << "psensor->readobservation() : " << value << std::endl;
-
-        if (value != 0) {
+        time_t lastupdated = (*_plugin)->getlastupdated();
+        if (lastupdated != 0) {
             _pio->stop ();
         } else {
             ++_count;
