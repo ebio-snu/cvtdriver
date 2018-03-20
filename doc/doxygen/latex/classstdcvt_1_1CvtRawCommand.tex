@@ -1,0 +1,87 @@
+\hypertarget{classstdcvt_1_1CvtRawCommand}{}\section{stdcvt\+:\+:Cvt\+Raw\+Command 클래스 참조}
+\label{classstdcvt_1_1CvtRawCommand}\index{stdcvt\+::\+Cvt\+Raw\+Command@{stdcvt\+::\+Cvt\+Raw\+Command}}
+stdcvt\+:\+:Cvt\+Raw\+Command에 대한 상속 다이어그램 \+: \begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classstdcvt_1_1CvtRawCommand}
+\end{center}
+\end{figure}
+\subsection*{Public 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classstdcvt_1_1CvtRawCommand_ae42522abd4b67a651ecdc04b9ca53862}{Cvt\+Raw\+Command} (int cmdid, \hyperlink{classstdcvt_1_1CvtDeviceSpec}{Cvt\+Device\+Spec} $\ast$pdevspec, bool onoff, int modelcode, string devid, string arg)
+\item 
+int \hyperlink{classstdcvt_1_1CvtRawCommand_ad7377cc0531f970032368e5518211e8c}{getmodelcode} ()
+\item 
+string \hyperlink{classstdcvt_1_1CvtRawCommand_a1ea00736911fff856e7d01b9fbd6d49d}{getdevid} ()
+\item 
+string \hyperlink{classstdcvt_1_1CvtRawCommand_a2429ee7b28de85a56203666d6aeda6de}{getarg} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{생성자 \& 소멸자 문서화}
+\index{stdcvt\+::\+Cvt\+Raw\+Command@{stdcvt\+::\+Cvt\+Raw\+Command}!Cvt\+Raw\+Command@{Cvt\+Raw\+Command}}
+\index{Cvt\+Raw\+Command@{Cvt\+Raw\+Command}!stdcvt\+::\+Cvt\+Raw\+Command@{stdcvt\+::\+Cvt\+Raw\+Command}}
+\subsubsection[{\texorpdfstring{Cvt\+Raw\+Command(int cmdid, Cvt\+Device\+Spec $\ast$pdevspec, bool onoff, int modelcode, string devid, string arg)}{CvtRawCommand(int cmdid, CvtDeviceSpec *pdevspec, bool onoff, int modelcode, string devid, string arg)}}]{\setlength{\rightskip}{0pt plus 5cm}stdcvt\+::\+Cvt\+Raw\+Command\+::\+Cvt\+Raw\+Command (
+\begin{DoxyParamCaption}
+\item[{int}]{cmdid, }
+\item[{{\bf Cvt\+Device\+Spec} $\ast$}]{pdevspec, }
+\item[{bool}]{onoff, }
+\item[{int}]{modelcode, }
+\item[{string}]{devid, }
+\item[{string}]{arg}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstdcvt_1_1CvtRawCommand_ae42522abd4b67a651ecdc04b9ca53862}{}\label{classstdcvt_1_1CvtRawCommand_ae42522abd4b67a651ecdc04b9ca53862}
+새로운 명령를 생성한다. 
+\begin{DoxyParams}{매개변수}
+{\em cmdid} & 명령의 아이디 \\
+\hline
+{\em pdevspec} & 명령을 수행할 장비스펙의 포인터 \\
+\hline
+{\em onoff} & 작동상태 \\
+\hline
+{\em modelcode} & 명령의 인자를 해석할 수 있는 드라이버의 모델코드 \\
+\hline
+{\em devid} & 명령을 수행할 장비의 아이디 \\
+\hline
+{\em arg} & 명령의 인자. 문자열 형으로 꼭 base64 인코딩 되어 있어야 함. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{멤버 함수 문서화}
+\index{stdcvt\+::\+Cvt\+Raw\+Command@{stdcvt\+::\+Cvt\+Raw\+Command}!getarg@{getarg}}
+\index{getarg@{getarg}!stdcvt\+::\+Cvt\+Raw\+Command@{stdcvt\+::\+Cvt\+Raw\+Command}}
+\subsubsection[{\texorpdfstring{getarg()}{getarg()}}]{\setlength{\rightskip}{0pt plus 5cm}string stdcvt\+::\+Cvt\+Raw\+Command\+::getarg (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstdcvt_1_1CvtRawCommand_a2429ee7b28de85a56203666d6aeda6de}{}\label{classstdcvt_1_1CvtRawCommand_a2429ee7b28de85a56203666d6aeda6de}
+명령 수행을 위한 인자를 확인한다. \begin{DoxyReturn}{반환값}
+명령 인자값 
+\end{DoxyReturn}
+\index{stdcvt\+::\+Cvt\+Raw\+Command@{stdcvt\+::\+Cvt\+Raw\+Command}!getdevid@{getdevid}}
+\index{getdevid@{getdevid}!stdcvt\+::\+Cvt\+Raw\+Command@{stdcvt\+::\+Cvt\+Raw\+Command}}
+\subsubsection[{\texorpdfstring{getdevid()}{getdevid()}}]{\setlength{\rightskip}{0pt plus 5cm}string stdcvt\+::\+Cvt\+Raw\+Command\+::getdevid (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstdcvt_1_1CvtRawCommand_a1ea00736911fff856e7d01b9fbd6d49d}{}\label{classstdcvt_1_1CvtRawCommand_a1ea00736911fff856e7d01b9fbd6d49d}
+명령을 수행할 장비의 아이디를 확인한다. \begin{DoxyReturn}{반환값}
+장비아이디값 
+\end{DoxyReturn}
+\index{stdcvt\+::\+Cvt\+Raw\+Command@{stdcvt\+::\+Cvt\+Raw\+Command}!getmodelcode@{getmodelcode}}
+\index{getmodelcode@{getmodelcode}!stdcvt\+::\+Cvt\+Raw\+Command@{stdcvt\+::\+Cvt\+Raw\+Command}}
+\subsubsection[{\texorpdfstring{getmodelcode()}{getmodelcode()}}]{\setlength{\rightskip}{0pt plus 5cm}int stdcvt\+::\+Cvt\+Raw\+Command\+::getmodelcode (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstdcvt_1_1CvtRawCommand_ad7377cc0531f970032368e5518211e8c}{}\label{classstdcvt_1_1CvtRawCommand_ad7377cc0531f970032368e5518211e8c}
+명령에 할당된 모델코드를 확인한다. \begin{DoxyReturn}{반환값}
+모델코드값 
+\end{DoxyReturn}
+
+
+이 클래스에 대한 문서화 페이지는 다음의 파일로부터 생성되었습니다.\+:\begin{DoxyCompactItemize}
+\item 
+spec/\hyperlink{cvtcommand_8h}{cvtcommand.\+h}\end{DoxyCompactItemize}

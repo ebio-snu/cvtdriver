@@ -1,0 +1,156 @@
+\hypertarget{classstdcvt_1_1CvtActuator}{}\section{stdcvt\+:\+:Cvt\+Actuator 클래스 참조}
+\label{classstdcvt_1_1CvtActuator}\index{stdcvt\+::\+Cvt\+Actuator@{stdcvt\+::\+Cvt\+Actuator}}
+stdcvt\+:\+:Cvt\+Actuator에 대한 상속 다이어그램 \+: \begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classstdcvt_1_1CvtActuator}
+\end{center}
+\end{figure}
+\subsection*{Public 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classstdcvt_1_1CvtActuator_a6e634ccf55c518a0c024200ba6d1bef8}{Cvt\+Actuator} (string devid, \hyperlink{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638b}{devtype\+\_\+t} devtype, \hyperlink{cvtcode_8h_a268eebb73363e24b9e65fd51973bd9c0}{devsec\+\_\+t} section, \hyperlink{cvtcode_8h_a2b37fd5cc4d40c0b8c4b987c271e5ceb}{devtarget\+\_\+t} target, \hyperlink{cvtcode_8h_ad21cd565f839adc5b19a0993e7da7278}{devstat\+\_\+t} devstatus)
+\item 
+int \hyperlink{classstdcvt_1_1CvtActuator_a2e9fb1b6464f765d33b2a3b9f1abb0d1}{getlastcmdid} ()
+\item 
+bool \hyperlink{classstdcvt_1_1CvtActuator_aba92e55391d3a2e8c64933ec50a5db34}{turnon} ()
+\item 
+bool \hyperlink{classstdcvt_1_1CvtActuator_aa90cc45faf4243f23b8d8ee12b101c82}{turnoff} ()
+\item 
+bool \hyperlink{classstdcvt_1_1CvtActuator_aa9ebece7df16e1469e85f3e772179001}{getonoff} ()
+\item 
+bool \hyperlink{classstdcvt_1_1CvtActuator_a4ad6f7f3c6155ad3be892a94d28c844c}{order} (\hyperlink{classstdcvt_1_1CvtCommand}{Cvt\+Command} $\ast$pcmd)
+\item 
+void \hyperlink{classstdcvt_1_1CvtActuator_a0308cadcff46d88318f30cb5610ec9bf}{executed} (int cmdid)
+\item 
+string \hyperlink{classstdcvt_1_1CvtActuator_a088f0d1854430c12199e9f2b6bee3453}{tostring} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classstdcvt_1_1CvtActuator_a5ec24f9d3a1e487ee60c1dc92c6c8a73}{setcommand} (\hyperlink{classstdcvt_1_1CvtCommand}{Cvt\+Command} $\ast$pcmd)
+\end{DoxyCompactItemize}
+
+
+\subsection{생성자 \& 소멸자 문서화}
+\index{stdcvt\+::\+Cvt\+Actuator@{stdcvt\+::\+Cvt\+Actuator}!Cvt\+Actuator@{Cvt\+Actuator}}
+\index{Cvt\+Actuator@{Cvt\+Actuator}!stdcvt\+::\+Cvt\+Actuator@{stdcvt\+::\+Cvt\+Actuator}}
+\subsubsection[{\texorpdfstring{Cvt\+Actuator(string devid, devtype\+\_\+t devtype, devsec\+\_\+t section, devtarget\+\_\+t target, devstat\+\_\+t devstatus)}{CvtActuator(string devid, devtype_t devtype, devsec_t section, devtarget_t target, devstat_t devstatus)}}]{\setlength{\rightskip}{0pt plus 5cm}stdcvt\+::\+Cvt\+Actuator\+::\+Cvt\+Actuator (
+\begin{DoxyParamCaption}
+\item[{string}]{devid, }
+\item[{{\bf devtype\+\_\+t}}]{devtype, }
+\item[{{\bf devsec\+\_\+t}}]{section, }
+\item[{{\bf devtarget\+\_\+t}}]{target, }
+\item[{{\bf devstat\+\_\+t}}]{devstatus}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstdcvt_1_1CvtActuator_a6e634ccf55c518a0c024200ba6d1bef8}{}\label{classstdcvt_1_1CvtActuator_a6e634ccf55c518a0c024200ba6d1bef8}
+새로운 구동기를 생성한다. 
+\begin{DoxyParams}{매개변수}
+{\em devid} & 장비의 아이디 \\
+\hline
+{\em devtype} & 장비의 종류 \\
+\hline
+{\em section} & 장비 설치 구역 \\
+\hline
+{\em target} & 장비의 대상 \\
+\hline
+{\em devstatus} & 장비의 상태 \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{멤버 함수 문서화}
+\index{stdcvt\+::\+Cvt\+Actuator@{stdcvt\+::\+Cvt\+Actuator}!executed@{executed}}
+\index{executed@{executed}!stdcvt\+::\+Cvt\+Actuator@{stdcvt\+::\+Cvt\+Actuator}}
+\subsubsection[{\texorpdfstring{executed(int cmdid)}{executed(int cmdid)}}]{\setlength{\rightskip}{0pt plus 5cm}void stdcvt\+::\+Cvt\+Actuator\+::executed (
+\begin{DoxyParamCaption}
+\item[{int}]{cmdid}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstdcvt_1_1CvtActuator_a0308cadcff46d88318f30cb5610ec9bf}{}\label{classstdcvt_1_1CvtActuator_a0308cadcff46d88318f30cb5610ec9bf}
+전달완료된 명령아이디를 세팅한다. 
+\begin{DoxyParams}{매개변수}
+{\em cmdid} & 전달완료된 명령아이디 \\
+\hline
+\end{DoxyParams}
+\index{stdcvt\+::\+Cvt\+Actuator@{stdcvt\+::\+Cvt\+Actuator}!getlastcmdid@{getlastcmdid}}
+\index{getlastcmdid@{getlastcmdid}!stdcvt\+::\+Cvt\+Actuator@{stdcvt\+::\+Cvt\+Actuator}}
+\subsubsection[{\texorpdfstring{getlastcmdid()}{getlastcmdid()}}]{\setlength{\rightskip}{0pt plus 5cm}int stdcvt\+::\+Cvt\+Actuator\+::getlastcmdid (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstdcvt_1_1CvtActuator_a2e9fb1b6464f765d33b2a3b9f1abb0d1}{}\label{classstdcvt_1_1CvtActuator_a2e9fb1b6464f765d33b2a3b9f1abb0d1}
+최종 명령의 아이디를 확인한다. \begin{DoxyReturn}{반환값}
+최종 명령의 아이디. 없을경우 -\/1 
+\end{DoxyReturn}
+\index{stdcvt\+::\+Cvt\+Actuator@{stdcvt\+::\+Cvt\+Actuator}!getonoff@{getonoff}}
+\index{getonoff@{getonoff}!stdcvt\+::\+Cvt\+Actuator@{stdcvt\+::\+Cvt\+Actuator}}
+\subsubsection[{\texorpdfstring{getonoff()}{getonoff()}}]{\setlength{\rightskip}{0pt plus 5cm}bool stdcvt\+::\+Cvt\+Actuator\+::getonoff (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstdcvt_1_1CvtActuator_aa9ebece7df16e1469e85f3e772179001}{}\label{classstdcvt_1_1CvtActuator_aa9ebece7df16e1469e85f3e772179001}
+장비작동명령을 확인한다. \begin{DoxyReturn}{반환값}
+작동상태. true 면 on. 
+\end{DoxyReturn}
+\index{stdcvt\+::\+Cvt\+Actuator@{stdcvt\+::\+Cvt\+Actuator}!order@{order}}
+\index{order@{order}!stdcvt\+::\+Cvt\+Actuator@{stdcvt\+::\+Cvt\+Actuator}}
+\subsubsection[{\texorpdfstring{order(\+Cvt\+Command $\ast$pcmd)}{order(CvtCommand *pcmd)}}]{\setlength{\rightskip}{0pt plus 5cm}bool stdcvt\+::\+Cvt\+Actuator\+::order (
+\begin{DoxyParamCaption}
+\item[{{\bf Cvt\+Command} $\ast$}]{pcmd}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstdcvt_1_1CvtActuator_a4ad6f7f3c6155ad3be892a94d28c844c}{}\label{classstdcvt_1_1CvtActuator_a4ad6f7f3c6155ad3be892a94d28c844c}
+명령을 지시한다. 실제 실행하는 것은 아니고 내부에 명령을 저장하고 있다가 실제 장비에게 전달하는 역할을 담당한다. 
+\begin{DoxyParams}{매개변수}
+{\em pcmd} & 명령의 포인터 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+명령 저장 여부. 
+\end{DoxyReturn}
+\index{stdcvt\+::\+Cvt\+Actuator@{stdcvt\+::\+Cvt\+Actuator}!setcommand@{setcommand}}
+\index{setcommand@{setcommand}!stdcvt\+::\+Cvt\+Actuator@{stdcvt\+::\+Cvt\+Actuator}}
+\subsubsection[{\texorpdfstring{setcommand(\+Cvt\+Command $\ast$pcmd)}{setcommand(CvtCommand *pcmd)}}]{\setlength{\rightskip}{0pt plus 5cm}void stdcvt\+::\+Cvt\+Actuator\+::setcommand (
+\begin{DoxyParamCaption}
+\item[{{\bf Cvt\+Command} $\ast$}]{pcmd}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\hypertarget{classstdcvt_1_1CvtActuator_a5ec24f9d3a1e487ee60c1dc92c6c8a73}{}\label{classstdcvt_1_1CvtActuator_a5ec24f9d3a1e487ee60c1dc92c6c8a73}
+명령을 세팅한다. order 구현시 한번씩 호출해주면 최종 아이디를 기억하도록 한다. 
+\begin{DoxyParams}{매개변수}
+{\em pcmd} & 명령에 대한 포인터 \\
+\hline
+\end{DoxyParams}
+\index{stdcvt\+::\+Cvt\+Actuator@{stdcvt\+::\+Cvt\+Actuator}!tostring@{tostring}}
+\index{tostring@{tostring}!stdcvt\+::\+Cvt\+Actuator@{stdcvt\+::\+Cvt\+Actuator}}
+\subsubsection[{\texorpdfstring{tostring()}{tostring()}}]{\setlength{\rightskip}{0pt plus 5cm}string stdcvt\+::\+Cvt\+Actuator\+::tostring (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstdcvt_1_1CvtActuator_a088f0d1854430c12199e9f2b6bee3453}{}\label{classstdcvt_1_1CvtActuator_a088f0d1854430c12199e9f2b6bee3453}
+구동기의 상태를 문자열로 내보낸다. \begin{DoxyReturn}{반환값}
+구동기의 상태 문자열 
+\end{DoxyReturn}
+\index{stdcvt\+::\+Cvt\+Actuator@{stdcvt\+::\+Cvt\+Actuator}!turnoff@{turnoff}}
+\index{turnoff@{turnoff}!stdcvt\+::\+Cvt\+Actuator@{stdcvt\+::\+Cvt\+Actuator}}
+\subsubsection[{\texorpdfstring{turnoff()}{turnoff()}}]{\setlength{\rightskip}{0pt plus 5cm}bool stdcvt\+::\+Cvt\+Actuator\+::turnoff (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstdcvt_1_1CvtActuator_aa90cc45faf4243f23b8d8ee12b101c82}{}\label{classstdcvt_1_1CvtActuator_aa90cc45faf4243f23b8d8ee12b101c82}
+장비를 작동을 중지한다. \begin{DoxyReturn}{반환값}
+작동상태. true 면 on. 
+\end{DoxyReturn}
+\index{stdcvt\+::\+Cvt\+Actuator@{stdcvt\+::\+Cvt\+Actuator}!turnon@{turnon}}
+\index{turnon@{turnon}!stdcvt\+::\+Cvt\+Actuator@{stdcvt\+::\+Cvt\+Actuator}}
+\subsubsection[{\texorpdfstring{turnon()}{turnon()}}]{\setlength{\rightskip}{0pt plus 5cm}bool stdcvt\+::\+Cvt\+Actuator\+::turnon (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstdcvt_1_1CvtActuator_aba92e55391d3a2e8c64933ec50a5db34}{}\label{classstdcvt_1_1CvtActuator_aba92e55391d3a2e8c64933ec50a5db34}
+장비를 작동시킨다. \begin{DoxyReturn}{반환값}
+작동상태. true 면 on. 
+\end{DoxyReturn}
+
+
+이 클래스에 대한 문서화 페이지는 다음의 파일로부터 생성되었습니다.\+:\begin{DoxyCompactItemize}
+\item 
+spec/\hyperlink{cvtdevice_8h}{cvtdevice.\+h}\end{DoxyCompactItemize}

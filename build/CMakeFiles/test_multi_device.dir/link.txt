@@ -1,0 +1,1 @@
+/usr/bin/c++   -g   CMakeFiles/test_multi_device.dir/test/test_multi_device.cpp.o  -o test_multi_device -rdynamic /usr/local/lib/libboost_system.so /usr/local/lib/libboost_date_time.so /usr/local/lib/libboost_filesystem.so /usr/local/lib/libboost_iostreams.so -lglog -lpthread -ldl -Wl,-rpath,/usr/local/lib 

@@ -1,4 +1,32 @@
 var searchData=
 [
-  ['initialize',['initialize',['../classstdcvt_1_1CvtDriver.html#a71322934c5b5ad0d5b167219cd23a0bb',1,'stdcvt::CvtDriver::initialize()'],['../classebiodriver_1_1DSSampleDriver.html#aaeb74b5cfe475ecdafe87279574fe6e4',1,'ebiodriver::DSSampleDriver::initialize()'],['../classebiodriver_1_1SSSampleDriver.html#a604f906153e106692bd5869c7fd8888f',1,'ebiodriver::SSSampleDriver::initialize()']]]
+  ['get',['get',['../classstdcvt_1_1CvtOption.html#add9602ed4e44ebb336dcb177b19210d2',1,'stdcvt::CvtOption']]],
+  ['getapispec',['getapispec',['../classstdcvt_1_1CvtDriver.html#ad6e0edc0bc47015d446215e98b7bfc2f',1,'stdcvt::CvtDriver']]],
+  ['getarg',['getarg',['../classstdcvt_1_1CvtRawCommand.html#a2429ee7b28de85a56203666d6aeda6de',1,'stdcvt::CvtRawCommand']]],
+  ['getcommand',['getcommand',['../classstdcvt_1_1CvtDriver.html#ad0378635152f2e35c0686c4fe92996e6',1,'stdcvt::CvtDriver::getcommand()'],['../classebiodriver_1_1DSSampleDriver.html#acfccb95870864ce6dc5f99ab94c214fa',1,'ebiodriver::DSSampleDriver::getcommand()'],['../classebiodriver_1_1SSSampleDriver.html#a273a5a2d7a1b54ba4d6d3989db78d152',1,'ebiodriver::SSSampleDriver::getcommand()']]],
+  ['getcompany',['getcompany',['../classstdcvt_1_1CvtDriver.html#a7566cb63ae741c1df91972f185dbc88c',1,'stdcvt::CvtDriver::getcompany()'],['../classebiodriver_1_1DSSampleDriver.html#a6c7281bb4d01245c1b5087a1fbcc2b80',1,'ebiodriver::DSSampleDriver::getcompany()'],['../classebiodriver_1_1SSSampleDriver.html#ac5db03ba9751cabd78fd00bbe8a4330b',1,'ebiodriver::SSSampleDriver::getcompany()']]],
+  ['getcurrent',['getcurrent',['../classstdcvt_1_1CvtMotor.html#a748ba6cde7c70e5fd29f4919b6b1408c',1,'stdcvt::CvtMotor']]],
+  ['getdevice',['getdevice',['../classstdcvt_1_1CvtDriver.html#adc2ce5ff6fe2426fd84ce3ae69731704',1,'stdcvt::CvtDriver::getdevice()'],['../classebiodriver_1_1DSSampleDriver.html#a3dcd13870509c3139c6c0ad7ba22cbed',1,'ebiodriver::DSSampleDriver::getdevice()'],['../classebiodriver_1_1SSSampleDriver.html#af4bdb5522559606b177416ec408cd4b4',1,'ebiodriver::SSSampleDriver::getdevice()']]],
+  ['getdevid',['getdevid',['../classstdcvt_1_1CvtRawCommand.html#a1ea00736911fff856e7d01b9fbd6d49d',1,'stdcvt::CvtRawCommand']]],
+  ['getdevspec',['getdevspec',['../classstdcvt_1_1CvtCommand.html#ae494f768b0b6d72fe6e03d2ac29e162b',1,'stdcvt::CvtCommand']]],
+  ['getdouble',['getdouble',['../classstdcvt_1_1CvtOption.html#a04d78e7d48c97fd268638cb16ec72e7b',1,'stdcvt::CvtOption']]],
+  ['getgrouptype',['getgrouptype',['../classstdcvt_1_1CvtDeviceSpec.html#a7a122123db7bc9350b89910f8c03b453',1,'stdcvt::CvtDeviceSpec']]],
+  ['getid',['getid',['../classstdcvt_1_1CvtCommand.html#a108a615897723b8adaf8d826f1273529',1,'stdcvt::CvtCommand::getid()'],['../classstdcvt_1_1CvtDevice.html#aa575c9dda49790224ccee5f6c4302aaf',1,'stdcvt::CvtDevice::getid()']]],
+  ['getint',['getint',['../classstdcvt_1_1CvtOption.html#a769258713a6968362866a3a8b7753acd',1,'stdcvt::CvtOption']]],
+  ['getjson',['getjson',['../classstdcvt_1_1CvtOption.html#a912926db2ba4ae39269cdbdfcd0a82b4',1,'stdcvt::CvtOption']]],
+  ['getlastcmdid',['getlastcmdid',['../classstdcvt_1_1CvtActuator.html#a2e9fb1b6464f765d33b2a3b9f1abb0d1',1,'stdcvt::CvtActuator']]],
+  ['getlastupdated',['getlastupdated',['../classstdcvt_1_1CvtDriver.html#a442304919575a1c0adf4e89cd85a3bfb',1,'stdcvt::CvtDriver']]],
+  ['getmanufacturer',['getmanufacturer',['../classstdcvt_1_1CvtDeviceSpec.html#a5aa3ec5557f3a2da7763d13d0da7740c',1,'stdcvt::CvtDeviceSpec']]],
+  ['getmodel',['getmodel',['../classstdcvt_1_1CvtDeviceSpec.html#a9b9a75973c369a9488122848c6a696e8',1,'stdcvt::CvtDeviceSpec::getmodel()'],['../classstdcvt_1_1CvtDriver.html#a276c9154120dc41563a6604dc9d8e15b',1,'stdcvt::CvtDriver::getmodel()'],['../classebiodriver_1_1DSSampleDriver.html#aa99ba3c94b288a61a07a73393fec0f81',1,'ebiodriver::DSSampleDriver::getmodel()'],['../classebiodriver_1_1SSSampleDriver.html#a5964515c4297caa276cf7dc7959c3b0b',1,'ebiodriver::SSSampleDriver::getmodel()']]],
+  ['getmodelcode',['getmodelcode',['../classstdcvt_1_1CvtRawCommand.html#ad7377cc0531f970032368e5518211e8c',1,'stdcvt::CvtRawCommand::getmodelcode()'],['../classstdcvt_1_1CvtDriver.html#a86ffa63425176824f6b0493be4e41cda',1,'stdcvt::CvtDriver::getmodelcode()']]],
+  ['getobject',['getobject',['../classstdcvt_1_1CvtOption.html#add9d9f444a0cc5fcbf476cc87abd4de4',1,'stdcvt::CvtOption']]],
+  ['getonoff',['getonoff',['../classstdcvt_1_1CvtCommand.html#a6fcd400fd5e627a688a06edcfbcaa210',1,'stdcvt::CvtCommand::getonoff()'],['../classstdcvt_1_1CvtActuator.html#aa9ebece7df16e1469e85f3e772179001',1,'stdcvt::CvtActuator::getonoff()']]],
+  ['getratio',['getratio',['../classstdcvt_1_1CvtRatioCommand.html#a4c16b3d69d2c85ee1efe889092c351b4',1,'stdcvt::CvtRatioCommand']]],
+  ['getsection',['getsection',['../classstdcvt_1_1CvtDeviceSpec.html#a1a0224f68343b0ff664492f67b102b02',1,'stdcvt::CvtDeviceSpec']]],
+  ['getspec',['getspec',['../classstdcvt_1_1CvtDevice.html#a29928ec55be4697cb7ba86268fa6aa8a',1,'stdcvt::CvtDevice']]],
+  ['getstatus',['getstatus',['../classstdcvt_1_1CvtDevice.html#a87d2288d6211d897e4c2a6c9905f5ff3',1,'stdcvt::CvtDevice']]],
+  ['gettarget',['gettarget',['../classstdcvt_1_1CvtMotor.html#a1db20b33ef40adb57d0bf023602211af',1,'stdcvt::CvtMotor::gettarget()'],['../classstdcvt_1_1CvtDeviceSpec.html#acae6e3ba6033ca095b723a541267eab4',1,'stdcvt::CvtDeviceSpec::gettarget()']]],
+  ['gettype',['gettype',['../classstdcvt_1_1CvtDeviceSpec.html#aebd3553d080f82f7e71d0c145a4e811b',1,'stdcvt::CvtDeviceSpec']]],
+  ['getunit',['getunit',['../classstdcvt_1_1CvtSensor.html#ac4342e95b9977063bb4e37ce1418759c',1,'stdcvt::CvtSensor']]],
+  ['getversion',['getversion',['../classstdcvt_1_1CvtDriver.html#a4b21fdbbee5e251ce8b65932108db51e',1,'stdcvt::CvtDriver::getversion()'],['../classebiodriver_1_1DSSampleDriver.html#ac2173224ee7e59f6386f9dab1a8cb4b6',1,'ebiodriver::DSSampleDriver::getversion()'],['../classebiodriver_1_1SSSampleDriver.html#a1f8d8cdf1b0580c72379282531b55175',1,'ebiodriver::SSSampleDriver::getversion()']]]
 ];

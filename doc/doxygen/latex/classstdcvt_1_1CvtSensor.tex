@@ -1,0 +1,118 @@
+\hypertarget{classstdcvt_1_1CvtSensor}{}\section{stdcvt\+:\+:Cvt\+Sensor 클래스 참조}
+\label{classstdcvt_1_1CvtSensor}\index{stdcvt\+::\+Cvt\+Sensor@{stdcvt\+::\+Cvt\+Sensor}}
+stdcvt\+:\+:Cvt\+Sensor에 대한 상속 다이어그램 \+: \begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classstdcvt_1_1CvtSensor}
+\end{center}
+\end{figure}
+\subsection*{Public 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classstdcvt_1_1CvtSensor_a5a96080e1e889105272baaacba00c3af}{Cvt\+Sensor} (string devid, \hyperlink{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638b}{devtype\+\_\+t} devtype, \hyperlink{cvtcode_8h_a268eebb73363e24b9e65fd51973bd9c0}{devsec\+\_\+t} section, \hyperlink{cvtcode_8h_a2b37fd5cc4d40c0b8c4b987c271e5ceb}{devtarget\+\_\+t} target, \hyperlink{cvtcode_8h_ad21cd565f839adc5b19a0993e7da7278}{devstat\+\_\+t} devstatus, \hyperlink{cvtcode_8h_a6d4ed81d95144c5eedcd08eda1e800a4}{obsunit\+\_\+t} unit)
+\item 
+\hyperlink{cvtcode_8h_a6d4ed81d95144c5eedcd08eda1e800a4}{obsunit\+\_\+t} \hyperlink{classstdcvt_1_1CvtSensor_ac4342e95b9977063bb4e37ce1418759c}{getunit} ()
+\item 
+\hyperlink{cvtcode_8h_a6d4ed81d95144c5eedcd08eda1e800a4}{obsunit\+\_\+t} \hyperlink{classstdcvt_1_1CvtSensor_a0e13dd86635e5077dbadc6c0fe396b5e}{setunit} (\hyperlink{cvtcode_8h_a6d4ed81d95144c5eedcd08eda1e800a4}{obsunit\+\_\+t} unit)
+\item 
+double \hyperlink{classstdcvt_1_1CvtSensor_aba7a61d2f5fac1c100a17a8831727b29}{writeobservation} (double value)
+\item 
+double \hyperlink{classstdcvt_1_1CvtSensor_a2d3b6d09f67166af035189b59590cf82}{readobservation} ()
+\item 
+string \hyperlink{classstdcvt_1_1CvtSensor_aa9f10c534408e35f1d761941a8320e50}{tostring} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{생성자 \& 소멸자 문서화}
+\index{stdcvt\+::\+Cvt\+Sensor@{stdcvt\+::\+Cvt\+Sensor}!Cvt\+Sensor@{Cvt\+Sensor}}
+\index{Cvt\+Sensor@{Cvt\+Sensor}!stdcvt\+::\+Cvt\+Sensor@{stdcvt\+::\+Cvt\+Sensor}}
+\subsubsection[{\texorpdfstring{Cvt\+Sensor(string devid, devtype\+\_\+t devtype, devsec\+\_\+t section, devtarget\+\_\+t target, devstat\+\_\+t devstatus, obsunit\+\_\+t unit)}{CvtSensor(string devid, devtype_t devtype, devsec_t section, devtarget_t target, devstat_t devstatus, obsunit_t unit)}}]{\setlength{\rightskip}{0pt plus 5cm}stdcvt\+::\+Cvt\+Sensor\+::\+Cvt\+Sensor (
+\begin{DoxyParamCaption}
+\item[{string}]{devid, }
+\item[{{\bf devtype\+\_\+t}}]{devtype, }
+\item[{{\bf devsec\+\_\+t}}]{section, }
+\item[{{\bf devtarget\+\_\+t}}]{target, }
+\item[{{\bf devstat\+\_\+t}}]{devstatus, }
+\item[{{\bf obsunit\+\_\+t}}]{unit}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstdcvt_1_1CvtSensor_a5a96080e1e889105272baaacba00c3af}{}\label{classstdcvt_1_1CvtSensor_a5a96080e1e889105272baaacba00c3af}
+새로운 센서를 생성한다. 
+\begin{DoxyParams}{매개변수}
+{\em devid} & 센서의 아이디 \\
+\hline
+{\em devtype} & 장비의 종류 \\
+\hline
+{\em section} & 장비 설치 구역 \\
+\hline
+{\em target} & 장비의 대상 \\
+\hline
+{\em devstatus} & 센서의 상태 \\
+\hline
+{\em unit} & 관측치의 단위 \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{멤버 함수 문서화}
+\index{stdcvt\+::\+Cvt\+Sensor@{stdcvt\+::\+Cvt\+Sensor}!getunit@{getunit}}
+\index{getunit@{getunit}!stdcvt\+::\+Cvt\+Sensor@{stdcvt\+::\+Cvt\+Sensor}}
+\subsubsection[{\texorpdfstring{getunit()}{getunit()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf obsunit\+\_\+t} stdcvt\+::\+Cvt\+Sensor\+::getunit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstdcvt_1_1CvtSensor_ac4342e95b9977063bb4e37ce1418759c}{}\label{classstdcvt_1_1CvtSensor_ac4342e95b9977063bb4e37ce1418759c}
+관측치 단위를 읽는다. \begin{DoxyReturn}{반환값}
+관측치 단위 
+\end{DoxyReturn}
+\index{stdcvt\+::\+Cvt\+Sensor@{stdcvt\+::\+Cvt\+Sensor}!readobservation@{readobservation}}
+\index{readobservation@{readobservation}!stdcvt\+::\+Cvt\+Sensor@{stdcvt\+::\+Cvt\+Sensor}}
+\subsubsection[{\texorpdfstring{readobservation()}{readobservation()}}]{\setlength{\rightskip}{0pt plus 5cm}double stdcvt\+::\+Cvt\+Sensor\+::readobservation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstdcvt_1_1CvtSensor_a2d3b6d09f67166af035189b59590cf82}{}\label{classstdcvt_1_1CvtSensor_a2d3b6d09f67166af035189b59590cf82}
+관측치를 읽는다. \begin{DoxyReturn}{반환값}
+관측치값 
+\end{DoxyReturn}
+\index{stdcvt\+::\+Cvt\+Sensor@{stdcvt\+::\+Cvt\+Sensor}!setunit@{setunit}}
+\index{setunit@{setunit}!stdcvt\+::\+Cvt\+Sensor@{stdcvt\+::\+Cvt\+Sensor}}
+\subsubsection[{\texorpdfstring{setunit(obsunit\+\_\+t unit)}{setunit(obsunit_t unit)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf obsunit\+\_\+t} stdcvt\+::\+Cvt\+Sensor\+::setunit (
+\begin{DoxyParamCaption}
+\item[{{\bf obsunit\+\_\+t}}]{unit}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstdcvt_1_1CvtSensor_a0e13dd86635e5077dbadc6c0fe396b5e}{}\label{classstdcvt_1_1CvtSensor_a0e13dd86635e5077dbadc6c0fe396b5e}
+관측치 단위를 세팅한다. 
+\begin{DoxyParams}{매개변수}
+{\em unit} & 새로 세팅할 관측치 단위 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+관측치 단위 
+\end{DoxyReturn}
+\index{stdcvt\+::\+Cvt\+Sensor@{stdcvt\+::\+Cvt\+Sensor}!tostring@{tostring}}
+\index{tostring@{tostring}!stdcvt\+::\+Cvt\+Sensor@{stdcvt\+::\+Cvt\+Sensor}}
+\subsubsection[{\texorpdfstring{tostring()}{tostring()}}]{\setlength{\rightskip}{0pt plus 5cm}string stdcvt\+::\+Cvt\+Sensor\+::tostring (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstdcvt_1_1CvtSensor_aa9f10c534408e35f1d761941a8320e50}{}\label{classstdcvt_1_1CvtSensor_aa9f10c534408e35f1d761941a8320e50}
+센서의 상태를 문자열로 내보낸다. \index{stdcvt\+::\+Cvt\+Sensor@{stdcvt\+::\+Cvt\+Sensor}!writeobservation@{writeobservation}}
+\index{writeobservation@{writeobservation}!stdcvt\+::\+Cvt\+Sensor@{stdcvt\+::\+Cvt\+Sensor}}
+\subsubsection[{\texorpdfstring{writeobservation(double value)}{writeobservation(double value)}}]{\setlength{\rightskip}{0pt plus 5cm}double stdcvt\+::\+Cvt\+Sensor\+::writeobservation (
+\begin{DoxyParamCaption}
+\item[{double}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstdcvt_1_1CvtSensor_aba7a61d2f5fac1c100a17a8831727b29}{}\label{classstdcvt_1_1CvtSensor_aba7a61d2f5fac1c100a17a8831727b29}
+관측치를 기록한다. 
+\begin{DoxyParams}{매개변수}
+{\em value} & 관측치 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+기록한 관측치값 
+\end{DoxyReturn}
+
+
+이 클래스에 대한 문서화 페이지는 다음의 파일로부터 생성되었습니다.\+:\begin{DoxyCompactItemize}
+\item 
+spec/\hyperlink{cvtdevice_8h}{cvtdevice.\+h}\end{DoxyCompactItemize}

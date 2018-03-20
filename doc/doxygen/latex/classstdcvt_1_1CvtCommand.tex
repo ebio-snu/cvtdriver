@@ -1,0 +1,95 @@
+\hypertarget{classstdcvt_1_1CvtCommand}{}\section{stdcvt\+:\+:Cvt\+Command 클래스 참조}
+\label{classstdcvt_1_1CvtCommand}\index{stdcvt\+::\+Cvt\+Command@{stdcvt\+::\+Cvt\+Command}}
+stdcvt\+:\+:Cvt\+Command에 대한 상속 다이어그램 \+: \begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classstdcvt_1_1CvtCommand}
+\end{center}
+\end{figure}
+\subsection*{Public 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classstdcvt_1_1CvtCommand_a3af3fce4d86c505aae0f44eea9c7a461}{Cvt\+Command} (int cmdid, \hyperlink{classstdcvt_1_1CvtDeviceSpec}{Cvt\+Device\+Spec} $\ast$pdevspec, bool onoff)
+\item 
+int \hyperlink{classstdcvt_1_1CvtCommand_a108a615897723b8adaf8d826f1273529}{getid} ()
+\item 
+\hyperlink{classstdcvt_1_1CvtDeviceSpec}{Cvt\+Device\+Spec} $\ast$ \hyperlink{classstdcvt_1_1CvtCommand_ae494f768b0b6d72fe6e03d2ac29e162b}{getdevspec} ()
+\item 
+bool \hyperlink{classstdcvt_1_1CvtCommand_a6fcd400fd5e627a688a06edcfbcaa210}{getonoff} ()
+\item 
+bool \hyperlink{classstdcvt_1_1CvtCommand_a933894d3d822018066d4761d56e091f7}{setonoff} (bool onoff)
+\end{DoxyCompactItemize}
+
+
+\subsection{생성자 \& 소멸자 문서화}
+\index{stdcvt\+::\+Cvt\+Command@{stdcvt\+::\+Cvt\+Command}!Cvt\+Command@{Cvt\+Command}}
+\index{Cvt\+Command@{Cvt\+Command}!stdcvt\+::\+Cvt\+Command@{stdcvt\+::\+Cvt\+Command}}
+\subsubsection[{\texorpdfstring{Cvt\+Command(int cmdid, Cvt\+Device\+Spec $\ast$pdevspec, bool onoff)}{CvtCommand(int cmdid, CvtDeviceSpec *pdevspec, bool onoff)}}]{\setlength{\rightskip}{0pt plus 5cm}stdcvt\+::\+Cvt\+Command\+::\+Cvt\+Command (
+\begin{DoxyParamCaption}
+\item[{int}]{cmdid, }
+\item[{{\bf Cvt\+Device\+Spec} $\ast$}]{pdevspec, }
+\item[{bool}]{onoff}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstdcvt_1_1CvtCommand_a3af3fce4d86c505aae0f44eea9c7a461}{}\label{classstdcvt_1_1CvtCommand_a3af3fce4d86c505aae0f44eea9c7a461}
+새로운 명령를 생성한다. 
+\begin{DoxyParams}{매개변수}
+{\em cmdid} & 명령의 아이디 \\
+\hline
+{\em pdevspec} & 명령을 수행할 장비스펙의 포인터 \\
+\hline
+{\em onoff} & 작동상태 \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{멤버 함수 문서화}
+\index{stdcvt\+::\+Cvt\+Command@{stdcvt\+::\+Cvt\+Command}!getdevspec@{getdevspec}}
+\index{getdevspec@{getdevspec}!stdcvt\+::\+Cvt\+Command@{stdcvt\+::\+Cvt\+Command}}
+\subsubsection[{\texorpdfstring{getdevspec()}{getdevspec()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Cvt\+Device\+Spec}$\ast$ stdcvt\+::\+Cvt\+Command\+::getdevspec (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstdcvt_1_1CvtCommand_ae494f768b0b6d72fe6e03d2ac29e162b}{}\label{classstdcvt_1_1CvtCommand_ae494f768b0b6d72fe6e03d2ac29e162b}
+명령에 부여된 장비스펙을 리턴한다. \begin{DoxyReturn}{반환값}
+명령을 실행할 장비스펙 
+\end{DoxyReturn}
+\index{stdcvt\+::\+Cvt\+Command@{stdcvt\+::\+Cvt\+Command}!getid@{getid}}
+\index{getid@{getid}!stdcvt\+::\+Cvt\+Command@{stdcvt\+::\+Cvt\+Command}}
+\subsubsection[{\texorpdfstring{getid()}{getid()}}]{\setlength{\rightskip}{0pt plus 5cm}int stdcvt\+::\+Cvt\+Command\+::getid (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstdcvt_1_1CvtCommand_a108a615897723b8adaf8d826f1273529}{}\label{classstdcvt_1_1CvtCommand_a108a615897723b8adaf8d826f1273529}
+명령에 부여된 아이디를 리턴한다. \begin{DoxyReturn}{반환값}
+명령의 아이디 
+\end{DoxyReturn}
+\index{stdcvt\+::\+Cvt\+Command@{stdcvt\+::\+Cvt\+Command}!getonoff@{getonoff}}
+\index{getonoff@{getonoff}!stdcvt\+::\+Cvt\+Command@{stdcvt\+::\+Cvt\+Command}}
+\subsubsection[{\texorpdfstring{getonoff()}{getonoff()}}]{\setlength{\rightskip}{0pt plus 5cm}bool stdcvt\+::\+Cvt\+Command\+::getonoff (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstdcvt_1_1CvtCommand_a6fcd400fd5e627a688a06edcfbcaa210}{}\label{classstdcvt_1_1CvtCommand_a6fcd400fd5e627a688a06edcfbcaa210}
+on/off 명령을 확인한다. \begin{DoxyReturn}{반환값}
+on이면 true 
+\end{DoxyReturn}
+\index{stdcvt\+::\+Cvt\+Command@{stdcvt\+::\+Cvt\+Command}!setonoff@{setonoff}}
+\index{setonoff@{setonoff}!stdcvt\+::\+Cvt\+Command@{stdcvt\+::\+Cvt\+Command}}
+\subsubsection[{\texorpdfstring{setonoff(bool onoff)}{setonoff(bool onoff)}}]{\setlength{\rightskip}{0pt plus 5cm}bool stdcvt\+::\+Cvt\+Command\+::setonoff (
+\begin{DoxyParamCaption}
+\item[{bool}]{onoff}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstdcvt_1_1CvtCommand_a933894d3d822018066d4761d56e091f7}{}\label{classstdcvt_1_1CvtCommand_a933894d3d822018066d4761d56e091f7}
+on/off 명령을 세팅한다. 
+\begin{DoxyParams}{매개변수}
+{\em onoff} & on이면 true \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+세팅된 상태. 
+\end{DoxyReturn}
+
+
+이 클래스에 대한 문서화 페이지는 다음의 파일로부터 생성되었습니다.\+:\begin{DoxyCompactItemize}
+\item 
+spec/\hyperlink{cvtcommand_8h}{cvtcommand.\+h}\end{DoxyCompactItemize}

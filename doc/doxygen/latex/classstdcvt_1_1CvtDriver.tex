@@ -1,0 +1,285 @@
+\hypertarget{classstdcvt_1_1CvtDriver}{}\section{stdcvt\+:\+:Cvt\+Driver 클래스 참조}
+\label{classstdcvt_1_1CvtDriver}\index{stdcvt\+::\+Cvt\+Driver@{stdcvt\+::\+Cvt\+Driver}}
+stdcvt\+:\+:Cvt\+Driver에 대한 상속 다이어그램 \+: \begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classstdcvt_1_1CvtDriver}
+\end{center}
+\end{figure}
+\subsection*{Public 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classstdcvt_1_1CvtDriver_a82925971b6e8ef2ce7f0b5d113120855}{Cvt\+Driver} (int modelcode, int apispec)
+\item 
+int \hyperlink{classstdcvt_1_1CvtDriver_a86ffa63425176824f6b0493be4e41cda}{getmodelcode} ()
+\item 
+int \hyperlink{classstdcvt_1_1CvtDriver_ad6e0edc0bc47015d446215e98b7bfc2f}{getapispec} ()
+\item 
+time\+\_\+t \hyperlink{classstdcvt_1_1CvtDriver_a442304919575a1c0adf4e89cd85a3bfb}{getlastupdated} ()
+\item 
+void \hyperlink{classstdcvt_1_1CvtDriver_abbaba1b9dd80aae9648dac8a44f31589}{updated} ()
+\item 
+virtual string \hyperlink{classstdcvt_1_1CvtDriver_a4b21fdbbee5e251ce8b65932108db51e}{getversion} ()=0
+\item 
+virtual string \hyperlink{classstdcvt_1_1CvtDriver_a276c9154120dc41563a6604dc9d8e15b}{getmodel} ()=0
+\item 
+virtual string \hyperlink{classstdcvt_1_1CvtDriver_a7566cb63ae741c1df91972f185dbc88c}{getcompany} ()=0
+\item 
+virtual bool \hyperlink{classstdcvt_1_1CvtDriver_a71322934c5b5ad0d5b167219cd23a0bb}{initialize} (\hyperlink{classstdcvt_1_1CvtOption}{Cvt\+Option} option)=0
+\item 
+virtual bool \hyperlink{classstdcvt_1_1CvtDriver_a22b39da5aafabec2ee9677ed138256e9}{finalize} ()=0
+\item 
+virtual bool \hyperlink{classstdcvt_1_1CvtDriver_ac15259a26d652d46c198307886d52257}{preprocess} ()=0
+\item 
+virtual bool \hyperlink{classstdcvt_1_1CvtDriver_a4bcae9e7c58d989a645a74d21e2fc5ea}{postprocess} ()=0
+\item 
+virtual \hyperlink{classstdcvt_1_1CvtDevice}{Cvt\+Device} $\ast$ \hyperlink{classstdcvt_1_1CvtDriver_adc2ce5ff6fe2426fd84ce3ae69731704}{getdevice} (int index)=0
+\item 
+virtual bool \hyperlink{classstdcvt_1_1CvtDriver_aeedcd62d3b6ed95f0584db5a7259f642}{sharedevice} (\hyperlink{classstdcvt_1_1CvtDevice}{Cvt\+Device} $\ast$pdevice)=0
+\item 
+virtual \hyperlink{classstdcvt_1_1CvtCommand}{Cvt\+Command} $\ast$ \hyperlink{classstdcvt_1_1CvtDriver_ad0378635152f2e35c0686c4fe92996e6}{getcommand} (int index)=0
+\item 
+virtual bool \hyperlink{classstdcvt_1_1CvtDriver_ac289321a67d660f5514c4ddfaa238ade}{control} (\hyperlink{classstdcvt_1_1CvtCommand}{Cvt\+Command} $\ast$pcmd)=0
+\end{DoxyCompactItemize}
+
+
+\subsection{생성자 \& 소멸자 문서화}
+\index{stdcvt\+::\+Cvt\+Driver@{stdcvt\+::\+Cvt\+Driver}!Cvt\+Driver@{Cvt\+Driver}}
+\index{Cvt\+Driver@{Cvt\+Driver}!stdcvt\+::\+Cvt\+Driver@{stdcvt\+::\+Cvt\+Driver}}
+\subsubsection[{\texorpdfstring{Cvt\+Driver(int modelcode, int apispec)}{CvtDriver(int modelcode, int apispec)}}]{\setlength{\rightskip}{0pt plus 5cm}stdcvt\+::\+Cvt\+Driver\+::\+Cvt\+Driver (
+\begin{DoxyParamCaption}
+\item[{int}]{modelcode, }
+\item[{int}]{apispec}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstdcvt_1_1CvtDriver_a82925971b6e8ef2ce7f0b5d113120855}{}\label{classstdcvt_1_1CvtDriver_a82925971b6e8ef2ce7f0b5d113120855}
+새로운 드라이버를 생성한다. 
+\begin{DoxyParams}{매개변수}
+{\em modelcode} & 모델코드 \\
+\hline
+{\em apispec} & A\+PI 버전 \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{멤버 함수 문서화}
+\index{stdcvt\+::\+Cvt\+Driver@{stdcvt\+::\+Cvt\+Driver}!control@{control}}
+\index{control@{control}!stdcvt\+::\+Cvt\+Driver@{stdcvt\+::\+Cvt\+Driver}}
+\subsubsection[{\texorpdfstring{control(\+Cvt\+Command $\ast$pcmd)=0}{control(CvtCommand *pcmd)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool stdcvt\+::\+Cvt\+Driver\+::control (
+\begin{DoxyParamCaption}
+\item[{{\bf Cvt\+Command} $\ast$}]{pcmd}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classstdcvt_1_1CvtDriver_ac289321a67d660f5514c4ddfaa238ade}{}\label{classstdcvt_1_1CvtDriver_ac289321a67d660f5514c4ddfaa238ade}
+다른 드라이버로부터 명령을 받아 처리한다. 
+\begin{DoxyParams}{매개변수}
+{\em pcmd} & 명령에 대한 포인터 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+실제 명령의 처리 여부가 아니라 명령을 수신했는지 여부이다. 해당 명령을 실행할 장비가 없다면 false이다. 
+\end{DoxyReturn}
+
+
+\hyperlink{classebiodriver_1_1DSSampleDriver_a0fe50dbf8dd10f4568f25e83e7e3e873}{ebiodriver\+::\+D\+S\+Sample\+Driver}, \hyperlink{classebiodriver_1_1SSSampleDriver_a25e63484cfbe11d3bc741c1cad5b240c}{ebiodriver\+::\+S\+S\+Sample\+Driver}에서 구현되었습니다.
+
+\index{stdcvt\+::\+Cvt\+Driver@{stdcvt\+::\+Cvt\+Driver}!finalize@{finalize}}
+\index{finalize@{finalize}!stdcvt\+::\+Cvt\+Driver@{stdcvt\+::\+Cvt\+Driver}}
+\subsubsection[{\texorpdfstring{finalize()=0}{finalize()=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool stdcvt\+::\+Cvt\+Driver\+::finalize (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classstdcvt_1_1CvtDriver_a22b39da5aafabec2ee9677ed138256e9}{}\label{classstdcvt_1_1CvtDriver_a22b39da5aafabec2ee9677ed138256e9}
+드라이버를 종료한다. \begin{DoxyReturn}{반환값}
+종료 성공 여부 
+\end{DoxyReturn}
+
+
+\hyperlink{classebiodriver_1_1DSSampleDriver_a21e12d56a042bc9efee56f9af7e41f7c}{ebiodriver\+::\+D\+S\+Sample\+Driver}, \hyperlink{classebiodriver_1_1SSSampleDriver_a43ab28051c128755cbb639d1c2db7ab2}{ebiodriver\+::\+S\+S\+Sample\+Driver}에서 구현되었습니다.
+
+\index{stdcvt\+::\+Cvt\+Driver@{stdcvt\+::\+Cvt\+Driver}!getapispec@{getapispec}}
+\index{getapispec@{getapispec}!stdcvt\+::\+Cvt\+Driver@{stdcvt\+::\+Cvt\+Driver}}
+\subsubsection[{\texorpdfstring{getapispec()}{getapispec()}}]{\setlength{\rightskip}{0pt plus 5cm}int stdcvt\+::\+Cvt\+Driver\+::getapispec (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstdcvt_1_1CvtDriver_ad6e0edc0bc47015d446215e98b7bfc2f}{}\label{classstdcvt_1_1CvtDriver_ad6e0edc0bc47015d446215e98b7bfc2f}
+드라이버의 A\+PI 버전을 확인한다. \begin{DoxyReturn}{반환값}
+드라이버의 A\+PI 버전 
+\end{DoxyReturn}
+\index{stdcvt\+::\+Cvt\+Driver@{stdcvt\+::\+Cvt\+Driver}!getcommand@{getcommand}}
+\index{getcommand@{getcommand}!stdcvt\+::\+Cvt\+Driver@{stdcvt\+::\+Cvt\+Driver}}
+\subsubsection[{\texorpdfstring{getcommand(int index)=0}{getcommand(int index)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Cvt\+Command}$\ast$ stdcvt\+::\+Cvt\+Driver\+::getcommand (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classstdcvt_1_1CvtDriver_ad0378635152f2e35c0686c4fe92996e6}{}\label{classstdcvt_1_1CvtDriver_ad0378635152f2e35c0686c4fe92996e6}
+다른 드라이버가 관리하고 있는 장비를 제어하고자 할때 명령을 전달한다. 명령을 전달하지 않는 드라이버라면 그냥 N\+U\+L\+L을 리턴하도록 만들면 된다. 
+\begin{DoxyParams}{매개변수}
+{\em index} & 얻고자 하는 명령의 인덱스 번호. 0에서 시작한다. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+인덱스에 해당하는 명령의 포인터. N\+U\+LL 이라면 이후에 명령이 없다는 의미이다. 
+\end{DoxyReturn}
+
+
+\hyperlink{classebiodriver_1_1DSSampleDriver_acfccb95870864ce6dc5f99ab94c214fa}{ebiodriver\+::\+D\+S\+Sample\+Driver}, \hyperlink{classebiodriver_1_1SSSampleDriver_a273a5a2d7a1b54ba4d6d3989db78d152}{ebiodriver\+::\+S\+S\+Sample\+Driver}에서 구현되었습니다.
+
+\index{stdcvt\+::\+Cvt\+Driver@{stdcvt\+::\+Cvt\+Driver}!getcompany@{getcompany}}
+\index{getcompany@{getcompany}!stdcvt\+::\+Cvt\+Driver@{stdcvt\+::\+Cvt\+Driver}}
+\subsubsection[{\texorpdfstring{getcompany()=0}{getcompany()=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual string stdcvt\+::\+Cvt\+Driver\+::getcompany (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classstdcvt_1_1CvtDriver_a7566cb63ae741c1df91972f185dbc88c}{}\label{classstdcvt_1_1CvtDriver_a7566cb63ae741c1df91972f185dbc88c}
+드라이버 제조사명을 확인한다. 컨버터에서는 제조사명을 로깅용도로만 사용한다. \begin{DoxyReturn}{반환값}
+문자열 형식의 제조사명 
+\end{DoxyReturn}
+
+
+\hyperlink{classebiodriver_1_1DSSampleDriver_a6c7281bb4d01245c1b5087a1fbcc2b80}{ebiodriver\+::\+D\+S\+Sample\+Driver}, \hyperlink{classebiodriver_1_1SSSampleDriver_ac5db03ba9751cabd78fd00bbe8a4330b}{ebiodriver\+::\+S\+S\+Sample\+Driver}에서 구현되었습니다.
+
+\index{stdcvt\+::\+Cvt\+Driver@{stdcvt\+::\+Cvt\+Driver}!getdevice@{getdevice}}
+\index{getdevice@{getdevice}!stdcvt\+::\+Cvt\+Driver@{stdcvt\+::\+Cvt\+Driver}}
+\subsubsection[{\texorpdfstring{getdevice(int index)=0}{getdevice(int index)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Cvt\+Device}$\ast$ stdcvt\+::\+Cvt\+Driver\+::getdevice (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classstdcvt_1_1CvtDriver_adc2ce5ff6fe2426fd84ce3ae69731704}{}\label{classstdcvt_1_1CvtDriver_adc2ce5ff6fe2426fd84ce3ae69731704}
+드라이버가 관리하고 있는 장비의 포인터를 꺼내준다. 모든 장비를 꺼내주지않고, 변경된 장비만을 꺼내주는 방식으로 효율을 높일 수 있다. 
+\begin{DoxyParams}{매개변수}
+{\em index} & 얻고자 하는 장비의 인덱스 번호. 0에서 시작한다. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+인덱스에 해당하는 장비의 포인터. N\+U\+LL 이라면 이후에 장비가 없다는 의미이다. 
+\end{DoxyReturn}
+
+
+\hyperlink{classebiodriver_1_1DSSampleDriver_a3dcd13870509c3139c6c0ad7ba22cbed}{ebiodriver\+::\+D\+S\+Sample\+Driver}, \hyperlink{classebiodriver_1_1SSSampleDriver_af4bdb5522559606b177416ec408cd4b4}{ebiodriver\+::\+S\+S\+Sample\+Driver}에서 구현되었습니다.
+
+\index{stdcvt\+::\+Cvt\+Driver@{stdcvt\+::\+Cvt\+Driver}!getlastupdated@{getlastupdated}}
+\index{getlastupdated@{getlastupdated}!stdcvt\+::\+Cvt\+Driver@{stdcvt\+::\+Cvt\+Driver}}
+\subsubsection[{\texorpdfstring{getlastupdated()}{getlastupdated()}}]{\setlength{\rightskip}{0pt plus 5cm}time\+\_\+t stdcvt\+::\+Cvt\+Driver\+::getlastupdated (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstdcvt_1_1CvtDriver_a442304919575a1c0adf4e89cd85a3bfb}{}\label{classstdcvt_1_1CvtDriver_a442304919575a1c0adf4e89cd85a3bfb}
+드라이버 가장 최근 업데이트된 시간을 확인한다. \begin{DoxyReturn}{반환값}
+드라이버의 최근 업데이트 시각 
+\end{DoxyReturn}
+\index{stdcvt\+::\+Cvt\+Driver@{stdcvt\+::\+Cvt\+Driver}!getmodel@{getmodel}}
+\index{getmodel@{getmodel}!stdcvt\+::\+Cvt\+Driver@{stdcvt\+::\+Cvt\+Driver}}
+\subsubsection[{\texorpdfstring{getmodel()=0}{getmodel()=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual string stdcvt\+::\+Cvt\+Driver\+::getmodel (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classstdcvt_1_1CvtDriver_a276c9154120dc41563a6604dc9d8e15b}{}\label{classstdcvt_1_1CvtDriver_a276c9154120dc41563a6604dc9d8e15b}
+드라이버 제작자가 부여하는 모델번호를 확인한다. 컨버터에서는 모델코드만 확인하고, 모델번호에 대해서는 로깅용도로만 사용한다. \begin{DoxyReturn}{반환값}
+문자열 형식의 모델번호 
+\end{DoxyReturn}
+
+
+\hyperlink{classebiodriver_1_1DSSampleDriver_aa99ba3c94b288a61a07a73393fec0f81}{ebiodriver\+::\+D\+S\+Sample\+Driver}, \hyperlink{classebiodriver_1_1SSSampleDriver_a5964515c4297caa276cf7dc7959c3b0b}{ebiodriver\+::\+S\+S\+Sample\+Driver}에서 구현되었습니다.
+
+\index{stdcvt\+::\+Cvt\+Driver@{stdcvt\+::\+Cvt\+Driver}!getmodelcode@{getmodelcode}}
+\index{getmodelcode@{getmodelcode}!stdcvt\+::\+Cvt\+Driver@{stdcvt\+::\+Cvt\+Driver}}
+\subsubsection[{\texorpdfstring{getmodelcode()}{getmodelcode()}}]{\setlength{\rightskip}{0pt plus 5cm}int stdcvt\+::\+Cvt\+Driver\+::getmodelcode (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstdcvt_1_1CvtDriver_a86ffa63425176824f6b0493be4e41cda}{}\label{classstdcvt_1_1CvtDriver_a86ffa63425176824f6b0493be4e41cda}
+드라이버의 모델코드를 확인한다. \begin{DoxyReturn}{반환값}
+드라이버의 모델코드 
+\end{DoxyReturn}
+\index{stdcvt\+::\+Cvt\+Driver@{stdcvt\+::\+Cvt\+Driver}!getversion@{getversion}}
+\index{getversion@{getversion}!stdcvt\+::\+Cvt\+Driver@{stdcvt\+::\+Cvt\+Driver}}
+\subsubsection[{\texorpdfstring{getversion()=0}{getversion()=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual string stdcvt\+::\+Cvt\+Driver\+::getversion (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classstdcvt_1_1CvtDriver_a4b21fdbbee5e251ce8b65932108db51e}{}\label{classstdcvt_1_1CvtDriver_a4b21fdbbee5e251ce8b65932108db51e}
+드라이버 제작자가 부여하는 버전번호를 확인한다. 컨버터에서는 해당 버전을 로깅용도로만 사용한다. 문자열 비교를 통해 후순위가 더 높은 버전이 된다. \begin{DoxyReturn}{반환값}
+문자열 형식의 버전번호 
+\end{DoxyReturn}
+
+
+\hyperlink{classebiodriver_1_1DSSampleDriver_ac2173224ee7e59f6386f9dab1a8cb4b6}{ebiodriver\+::\+D\+S\+Sample\+Driver}, \hyperlink{classebiodriver_1_1SSSampleDriver_a1f8d8cdf1b0580c72379282531b55175}{ebiodriver\+::\+S\+S\+Sample\+Driver}에서 구현되었습니다.
+
+\index{stdcvt\+::\+Cvt\+Driver@{stdcvt\+::\+Cvt\+Driver}!initialize@{initialize}}
+\index{initialize@{initialize}!stdcvt\+::\+Cvt\+Driver@{stdcvt\+::\+Cvt\+Driver}}
+\subsubsection[{\texorpdfstring{initialize(\+Cvt\+Option option)=0}{initialize(CvtOption option)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool stdcvt\+::\+Cvt\+Driver\+::initialize (
+\begin{DoxyParamCaption}
+\item[{{\bf Cvt\+Option}}]{option}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classstdcvt_1_1CvtDriver_a71322934c5b5ad0d5b167219cd23a0bb}{}\label{classstdcvt_1_1CvtDriver_a71322934c5b5ad0d5b167219cd23a0bb}
+드라이버를 초기화 한다. 드라이버 동작을 위한 option 은 key-\/value 형식으로 전달된다. 
+\begin{DoxyParams}{매개변수}
+{\em option} & 드라이버동작을 위한 옵션 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+초기화 성공 여부 
+\end{DoxyReturn}
+
+
+\hyperlink{classebiodriver_1_1DSSampleDriver_aaeb74b5cfe475ecdafe87279574fe6e4}{ebiodriver\+::\+D\+S\+Sample\+Driver}, \hyperlink{classebiodriver_1_1SSSampleDriver_a604f906153e106692bd5869c7fd8888f}{ebiodriver\+::\+S\+S\+Sample\+Driver}에서 구현되었습니다.
+
+\index{stdcvt\+::\+Cvt\+Driver@{stdcvt\+::\+Cvt\+Driver}!postprocess@{postprocess}}
+\index{postprocess@{postprocess}!stdcvt\+::\+Cvt\+Driver@{stdcvt\+::\+Cvt\+Driver}}
+\subsubsection[{\texorpdfstring{postprocess()=0}{postprocess()=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool stdcvt\+::\+Cvt\+Driver\+::postprocess (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classstdcvt_1_1CvtDriver_a4bcae9e7c58d989a645a74d21e2fc5ea}{}\label{classstdcvt_1_1CvtDriver_a4bcae9e7c58d989a645a74d21e2fc5ea}
+드라이버간 상태교환이 이루어진 이후에 호출되는 메소드로 후처리를 수행한다. \begin{DoxyReturn}{반환값}
+후처리 성공 여부 
+\end{DoxyReturn}
+
+
+\hyperlink{classebiodriver_1_1DSSampleDriver_aa5913df52706dd85fb4d3c0b8e4e5a92}{ebiodriver\+::\+D\+S\+Sample\+Driver}, \hyperlink{classebiodriver_1_1SSSampleDriver_aa6dc852c3a6f9f5798a4ad53db7efbe3}{ebiodriver\+::\+S\+S\+Sample\+Driver}에서 구현되었습니다.
+
+\index{stdcvt\+::\+Cvt\+Driver@{stdcvt\+::\+Cvt\+Driver}!preprocess@{preprocess}}
+\index{preprocess@{preprocess}!stdcvt\+::\+Cvt\+Driver@{stdcvt\+::\+Cvt\+Driver}}
+\subsubsection[{\texorpdfstring{preprocess()=0}{preprocess()=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool stdcvt\+::\+Cvt\+Driver\+::preprocess (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classstdcvt_1_1CvtDriver_ac15259a26d652d46c198307886d52257}{}\label{classstdcvt_1_1CvtDriver_ac15259a26d652d46c198307886d52257}
+드라이버간 상태교환을 하기전에 호출되는 메소드로 전처리를 수행한다. \begin{DoxyReturn}{반환값}
+전처리 성공 여부 
+\end{DoxyReturn}
+
+
+\hyperlink{classebiodriver_1_1DSSampleDriver_af7463eb1268616f1f2e677d2ad56cf63}{ebiodriver\+::\+D\+S\+Sample\+Driver}, \hyperlink{classebiodriver_1_1SSSampleDriver_a39622e2a63b609136d5e6740a329d450}{ebiodriver\+::\+S\+S\+Sample\+Driver}에서 구현되었습니다.
+
+\index{stdcvt\+::\+Cvt\+Driver@{stdcvt\+::\+Cvt\+Driver}!sharedevice@{sharedevice}}
+\index{sharedevice@{sharedevice}!stdcvt\+::\+Cvt\+Driver@{stdcvt\+::\+Cvt\+Driver}}
+\subsubsection[{\texorpdfstring{sharedevice(\+Cvt\+Device $\ast$pdevice)=0}{sharedevice(CvtDevice *pdevice)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool stdcvt\+::\+Cvt\+Driver\+::sharedevice (
+\begin{DoxyParamCaption}
+\item[{{\bf Cvt\+Device} $\ast$}]{pdevice}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classstdcvt_1_1CvtDriver_aeedcd62d3b6ed95f0584db5a7259f642}{}\label{classstdcvt_1_1CvtDriver_aeedcd62d3b6ed95f0584db5a7259f642}
+전달된 장비의 정보를 획득한다. 다른 드라이버의 장비정보를 입력해주기 위해 컨버터가 호출한다. 
+\begin{DoxyParams}{매개변수}
+{\em pdevice} & 다른 드라이버의 장비 포인터 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{반환값}
+성공여부. 관심이 없는 장비인 경우라도 문제가 없으면 true를 리턴한다. 
+\end{DoxyReturn}
+
+
+\hyperlink{classebiodriver_1_1DSSampleDriver_a027286ae7b53a82d8d46731cfabcfea3}{ebiodriver\+::\+D\+S\+Sample\+Driver}, \hyperlink{classebiodriver_1_1SSSampleDriver_a268e69de75c71df87c32ad3d4aa29a91}{ebiodriver\+::\+S\+S\+Sample\+Driver}에서 구현되었습니다.
+
+\index{stdcvt\+::\+Cvt\+Driver@{stdcvt\+::\+Cvt\+Driver}!updated@{updated}}
+\index{updated@{updated}!stdcvt\+::\+Cvt\+Driver@{stdcvt\+::\+Cvt\+Driver}}
+\subsubsection[{\texorpdfstring{updated()}{updated()}}]{\setlength{\rightskip}{0pt plus 5cm}void stdcvt\+::\+Cvt\+Driver\+::updated (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classstdcvt_1_1CvtDriver_abbaba1b9dd80aae9648dac8a44f31589}{}\label{classstdcvt_1_1CvtDriver_abbaba1b9dd80aae9648dac8a44f31589}
+드라이버의 내용이 업데이트되면 호출한다. 관리하고 있는 장비의 데이터가 변경되면 무조건 호출해 주어야 한다. 현재는 최종업데이트 시간만을 관리한다. 
+
+이 클래스에 대한 문서화 페이지는 다음의 파일로부터 생성되었습니다.\+:\begin{DoxyCompactItemize}
+\item 
+spec/\hyperlink{cvtdriver_8h}{cvtdriver.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,325 @@
+\hypertarget{cvtcode_8h}{}\section{spec/cvtcode.h 파일 참조}
+\label{cvtcode_8h}\index{spec/cvtcode.\+h@{spec/cvtcode.\+h}}
+\subsection*{매크로}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{cvtcode_8h_a7289fda70ed3a9989d210c5401227d33}{C\+V\+T\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+A\+S\+I\+O\+\_\+\+S\+E\+R\+V\+I\+CE}~\char`\"{}opt\+\_\+asio\+\_\+service\char`\"{}\hypertarget{cvtcode_8h_a7289fda70ed3a9989d210c5401227d33}{}\label{cvtcode_8h_a7289fda70ed3a9989d210c5401227d33}
+
+\begin{DoxyCompactList}\small\item\em boost\+::asio\+::io\+\_\+service 를 위한 옵션 키 \end{DoxyCompactList}\item 
+\#define \hyperlink{cvtcode_8h_a0a32c0c21a9ae887f5489d643b2cff88}{D\+L\+\_\+\+U\+N\+K\+N\+O\+WN}~-\/2\hypertarget{cvtcode_8h_a0a32c0c21a9ae887f5489d643b2cff88}{}\label{cvtcode_8h_a0a32c0c21a9ae887f5489d643b2cff88}
+
+\begin{DoxyCompactList}\small\item\em 설치구역 알수 없음 \end{DoxyCompactList}\item 
+\#define \hyperlink{cvtcode_8h_a6f6c163690735e1bbddd35bb30014484}{D\+L\+\_\+\+O\+U\+T\+S\+I\+DE}~-\/1\hypertarget{cvtcode_8h_a6f6c163690735e1bbddd35bb30014484}{}\label{cvtcode_8h_a6f6c163690735e1bbddd35bb30014484}
+
+\begin{DoxyCompactList}\small\item\em 설치구역 외부 \end{DoxyCompactList}\item 
+\#define \hyperlink{cvtcode_8h_ac6db925c0a4407f0950b9a8a57604b41}{D\+L\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+R\+O\+O\+T\+Z\+O\+NE}~10103010101\hypertarget{cvtcode_8h_ac6db925c0a4407f0950b9a8a57604b41}{}\label{cvtcode_8h_ac6db925c0a4407f0950b9a8a57604b41}
+
+\begin{DoxyCompactList}\small\item\em 디폴트 설치구역 지하부 \end{DoxyCompactList}\item 
+\#define \hyperlink{cvtcode_8h_abb7af65ed66bdda6afa7bc6b494db757}{D\+L\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+P\+L\+A\+N\+T\+Z\+O\+NE}~10103010102\hypertarget{cvtcode_8h_abb7af65ed66bdda6afa7bc6b494db757}{}\label{cvtcode_8h_abb7af65ed66bdda6afa7bc6b494db757}
+
+\begin{DoxyCompactList}\small\item\em 디폴트 설치구역 작물부 \end{DoxyCompactList}\item 
+\#define \hyperlink{cvtcode_8h_a7c06ee300eef05f7739db3ea81f2e52e}{D\+L\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+R\+O\+O\+F\+Z\+O\+NE}~10103010103\hypertarget{cvtcode_8h_a7c06ee300eef05f7739db3ea81f2e52e}{}\label{cvtcode_8h_a7c06ee300eef05f7739db3ea81f2e52e}
+
+\begin{DoxyCompactList}\small\item\em 디폴드 설치구역 작물상부 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{타입정의}
+\begin{DoxyCompactItemize}
+\item 
+typedef long \hyperlink{cvtcode_8h_a268eebb73363e24b9e65fd51973bd9c0}{stdcvt\+::devsec\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{열거형 타입}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{cvtcode_8h_ad21cd565f839adc5b19a0993e7da7278}{stdcvt\+::devstat\+\_\+t} \{ \\*
+\hyperlink{cvtcode_8h_ad21cd565f839adc5b19a0993e7da7278ac96b672b451f37bf12a29fa813d15860}{stdcvt\+::\+D\+S\+\_\+\+D\+E\+V\+\_\+\+A\+B\+N\+O\+R\+M\+AL} = 1, 
+\hyperlink{cvtcode_8h_ad21cd565f839adc5b19a0993e7da7278a1d8578630c15db41817c1becddac8ab0}{stdcvt\+::\+D\+S\+\_\+\+S\+E\+N\+\_\+\+N\+O\+R\+M\+AL} = 101, 
+\hyperlink{cvtcode_8h_ad21cd565f839adc5b19a0993e7da7278a80b5bd9870b71f52a83f1a95fee8d817}{stdcvt\+::\+D\+S\+\_\+\+S\+W\+C\+\_\+\+ON} = 201, 
+\hyperlink{cvtcode_8h_ad21cd565f839adc5b19a0993e7da7278a595b04d86677f3e27bf302ac021ecd89}{stdcvt\+::\+D\+S\+\_\+\+S\+W\+C\+\_\+\+O\+FF} = 202, 
+\\*
+\hyperlink{cvtcode_8h_ad21cd565f839adc5b19a0993e7da7278a7e9ee99206654bf0c371e48ea77819ad}{stdcvt\+::\+D\+S\+\_\+\+M\+O\+T\+\_\+\+O\+P\+EN} = 301, 
+\hyperlink{cvtcode_8h_ad21cd565f839adc5b19a0993e7da7278aaa2b6a2fc2d613140c844f2493684512}{stdcvt\+::\+D\+S\+\_\+\+M\+O\+T\+\_\+\+C\+L\+O\+SE} = 302, 
+\hyperlink{cvtcode_8h_ad21cd565f839adc5b19a0993e7da7278ab2a98aa7c4709840543847794e8ab535}{stdcvt\+::\+D\+S\+\_\+\+M\+O\+T\+\_\+\+S\+T\+OP} = 303
+ \}
+\item 
+enum \hyperlink{cvtcode_8h_a2b37fd5cc4d40c0b8c4b987c271e5ceb}{stdcvt\+::devtarget\+\_\+t} \{ \\*
+\hyperlink{cvtcode_8h_a2b37fd5cc4d40c0b8c4b987c271e5cebaa0e4886064d0936ecb24963d248587bc}{stdcvt\+::\+D\+O\+\_\+\+U\+N\+K\+N\+O\+WN} = 1, 
+\hyperlink{cvtcode_8h_a2b37fd5cc4d40c0b8c4b987c271e5ceba3b49e7fda4269fc068dbbfe4a9f233a5}{stdcvt\+::\+D\+O\+\_\+\+E\+N\+V\+\_\+\+A\+T\+M\+O\+S\+P\+H\+E\+RE} = 1001, 
+\hyperlink{cvtcode_8h_a2b37fd5cc4d40c0b8c4b987c271e5ceba585e93b280b1d4dcccd851f08fb7b8dd}{stdcvt\+::\+D\+O\+\_\+\+E\+N\+V\+\_\+\+S\+O\+IL} = 1002, 
+\hyperlink{cvtcode_8h_a2b37fd5cc4d40c0b8c4b987c271e5cebaa26e34d2b75de2c762fe9eeaf04f35e4}{stdcvt\+::\+D\+O\+\_\+\+E\+N\+V\+\_\+\+N\+U\+T\+R\+I\+E\+N\+T\+S\+O\+L\+U\+T\+I\+ON} = 1003, 
+\\*
+\hyperlink{cvtcode_8h_a2b37fd5cc4d40c0b8c4b987c271e5ceba0fd181d2dc205f8dc1b5bd2f28fe2656}{stdcvt\+::\+D\+O\+\_\+\+P\+L\+A\+N\+T\+\_\+\+S\+T\+EM} = 2001, 
+\hyperlink{cvtcode_8h_a2b37fd5cc4d40c0b8c4b987c271e5ceba29163db618d23c82f95ba5a3d7e76645}{stdcvt\+::\+D\+O\+\_\+\+P\+L\+A\+N\+T\+\_\+\+L\+E\+AF} = 2002, 
+\hyperlink{cvtcode_8h_a2b37fd5cc4d40c0b8c4b987c271e5ceba8d31fadc17cb9bd4510fb0e1b1999920}{stdcvt\+::\+D\+O\+\_\+\+P\+L\+A\+N\+T\+\_\+\+F\+R\+U\+IT} = 2003, 
+\hyperlink{cvtcode_8h_a2b37fd5cc4d40c0b8c4b987c271e5ceba5afe0f7456d7ecf1fdc1b3a273d8494c}{stdcvt\+::\+D\+O\+\_\+\+P\+L\+A\+N\+T\+\_\+\+R\+O\+OT} = 2004, 
+\\*
+\hyperlink{cvtcode_8h_a2b37fd5cc4d40c0b8c4b987c271e5ceba751bb91c3fe9f4a6954b2106d436a113}{stdcvt\+::\+D\+O\+\_\+\+E\+Q\+U\+I\+P\+M\+E\+NT} = 3001, 
+\hyperlink{cvtcode_8h_a2b37fd5cc4d40c0b8c4b987c271e5ceba8942faaced3d13c3aeb7ac4be0192212}{stdcvt\+::\+D\+O\+\_\+\+E\+Q\+U\+I\+P\+M\+E\+N\+T\+\_\+\+N\+O\+R\+TH} = 3002, 
+\hyperlink{cvtcode_8h_a2b37fd5cc4d40c0b8c4b987c271e5ceba4f42430deaa130fed3fdc9078caeb729}{stdcvt\+::\+D\+O\+\_\+\+E\+Q\+U\+I\+P\+M\+E\+N\+T\+\_\+\+S\+O\+U\+TH} = 3003
+ \}
+\item 
+enum \hyperlink{cvtcode_8h_a2b770a849c30d4f4786dc06b59aef47c}{stdcvt\+::devgroup\+\_\+t} \{ \hyperlink{cvtcode_8h_a2b770a849c30d4f4786dc06b59aef47ca67e0963f8c31286c269ff7ff84271b0a}{stdcvt\+::\+D\+G\+\_\+\+U\+N\+K\+N\+O\+WN} = 0, 
+\hyperlink{cvtcode_8h_a2b770a849c30d4f4786dc06b59aef47ca8fa09beabc6717643b85619401bc3556}{stdcvt\+::\+D\+G\+\_\+\+S\+E\+N\+S\+OR} = 1, 
+\hyperlink{cvtcode_8h_a2b770a849c30d4f4786dc06b59aef47ca3f83b426da669adcdce1a4d65b369681}{stdcvt\+::\+D\+G\+\_\+\+M\+O\+T\+OR} = 2, 
+\hyperlink{cvtcode_8h_a2b770a849c30d4f4786dc06b59aef47cac19efff82384d1314d673db2aaf6d0be}{stdcvt\+::\+D\+G\+\_\+\+S\+W\+I\+T\+CH} = 3
+ \}
+\item 
+enum \hyperlink{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638b}{stdcvt\+::devtype\+\_\+t} \{ \\*
+\hyperlink{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638bac76aa2050f7e6c08fa289d5fc99ccc0d}{stdcvt\+::\+D\+T\+\_\+\+D\+E\+V\+\_\+\+U\+N\+K\+N\+O\+WN} = 0, 
+\hyperlink{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638baf14b2a8be79f83596c8885211a4874b3}{stdcvt\+::\+D\+T\+\_\+\+S\+E\+N\+\_\+\+T\+E\+M\+P\+E\+R\+A\+T\+U\+RE} = 10100, 
+\hyperlink{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba0dc6855f4c108a0807eb867879e5f60b}{stdcvt\+::\+D\+T\+\_\+\+S\+E\+N\+\_\+\+H\+U\+M\+I\+D\+I\+TY} = 10200, 
+\hyperlink{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638baef0efaecb4a7d49a18db5e69eeda6144}{stdcvt\+::\+D\+T\+\_\+\+S\+E\+N\+\_\+\+R\+A\+D\+I\+A\+T\+I\+ON} = 10300, 
+\\*
+\hyperlink{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba6a23c1060be5889c58be359a8b0a846e}{stdcvt\+::\+D\+T\+\_\+\+S\+E\+N\+\_\+\+W\+I\+N\+D\+D\+I\+R\+E\+C\+T\+I\+ON} = 10400, 
+\hyperlink{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba1f4ff23d615f43186c9a8f28b0d07c8e}{stdcvt\+::\+D\+T\+\_\+\+S\+E\+N\+\_\+\+W\+I\+N\+D\+S\+P\+E\+ED} = 10500, 
+\hyperlink{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638baf284e0b99a69e9eda6fc9acc423bdc39}{stdcvt\+::\+D\+T\+\_\+\+S\+E\+N\+\_\+\+R\+A\+IN} = 10600, 
+\hyperlink{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638bac6f86b754c5b1093086cd5f3bf0578bc}{stdcvt\+::\+D\+T\+\_\+\+S\+E\+N\+\_\+\+R\+A\+I\+N\+F\+A\+LL} = 10700, 
+\\*
+\hyperlink{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba878d711fafac5306b8885a15e6ae0b55}{stdcvt\+::\+D\+T\+\_\+\+S\+E\+N\+\_\+\+P\+H\+O\+T\+O\+N\+F\+L\+UX} = 10800, 
+\hyperlink{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba429e18b1464acd50dad06c12edc983c6}{stdcvt\+::\+D\+T\+\_\+\+S\+E\+N\+\_\+\+S\+O\+I\+L\+M\+O\+I\+S\+T\+U\+RE} = 10900, 
+\hyperlink{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638bafac5e0040804bb172bde6486568bed26}{stdcvt\+::\+D\+T\+\_\+\+S\+E\+N\+\_\+\+S\+O\+I\+L\+M\+O\+I\+S\+T\+U\+R\+E\+T\+E\+N\+S\+I\+ON} = 11000, 
+\hyperlink{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba07566921d0aa37b3c24e8a8f4a630252}{stdcvt\+::\+D\+T\+\_\+\+S\+E\+N\+\_\+\+EC} = 11100, 
+\\*
+\hyperlink{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba6a166b4a1e39fea4ea29d9b206bbf225}{stdcvt\+::\+D\+T\+\_\+\+S\+E\+N\+\_\+\+PH} = 11200, 
+\hyperlink{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638bae66329cc9c95818953b8388b5c0c03a4}{stdcvt\+::\+D\+T\+\_\+\+S\+E\+N\+\_\+\+B\+A\+T\+T\+E\+RY} = 11300, 
+\hyperlink{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba983e90409f2fba773aa532ce28d70113}{stdcvt\+::\+D\+T\+\_\+\+S\+E\+N\+\_\+\+A\+DC} = 11400, 
+\hyperlink{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba96e3f6f871ca6e321f22af380cee66e3}{stdcvt\+::\+D\+T\+\_\+\+S\+E\+N\+\_\+\+U\+N\+K\+N\+O\+WN} = 19000, 
+\\*
+\hyperlink{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638bafb28bfb6dfe0a56ce3c3887a965b15c6}{stdcvt\+::\+D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+I\+D\+E\+W\+I\+N\+D\+OW} = 20100, 
+\hyperlink{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba7b0ddb82868644b3f6d062021d2f993d}{stdcvt\+::\+D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+I\+D\+E\+W\+I\+N\+D\+O\+W\+\_\+1} = 20101, 
+\hyperlink{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638bab41e61b5e1251264e53580bf922fe9ad}{stdcvt\+::\+D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+I\+D\+E\+W\+I\+N\+D\+O\+W\+\_\+2} = 20102, 
+\hyperlink{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638baaf0529050789187448e7e6ac9c319efb}{stdcvt\+::\+D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+I\+D\+E\+W\+I\+N\+D\+O\+W\+\_\+3} = 20103, 
+\\*
+\hyperlink{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638bad899f8e47dd328601ce3fe93a32d8eca}{stdcvt\+::\+D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+I\+D\+E\+W\+I\+N\+D\+O\+W\+\_\+4} = 20104, 
+\hyperlink{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638babf3f5b6c9cdc03d6706577fb4017884b}{stdcvt\+::\+D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+I\+D\+E\+W\+I\+N\+D\+O\+W\+\_\+5} = 20105, 
+\hyperlink{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638bac45ada5f13c6b334980d1691ee27e2e1}{stdcvt\+::\+D\+T\+\_\+\+M\+O\+T\+\_\+\+R\+O\+O\+F\+W\+I\+N\+D\+OW} = 20200, 
+\hyperlink{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba77f820de92bdb51d5efc74ec8c27258b}{stdcvt\+::\+D\+T\+\_\+\+M\+O\+T\+\_\+\+R\+O\+O\+F\+W\+I\+N\+D\+O\+W\+\_\+1} = 20201, 
+\\*
+\hyperlink{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba4c9920073abb328bb1b3183d51ce2901}{stdcvt\+::\+D\+T\+\_\+\+M\+O\+T\+\_\+\+R\+O\+O\+F\+W\+I\+N\+D\+O\+W\+\_\+2} = 20202, 
+\hyperlink{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638bad995cab1b506c3a430b9eb6717007fee}{stdcvt\+::\+D\+T\+\_\+\+M\+O\+T\+\_\+\+R\+O\+O\+F\+W\+I\+N\+D\+O\+W\+\_\+3} = 20203, 
+\hyperlink{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba761986b908d090252bfdf3d1e3746fb0}{stdcvt\+::\+D\+T\+\_\+\+M\+O\+T\+\_\+\+R\+O\+O\+F\+W\+I\+N\+D\+O\+W\+\_\+4} = 20204, 
+\hyperlink{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba21a8f2e72be64dda185875016c50f895}{stdcvt\+::\+D\+T\+\_\+\+M\+O\+T\+\_\+\+R\+O\+O\+F\+W\+I\+N\+D\+O\+W\+\_\+5} = 20205, 
+\\*
+\hyperlink{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba71341552702bbd6dfedb293c82a27d49}{stdcvt\+::\+D\+T\+\_\+\+M\+O\+T\+\_\+\+R\+O\+O\+F\+C\+U\+R\+T\+A\+IN} = 20400, 
+\hyperlink{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba405a860d35382e14488e77f42f3da814}{stdcvt\+::\+D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+I\+D\+E\+C\+U\+R\+T\+A\+IN} = 20500, 
+\hyperlink{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba05c7601d193592960552a84dd6d0d81c}{stdcvt\+::\+D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+H\+A\+D\+I\+N\+G\+C\+U\+R\+T\+A\+IN} = 20600, 
+\hyperlink{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba8cb81b6b95d360c67e0d8a83e4b30239}{stdcvt\+::\+D\+T\+\_\+\+M\+O\+T\+\_\+\+U\+N\+K\+N\+O\+WN} = 29000, 
+\\*
+\hyperlink{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638baa41938fdbff1314b5097729dd13929ea}{stdcvt\+::\+D\+T\+\_\+\+S\+W\+C\+\_\+\+F\+AN} = 30100, 
+\hyperlink{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba587c147fb0838a84e824091eae5441cc}{stdcvt\+::\+D\+T\+\_\+\+S\+W\+C\+\_\+\+F\+L\+O\+W\+F\+AN} = 30101, 
+\hyperlink{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba5140b22b3eac4cc3d4a970e7079d764f}{stdcvt\+::\+D\+T\+\_\+\+S\+W\+C\+\_\+\+V\+E\+N\+T\+F\+AN} = 30102, 
+\hyperlink{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba17d37725180938061f8273c85111e8c5}{stdcvt\+::\+D\+T\+\_\+\+S\+W\+C\+\_\+\+U\+N\+K\+N\+O\+WN} = 39000
+ \}
+\item 
+enum \hyperlink{cvtcode_8h_a6d4ed81d95144c5eedcd08eda1e800a4}{stdcvt\+::obsunit\+\_\+t} \{ \\*
+\hyperlink{cvtcode_8h_a6d4ed81d95144c5eedcd08eda1e800a4ab389c85cef8b594c44331d7c8ca6a7c1}{stdcvt\+::\+O\+U\+\_\+\+N\+O\+NE} = 1, 
+\hyperlink{cvtcode_8h_a6d4ed81d95144c5eedcd08eda1e800a4aac2ae852cb924efaac29ba2f9117b930}{stdcvt\+::\+O\+U\+\_\+\+C\+E\+L\+S\+I\+US} = 2, 
+\hyperlink{cvtcode_8h_a6d4ed81d95144c5eedcd08eda1e800a4a0ed8a0f64d38958d41762c3c6af20776}{stdcvt\+::\+O\+U\+\_\+\+P\+E\+R\+C\+E\+NT} = 3, 
+\hyperlink{cvtcode_8h_a6d4ed81d95144c5eedcd08eda1e800a4a1a5b3cd131b299341970ca21786feacd}{stdcvt\+::\+O\+U\+\_\+\+P\+PM} = 4, 
+\\*
+\hyperlink{cvtcode_8h_a6d4ed81d95144c5eedcd08eda1e800a4a161ec92b841f5d2483756dd6457e16a2}{stdcvt\+::\+O\+U\+\_\+\+W\+\_\+\+P\+E\+R\+\_\+\+M\+SQ} = 5, 
+\hyperlink{cvtcode_8h_a6d4ed81d95144c5eedcd08eda1e800a4a2477e0ae5415693ec33f3f1a1c737567}{stdcvt\+::\+O\+U\+\_\+\+D\+E\+G\+R\+EE} = 6, 
+\hyperlink{cvtcode_8h_a6d4ed81d95144c5eedcd08eda1e800a4adc921867ba34c438dc3d2358bfba2668}{stdcvt\+::\+O\+U\+\_\+\+M\+\_\+\+P\+E\+R\+\_\+\+S\+EC} = 7, 
+\hyperlink{cvtcode_8h_a6d4ed81d95144c5eedcd08eda1e800a4a9ef4e9cdc097e47043ceee52fa548302}{stdcvt\+::\+O\+U\+\_\+\+M\+M\+O\+L\+\_\+\+P\+E\+R\+\_\+\+M\+S\+Q\+S\+EC} = 8, 
+\\*
+\hyperlink{cvtcode_8h_a6d4ed81d95144c5eedcd08eda1e800a4ac274d1237282daca5bdfd0d295cc2c8e}{stdcvt\+::\+O\+U\+\_\+\+K\+PA} = 9, 
+\hyperlink{cvtcode_8h_a6d4ed81d95144c5eedcd08eda1e800a4a6a8ac4f9f10fcf8cd489093f7a2a7964}{stdcvt\+::\+O\+U\+\_\+\+D\+S\+\_\+\+P\+E\+R\+\_\+M} = 10, 
+\hyperlink{cvtcode_8h_a6d4ed81d95144c5eedcd08eda1e800a4a2da644064ead05926a8bdacbfcad778f}{stdcvt\+::\+O\+U\+\_\+\+PH} = 11
+ \}
+\end{DoxyCompactItemize}
+
+
+\subsection{상세한 설명}
+Copyright © 2018 ebio lab. S\+NU. All Rights Reserved.
+
+\begin{DoxyDate}{날짜}
+2018-\/02-\/24, Joon\+Yong 
+\end{DoxyDate}
+\begin{DoxyAuthor}{작성자}
+Kim, Joon\+Yong \href{mailto:tombraid@snu.ac.kr}{\tt tombraid@snu.\+ac.\+kr}
+\end{DoxyAuthor}
+This file has various common codes. refer from\+: \href{https:///github.com/ebio-snu/stdcvt}{\tt https\+:///github.\+com/ebio-\/snu/stdcvt} 
+
+\subsection{타입정의 문서화}
+\index{cvtcode.\+h@{cvtcode.\+h}!devsec\+\_\+t@{devsec\+\_\+t}}
+\index{devsec\+\_\+t@{devsec\+\_\+t}!cvtcode.\+h@{cvtcode.\+h}}
+\subsubsection[{\texorpdfstring{devsec\+\_\+t}{devsec_t}}]{\setlength{\rightskip}{0pt plus 5cm}typedef long {\bf stdcvt\+::devsec\+\_\+t}}\hypertarget{cvtcode_8h_file_a268eebb73363e24b9e65fd51973bd9c0}{}\label{cvtcode_8h_file_a268eebb73363e24b9e65fd51973bd9c0}
+장비 설치 구역 타입 
+
+\subsection{열거형 타입 문서화}
+\index{cvtcode.\+h@{cvtcode.\+h}!devgroup\+\_\+t@{devgroup\+\_\+t}}
+\index{devgroup\+\_\+t@{devgroup\+\_\+t}!cvtcode.\+h@{cvtcode.\+h}}
+\subsubsection[{\texorpdfstring{devgroup\+\_\+t}{devgroup_t}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf stdcvt\+::devgroup\+\_\+t}}\hypertarget{cvtcode_8h_file_a2b770a849c30d4f4786dc06b59aef47c}{}\label{cvtcode_8h_file_a2b770a849c30d4f4786dc06b59aef47c}
+장비 그룹 타입 \begin{Desc}
+\item[열거형 멤버]\par
+\begin{description}
+\index{D\+G\+\_\+\+U\+N\+K\+N\+O\+WN@{D\+G\+\_\+\+U\+N\+K\+N\+O\+WN}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+G\+\_\+\+U\+N\+K\+N\+O\+WN@{D\+G\+\_\+\+U\+N\+K\+N\+O\+WN}}\item[{\em 
+D\+G\+\_\+\+U\+N\+K\+N\+O\+WN\hypertarget{cvtcode_8h_a2b770a849c30d4f4786dc06b59aef47ca67e0963f8c31286c269ff7ff84271b0a}{}\label{cvtcode_8h_a2b770a849c30d4f4786dc06b59aef47ca67e0963f8c31286c269ff7ff84271b0a}
+}]알수없는 장비그룹 \index{D\+G\+\_\+\+S\+E\+N\+S\+OR@{D\+G\+\_\+\+S\+E\+N\+S\+OR}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+G\+\_\+\+S\+E\+N\+S\+OR@{D\+G\+\_\+\+S\+E\+N\+S\+OR}}\item[{\em 
+D\+G\+\_\+\+S\+E\+N\+S\+OR\hypertarget{cvtcode_8h_a2b770a849c30d4f4786dc06b59aef47ca8fa09beabc6717643b85619401bc3556}{}\label{cvtcode_8h_a2b770a849c30d4f4786dc06b59aef47ca8fa09beabc6717643b85619401bc3556}
+}]센서 그룹 \index{D\+G\+\_\+\+M\+O\+T\+OR@{D\+G\+\_\+\+M\+O\+T\+OR}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+G\+\_\+\+M\+O\+T\+OR@{D\+G\+\_\+\+M\+O\+T\+OR}}\item[{\em 
+D\+G\+\_\+\+M\+O\+T\+OR\hypertarget{cvtcode_8h_a2b770a849c30d4f4786dc06b59aef47ca3f83b426da669adcdce1a4d65b369681}{}\label{cvtcode_8h_a2b770a849c30d4f4786dc06b59aef47ca3f83b426da669adcdce1a4d65b369681}
+}]모터형 구동기 그룹 \index{D\+G\+\_\+\+S\+W\+I\+T\+CH@{D\+G\+\_\+\+S\+W\+I\+T\+CH}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+G\+\_\+\+S\+W\+I\+T\+CH@{D\+G\+\_\+\+S\+W\+I\+T\+CH}}\item[{\em 
+D\+G\+\_\+\+S\+W\+I\+T\+CH\hypertarget{cvtcode_8h_a2b770a849c30d4f4786dc06b59aef47cac19efff82384d1314d673db2aaf6d0be}{}\label{cvtcode_8h_a2b770a849c30d4f4786dc06b59aef47cac19efff82384d1314d673db2aaf6d0be}
+}]스위치형 구동기 그룹 \end{description}
+\end{Desc}
+\index{cvtcode.\+h@{cvtcode.\+h}!devstat\+\_\+t@{devstat\+\_\+t}}
+\index{devstat\+\_\+t@{devstat\+\_\+t}!cvtcode.\+h@{cvtcode.\+h}}
+\subsubsection[{\texorpdfstring{devstat\+\_\+t}{devstat_t}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf stdcvt\+::devstat\+\_\+t}}\hypertarget{cvtcode_8h_file_ad21cd565f839adc5b19a0993e7da7278}{}\label{cvtcode_8h_file_ad21cd565f839adc5b19a0993e7da7278}
+장비 상태 타입 \begin{Desc}
+\item[열거형 멤버]\par
+\begin{description}
+\index{D\+S\+\_\+\+D\+E\+V\+\_\+\+A\+B\+N\+O\+R\+M\+AL@{D\+S\+\_\+\+D\+E\+V\+\_\+\+A\+B\+N\+O\+R\+M\+AL}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+S\+\_\+\+D\+E\+V\+\_\+\+A\+B\+N\+O\+R\+M\+AL@{D\+S\+\_\+\+D\+E\+V\+\_\+\+A\+B\+N\+O\+R\+M\+AL}}\item[{\em 
+D\+S\+\_\+\+D\+E\+V\+\_\+\+A\+B\+N\+O\+R\+M\+AL\hypertarget{cvtcode_8h_ad21cd565f839adc5b19a0993e7da7278ac96b672b451f37bf12a29fa813d15860}{}\label{cvtcode_8h_ad21cd565f839adc5b19a0993e7da7278ac96b672b451f37bf12a29fa813d15860}
+}]비정상 \index{D\+S\+\_\+\+S\+E\+N\+\_\+\+N\+O\+R\+M\+AL@{D\+S\+\_\+\+S\+E\+N\+\_\+\+N\+O\+R\+M\+AL}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+S\+\_\+\+S\+E\+N\+\_\+\+N\+O\+R\+M\+AL@{D\+S\+\_\+\+S\+E\+N\+\_\+\+N\+O\+R\+M\+AL}}\item[{\em 
+D\+S\+\_\+\+S\+E\+N\+\_\+\+N\+O\+R\+M\+AL\hypertarget{cvtcode_8h_ad21cd565f839adc5b19a0993e7da7278a1d8578630c15db41817c1becddac8ab0}{}\label{cvtcode_8h_ad21cd565f839adc5b19a0993e7da7278a1d8578630c15db41817c1becddac8ab0}
+}]센서 정상 상태 \index{D\+S\+\_\+\+S\+W\+C\+\_\+\+ON@{D\+S\+\_\+\+S\+W\+C\+\_\+\+ON}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+S\+\_\+\+S\+W\+C\+\_\+\+ON@{D\+S\+\_\+\+S\+W\+C\+\_\+\+ON}}\item[{\em 
+D\+S\+\_\+\+S\+W\+C\+\_\+\+ON\hypertarget{cvtcode_8h_ad21cd565f839adc5b19a0993e7da7278a80b5bd9870b71f52a83f1a95fee8d817}{}\label{cvtcode_8h_ad21cd565f839adc5b19a0993e7da7278a80b5bd9870b71f52a83f1a95fee8d817}
+}]스위치 켜짐(정상) \index{D\+S\+\_\+\+S\+W\+C\+\_\+\+O\+FF@{D\+S\+\_\+\+S\+W\+C\+\_\+\+O\+FF}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+S\+\_\+\+S\+W\+C\+\_\+\+O\+FF@{D\+S\+\_\+\+S\+W\+C\+\_\+\+O\+FF}}\item[{\em 
+D\+S\+\_\+\+S\+W\+C\+\_\+\+O\+FF\hypertarget{cvtcode_8h_ad21cd565f839adc5b19a0993e7da7278a595b04d86677f3e27bf302ac021ecd89}{}\label{cvtcode_8h_ad21cd565f839adc5b19a0993e7da7278a595b04d86677f3e27bf302ac021ecd89}
+}]스위치 꺼짐(정상) \index{D\+S\+\_\+\+M\+O\+T\+\_\+\+O\+P\+EN@{D\+S\+\_\+\+M\+O\+T\+\_\+\+O\+P\+EN}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+S\+\_\+\+M\+O\+T\+\_\+\+O\+P\+EN@{D\+S\+\_\+\+M\+O\+T\+\_\+\+O\+P\+EN}}\item[{\em 
+D\+S\+\_\+\+M\+O\+T\+\_\+\+O\+P\+EN\hypertarget{cvtcode_8h_ad21cd565f839adc5b19a0993e7da7278a7e9ee99206654bf0c371e48ea77819ad}{}\label{cvtcode_8h_ad21cd565f839adc5b19a0993e7da7278a7e9ee99206654bf0c371e48ea77819ad}
+}]모터 열리는 중(정상) \index{D\+S\+\_\+\+M\+O\+T\+\_\+\+C\+L\+O\+SE@{D\+S\+\_\+\+M\+O\+T\+\_\+\+C\+L\+O\+SE}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+S\+\_\+\+M\+O\+T\+\_\+\+C\+L\+O\+SE@{D\+S\+\_\+\+M\+O\+T\+\_\+\+C\+L\+O\+SE}}\item[{\em 
+D\+S\+\_\+\+M\+O\+T\+\_\+\+C\+L\+O\+SE\hypertarget{cvtcode_8h_ad21cd565f839adc5b19a0993e7da7278aaa2b6a2fc2d613140c844f2493684512}{}\label{cvtcode_8h_ad21cd565f839adc5b19a0993e7da7278aaa2b6a2fc2d613140c844f2493684512}
+}]모터 닫히는 중(정상) \index{D\+S\+\_\+\+M\+O\+T\+\_\+\+S\+T\+OP@{D\+S\+\_\+\+M\+O\+T\+\_\+\+S\+T\+OP}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+S\+\_\+\+M\+O\+T\+\_\+\+S\+T\+OP@{D\+S\+\_\+\+M\+O\+T\+\_\+\+S\+T\+OP}}\item[{\em 
+D\+S\+\_\+\+M\+O\+T\+\_\+\+S\+T\+OP\hypertarget{cvtcode_8h_ad21cd565f839adc5b19a0993e7da7278ab2a98aa7c4709840543847794e8ab535}{}\label{cvtcode_8h_ad21cd565f839adc5b19a0993e7da7278ab2a98aa7c4709840543847794e8ab535}
+}]모터 중지상태(정상) \end{description}
+\end{Desc}
+\index{cvtcode.\+h@{cvtcode.\+h}!devtarget\+\_\+t@{devtarget\+\_\+t}}
+\index{devtarget\+\_\+t@{devtarget\+\_\+t}!cvtcode.\+h@{cvtcode.\+h}}
+\subsubsection[{\texorpdfstring{devtarget\+\_\+t}{devtarget_t}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf stdcvt\+::devtarget\+\_\+t}}\hypertarget{cvtcode_8h_file_a2b37fd5cc4d40c0b8c4b987c271e5ceb}{}\label{cvtcode_8h_file_a2b37fd5cc4d40c0b8c4b987c271e5ceb}
+장비 작동대상 타입 \begin{Desc}
+\item[열거형 멤버]\par
+\begin{description}
+\index{D\+O\+\_\+\+U\+N\+K\+N\+O\+WN@{D\+O\+\_\+\+U\+N\+K\+N\+O\+WN}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+O\+\_\+\+U\+N\+K\+N\+O\+WN@{D\+O\+\_\+\+U\+N\+K\+N\+O\+WN}}\item[{\em 
+D\+O\+\_\+\+U\+N\+K\+N\+O\+WN\hypertarget{cvtcode_8h_a2b37fd5cc4d40c0b8c4b987c271e5cebaa0e4886064d0936ecb24963d248587bc}{}\label{cvtcode_8h_a2b37fd5cc4d40c0b8c4b987c271e5cebaa0e4886064d0936ecb24963d248587bc}
+}]대상을 알지 못함 \index{D\+O\+\_\+\+E\+N\+V\+\_\+\+A\+T\+M\+O\+S\+P\+H\+E\+RE@{D\+O\+\_\+\+E\+N\+V\+\_\+\+A\+T\+M\+O\+S\+P\+H\+E\+RE}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+O\+\_\+\+E\+N\+V\+\_\+\+A\+T\+M\+O\+S\+P\+H\+E\+RE@{D\+O\+\_\+\+E\+N\+V\+\_\+\+A\+T\+M\+O\+S\+P\+H\+E\+RE}}\item[{\em 
+D\+O\+\_\+\+E\+N\+V\+\_\+\+A\+T\+M\+O\+S\+P\+H\+E\+RE\hypertarget{cvtcode_8h_a2b37fd5cc4d40c0b8c4b987c271e5ceba3b49e7fda4269fc068dbbfe4a9f233a5}{}\label{cvtcode_8h_a2b37fd5cc4d40c0b8c4b987c271e5ceba3b49e7fda4269fc068dbbfe4a9f233a5}
+}]대기를 대상으로 함 \index{D\+O\+\_\+\+E\+N\+V\+\_\+\+S\+O\+IL@{D\+O\+\_\+\+E\+N\+V\+\_\+\+S\+O\+IL}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+O\+\_\+\+E\+N\+V\+\_\+\+S\+O\+IL@{D\+O\+\_\+\+E\+N\+V\+\_\+\+S\+O\+IL}}\item[{\em 
+D\+O\+\_\+\+E\+N\+V\+\_\+\+S\+O\+IL\hypertarget{cvtcode_8h_a2b37fd5cc4d40c0b8c4b987c271e5ceba585e93b280b1d4dcccd851f08fb7b8dd}{}\label{cvtcode_8h_a2b37fd5cc4d40c0b8c4b987c271e5ceba585e93b280b1d4dcccd851f08fb7b8dd}
+}]토양을 대상으로 함 \index{D\+O\+\_\+\+E\+N\+V\+\_\+\+N\+U\+T\+R\+I\+E\+N\+T\+S\+O\+L\+U\+T\+I\+ON@{D\+O\+\_\+\+E\+N\+V\+\_\+\+N\+U\+T\+R\+I\+E\+N\+T\+S\+O\+L\+U\+T\+I\+ON}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+O\+\_\+\+E\+N\+V\+\_\+\+N\+U\+T\+R\+I\+E\+N\+T\+S\+O\+L\+U\+T\+I\+ON@{D\+O\+\_\+\+E\+N\+V\+\_\+\+N\+U\+T\+R\+I\+E\+N\+T\+S\+O\+L\+U\+T\+I\+ON}}\item[{\em 
+D\+O\+\_\+\+E\+N\+V\+\_\+\+N\+U\+T\+R\+I\+E\+N\+T\+S\+O\+L\+U\+T\+I\+ON\hypertarget{cvtcode_8h_a2b37fd5cc4d40c0b8c4b987c271e5cebaa26e34d2b75de2c762fe9eeaf04f35e4}{}\label{cvtcode_8h_a2b37fd5cc4d40c0b8c4b987c271e5cebaa26e34d2b75de2c762fe9eeaf04f35e4}
+}]양액을 대상으로 함 \index{D\+O\+\_\+\+P\+L\+A\+N\+T\+\_\+\+S\+T\+EM@{D\+O\+\_\+\+P\+L\+A\+N\+T\+\_\+\+S\+T\+EM}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+O\+\_\+\+P\+L\+A\+N\+T\+\_\+\+S\+T\+EM@{D\+O\+\_\+\+P\+L\+A\+N\+T\+\_\+\+S\+T\+EM}}\item[{\em 
+D\+O\+\_\+\+P\+L\+A\+N\+T\+\_\+\+S\+T\+EM\hypertarget{cvtcode_8h_a2b37fd5cc4d40c0b8c4b987c271e5ceba0fd181d2dc205f8dc1b5bd2f28fe2656}{}\label{cvtcode_8h_a2b37fd5cc4d40c0b8c4b987c271e5ceba0fd181d2dc205f8dc1b5bd2f28fe2656}
+}]작물의 줄기를 대상으로 함 \index{D\+O\+\_\+\+P\+L\+A\+N\+T\+\_\+\+L\+E\+AF@{D\+O\+\_\+\+P\+L\+A\+N\+T\+\_\+\+L\+E\+AF}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+O\+\_\+\+P\+L\+A\+N\+T\+\_\+\+L\+E\+AF@{D\+O\+\_\+\+P\+L\+A\+N\+T\+\_\+\+L\+E\+AF}}\item[{\em 
+D\+O\+\_\+\+P\+L\+A\+N\+T\+\_\+\+L\+E\+AF\hypertarget{cvtcode_8h_a2b37fd5cc4d40c0b8c4b987c271e5ceba29163db618d23c82f95ba5a3d7e76645}{}\label{cvtcode_8h_a2b37fd5cc4d40c0b8c4b987c271e5ceba29163db618d23c82f95ba5a3d7e76645}
+}]작물의 잎을 대상으로 함 \index{D\+O\+\_\+\+P\+L\+A\+N\+T\+\_\+\+F\+R\+U\+IT@{D\+O\+\_\+\+P\+L\+A\+N\+T\+\_\+\+F\+R\+U\+IT}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+O\+\_\+\+P\+L\+A\+N\+T\+\_\+\+F\+R\+U\+IT@{D\+O\+\_\+\+P\+L\+A\+N\+T\+\_\+\+F\+R\+U\+IT}}\item[{\em 
+D\+O\+\_\+\+P\+L\+A\+N\+T\+\_\+\+F\+R\+U\+IT\hypertarget{cvtcode_8h_a2b37fd5cc4d40c0b8c4b987c271e5ceba8d31fadc17cb9bd4510fb0e1b1999920}{}\label{cvtcode_8h_a2b37fd5cc4d40c0b8c4b987c271e5ceba8d31fadc17cb9bd4510fb0e1b1999920}
+}]작물의 과실을 대상으로 함 \index{D\+O\+\_\+\+P\+L\+A\+N\+T\+\_\+\+R\+O\+OT@{D\+O\+\_\+\+P\+L\+A\+N\+T\+\_\+\+R\+O\+OT}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+O\+\_\+\+P\+L\+A\+N\+T\+\_\+\+R\+O\+OT@{D\+O\+\_\+\+P\+L\+A\+N\+T\+\_\+\+R\+O\+OT}}\item[{\em 
+D\+O\+\_\+\+P\+L\+A\+N\+T\+\_\+\+R\+O\+OT\hypertarget{cvtcode_8h_a2b37fd5cc4d40c0b8c4b987c271e5ceba5afe0f7456d7ecf1fdc1b3a273d8494c}{}\label{cvtcode_8h_a2b37fd5cc4d40c0b8c4b987c271e5ceba5afe0f7456d7ecf1fdc1b3a273d8494c}
+}]작물의 뿌리를 대상으로 함 \index{D\+O\+\_\+\+E\+Q\+U\+I\+P\+M\+E\+NT@{D\+O\+\_\+\+E\+Q\+U\+I\+P\+M\+E\+NT}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+O\+\_\+\+E\+Q\+U\+I\+P\+M\+E\+NT@{D\+O\+\_\+\+E\+Q\+U\+I\+P\+M\+E\+NT}}\item[{\em 
+D\+O\+\_\+\+E\+Q\+U\+I\+P\+M\+E\+NT\hypertarget{cvtcode_8h_a2b37fd5cc4d40c0b8c4b987c271e5ceba751bb91c3fe9f4a6954b2106d436a113}{}\label{cvtcode_8h_a2b37fd5cc4d40c0b8c4b987c271e5ceba751bb91c3fe9f4a6954b2106d436a113}
+}]농장의 장비를 대상으로 함 \index{D\+O\+\_\+\+E\+Q\+U\+I\+P\+M\+E\+N\+T\+\_\+\+N\+O\+R\+TH@{D\+O\+\_\+\+E\+Q\+U\+I\+P\+M\+E\+N\+T\+\_\+\+N\+O\+R\+TH}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+O\+\_\+\+E\+Q\+U\+I\+P\+M\+E\+N\+T\+\_\+\+N\+O\+R\+TH@{D\+O\+\_\+\+E\+Q\+U\+I\+P\+M\+E\+N\+T\+\_\+\+N\+O\+R\+TH}}\item[{\em 
+D\+O\+\_\+\+E\+Q\+U\+I\+P\+M\+E\+N\+T\+\_\+\+N\+O\+R\+TH\hypertarget{cvtcode_8h_a2b37fd5cc4d40c0b8c4b987c271e5ceba8942faaced3d13c3aeb7ac4be0192212}{}\label{cvtcode_8h_a2b37fd5cc4d40c0b8c4b987c271e5ceba8942faaced3d13c3aeb7ac4be0192212}
+}]농장의 장비가 좌우대칭인 경우 북쪽에 가까운 장비를 대상으로 함 \index{D\+O\+\_\+\+E\+Q\+U\+I\+P\+M\+E\+N\+T\+\_\+\+S\+O\+U\+TH@{D\+O\+\_\+\+E\+Q\+U\+I\+P\+M\+E\+N\+T\+\_\+\+S\+O\+U\+TH}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+O\+\_\+\+E\+Q\+U\+I\+P\+M\+E\+N\+T\+\_\+\+S\+O\+U\+TH@{D\+O\+\_\+\+E\+Q\+U\+I\+P\+M\+E\+N\+T\+\_\+\+S\+O\+U\+TH}}\item[{\em 
+D\+O\+\_\+\+E\+Q\+U\+I\+P\+M\+E\+N\+T\+\_\+\+S\+O\+U\+TH\hypertarget{cvtcode_8h_a2b37fd5cc4d40c0b8c4b987c271e5ceba4f42430deaa130fed3fdc9078caeb729}{}\label{cvtcode_8h_a2b37fd5cc4d40c0b8c4b987c271e5ceba4f42430deaa130fed3fdc9078caeb729}
+}]농장의 장비가 좌우대칭인 경우 남쪽에 가까운 장비를 대상으로 함 \end{description}
+\end{Desc}
+\index{cvtcode.\+h@{cvtcode.\+h}!devtype\+\_\+t@{devtype\+\_\+t}}
+\index{devtype\+\_\+t@{devtype\+\_\+t}!cvtcode.\+h@{cvtcode.\+h}}
+\subsubsection[{\texorpdfstring{devtype\+\_\+t}{devtype_t}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf stdcvt\+::devtype\+\_\+t}}\hypertarget{cvtcode_8h_file_ae8e34073e35cef0bb47c7fa535fc638b}{}\label{cvtcode_8h_file_ae8e34073e35cef0bb47c7fa535fc638b}
+장비 종류 타입 \begin{Desc}
+\item[열거형 멤버]\par
+\begin{description}
+\index{D\+T\+\_\+\+D\+E\+V\+\_\+\+U\+N\+K\+N\+O\+WN@{D\+T\+\_\+\+D\+E\+V\+\_\+\+U\+N\+K\+N\+O\+WN}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+T\+\_\+\+D\+E\+V\+\_\+\+U\+N\+K\+N\+O\+WN@{D\+T\+\_\+\+D\+E\+V\+\_\+\+U\+N\+K\+N\+O\+WN}}\item[{\em 
+D\+T\+\_\+\+D\+E\+V\+\_\+\+U\+N\+K\+N\+O\+WN\hypertarget{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638bac76aa2050f7e6c08fa289d5fc99ccc0d}{}\label{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638bac76aa2050f7e6c08fa289d5fc99ccc0d}
+}]알수없는 장비 \index{D\+T\+\_\+\+S\+E\+N\+\_\+\+T\+E\+M\+P\+E\+R\+A\+T\+U\+RE@{D\+T\+\_\+\+S\+E\+N\+\_\+\+T\+E\+M\+P\+E\+R\+A\+T\+U\+RE}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+T\+\_\+\+S\+E\+N\+\_\+\+T\+E\+M\+P\+E\+R\+A\+T\+U\+RE@{D\+T\+\_\+\+S\+E\+N\+\_\+\+T\+E\+M\+P\+E\+R\+A\+T\+U\+RE}}\item[{\em 
+D\+T\+\_\+\+S\+E\+N\+\_\+\+T\+E\+M\+P\+E\+R\+A\+T\+U\+RE\hypertarget{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638baf14b2a8be79f83596c8885211a4874b3}{}\label{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638baf14b2a8be79f83596c8885211a4874b3}
+}]온도센서 \index{D\+T\+\_\+\+S\+E\+N\+\_\+\+H\+U\+M\+I\+D\+I\+TY@{D\+T\+\_\+\+S\+E\+N\+\_\+\+H\+U\+M\+I\+D\+I\+TY}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+T\+\_\+\+S\+E\+N\+\_\+\+H\+U\+M\+I\+D\+I\+TY@{D\+T\+\_\+\+S\+E\+N\+\_\+\+H\+U\+M\+I\+D\+I\+TY}}\item[{\em 
+D\+T\+\_\+\+S\+E\+N\+\_\+\+H\+U\+M\+I\+D\+I\+TY\hypertarget{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba0dc6855f4c108a0807eb867879e5f60b}{}\label{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba0dc6855f4c108a0807eb867879e5f60b}
+}]습도센서 \index{D\+T\+\_\+\+S\+E\+N\+\_\+\+R\+A\+D\+I\+A\+T\+I\+ON@{D\+T\+\_\+\+S\+E\+N\+\_\+\+R\+A\+D\+I\+A\+T\+I\+ON}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+T\+\_\+\+S\+E\+N\+\_\+\+R\+A\+D\+I\+A\+T\+I\+ON@{D\+T\+\_\+\+S\+E\+N\+\_\+\+R\+A\+D\+I\+A\+T\+I\+ON}}\item[{\em 
+D\+T\+\_\+\+S\+E\+N\+\_\+\+R\+A\+D\+I\+A\+T\+I\+ON\hypertarget{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638baef0efaecb4a7d49a18db5e69eeda6144}{}\label{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638baef0efaecb4a7d49a18db5e69eeda6144}
+}]일사센서 \index{D\+T\+\_\+\+S\+E\+N\+\_\+\+W\+I\+N\+D\+D\+I\+R\+E\+C\+T\+I\+ON@{D\+T\+\_\+\+S\+E\+N\+\_\+\+W\+I\+N\+D\+D\+I\+R\+E\+C\+T\+I\+ON}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+T\+\_\+\+S\+E\+N\+\_\+\+W\+I\+N\+D\+D\+I\+R\+E\+C\+T\+I\+ON@{D\+T\+\_\+\+S\+E\+N\+\_\+\+W\+I\+N\+D\+D\+I\+R\+E\+C\+T\+I\+ON}}\item[{\em 
+D\+T\+\_\+\+S\+E\+N\+\_\+\+W\+I\+N\+D\+D\+I\+R\+E\+C\+T\+I\+ON\hypertarget{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba6a23c1060be5889c58be359a8b0a846e}{}\label{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba6a23c1060be5889c58be359a8b0a846e}
+}]풍향센서 \index{D\+T\+\_\+\+S\+E\+N\+\_\+\+W\+I\+N\+D\+S\+P\+E\+ED@{D\+T\+\_\+\+S\+E\+N\+\_\+\+W\+I\+N\+D\+S\+P\+E\+ED}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+T\+\_\+\+S\+E\+N\+\_\+\+W\+I\+N\+D\+S\+P\+E\+ED@{D\+T\+\_\+\+S\+E\+N\+\_\+\+W\+I\+N\+D\+S\+P\+E\+ED}}\item[{\em 
+D\+T\+\_\+\+S\+E\+N\+\_\+\+W\+I\+N\+D\+S\+P\+E\+ED\hypertarget{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba1f4ff23d615f43186c9a8f28b0d07c8e}{}\label{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba1f4ff23d615f43186c9a8f28b0d07c8e}
+}]풍속센서 \index{D\+T\+\_\+\+S\+E\+N\+\_\+\+R\+A\+IN@{D\+T\+\_\+\+S\+E\+N\+\_\+\+R\+A\+IN}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+T\+\_\+\+S\+E\+N\+\_\+\+R\+A\+IN@{D\+T\+\_\+\+S\+E\+N\+\_\+\+R\+A\+IN}}\item[{\em 
+D\+T\+\_\+\+S\+E\+N\+\_\+\+R\+A\+IN\hypertarget{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638baf284e0b99a69e9eda6fc9acc423bdc39}{}\label{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638baf284e0b99a69e9eda6fc9acc423bdc39}
+}]감우센서 \index{D\+T\+\_\+\+S\+E\+N\+\_\+\+R\+A\+I\+N\+F\+A\+LL@{D\+T\+\_\+\+S\+E\+N\+\_\+\+R\+A\+I\+N\+F\+A\+LL}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+T\+\_\+\+S\+E\+N\+\_\+\+R\+A\+I\+N\+F\+A\+LL@{D\+T\+\_\+\+S\+E\+N\+\_\+\+R\+A\+I\+N\+F\+A\+LL}}\item[{\em 
+D\+T\+\_\+\+S\+E\+N\+\_\+\+R\+A\+I\+N\+F\+A\+LL\hypertarget{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638bac6f86b754c5b1093086cd5f3bf0578bc}{}\label{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638bac6f86b754c5b1093086cd5f3bf0578bc}
+}]강우량센서 \index{D\+T\+\_\+\+S\+E\+N\+\_\+\+P\+H\+O\+T\+O\+N\+F\+L\+UX@{D\+T\+\_\+\+S\+E\+N\+\_\+\+P\+H\+O\+T\+O\+N\+F\+L\+UX}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+T\+\_\+\+S\+E\+N\+\_\+\+P\+H\+O\+T\+O\+N\+F\+L\+UX@{D\+T\+\_\+\+S\+E\+N\+\_\+\+P\+H\+O\+T\+O\+N\+F\+L\+UX}}\item[{\em 
+D\+T\+\_\+\+S\+E\+N\+\_\+\+P\+H\+O\+T\+O\+N\+F\+L\+UX\hypertarget{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba878d711fafac5306b8885a15e6ae0b55}{}\label{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba878d711fafac5306b8885a15e6ae0b55}
+}]P\+A\+R센서 \index{D\+T\+\_\+\+S\+E\+N\+\_\+\+S\+O\+I\+L\+M\+O\+I\+S\+T\+U\+RE@{D\+T\+\_\+\+S\+E\+N\+\_\+\+S\+O\+I\+L\+M\+O\+I\+S\+T\+U\+RE}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+T\+\_\+\+S\+E\+N\+\_\+\+S\+O\+I\+L\+M\+O\+I\+S\+T\+U\+RE@{D\+T\+\_\+\+S\+E\+N\+\_\+\+S\+O\+I\+L\+M\+O\+I\+S\+T\+U\+RE}}\item[{\em 
+D\+T\+\_\+\+S\+E\+N\+\_\+\+S\+O\+I\+L\+M\+O\+I\+S\+T\+U\+RE\hypertarget{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba429e18b1464acd50dad06c12edc983c6}{}\label{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba429e18b1464acd50dad06c12edc983c6}
+}]토양함수율센서 \index{D\+T\+\_\+\+S\+E\+N\+\_\+\+S\+O\+I\+L\+M\+O\+I\+S\+T\+U\+R\+E\+T\+E\+N\+S\+I\+ON@{D\+T\+\_\+\+S\+E\+N\+\_\+\+S\+O\+I\+L\+M\+O\+I\+S\+T\+U\+R\+E\+T\+E\+N\+S\+I\+ON}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+T\+\_\+\+S\+E\+N\+\_\+\+S\+O\+I\+L\+M\+O\+I\+S\+T\+U\+R\+E\+T\+E\+N\+S\+I\+ON@{D\+T\+\_\+\+S\+E\+N\+\_\+\+S\+O\+I\+L\+M\+O\+I\+S\+T\+U\+R\+E\+T\+E\+N\+S\+I\+ON}}\item[{\em 
+D\+T\+\_\+\+S\+E\+N\+\_\+\+S\+O\+I\+L\+M\+O\+I\+S\+T\+U\+R\+E\+T\+E\+N\+S\+I\+ON\hypertarget{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638bafac5e0040804bb172bde6486568bed26}{}\label{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638bafac5e0040804bb172bde6486568bed26}
+}]토양수분장력센서 \index{D\+T\+\_\+\+S\+E\+N\+\_\+\+EC@{D\+T\+\_\+\+S\+E\+N\+\_\+\+EC}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+T\+\_\+\+S\+E\+N\+\_\+\+EC@{D\+T\+\_\+\+S\+E\+N\+\_\+\+EC}}\item[{\em 
+D\+T\+\_\+\+S\+E\+N\+\_\+\+EC\hypertarget{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba07566921d0aa37b3c24e8a8f4a630252}{}\label{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba07566921d0aa37b3c24e8a8f4a630252}
+}]E\+C센서 \index{D\+T\+\_\+\+S\+E\+N\+\_\+\+PH@{D\+T\+\_\+\+S\+E\+N\+\_\+\+PH}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+T\+\_\+\+S\+E\+N\+\_\+\+PH@{D\+T\+\_\+\+S\+E\+N\+\_\+\+PH}}\item[{\em 
+D\+T\+\_\+\+S\+E\+N\+\_\+\+PH\hypertarget{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba6a166b4a1e39fea4ea29d9b206bbf225}{}\label{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba6a166b4a1e39fea4ea29d9b206bbf225}
+}]p\+H센서 \index{D\+T\+\_\+\+S\+E\+N\+\_\+\+B\+A\+T\+T\+E\+RY@{D\+T\+\_\+\+S\+E\+N\+\_\+\+B\+A\+T\+T\+E\+RY}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+T\+\_\+\+S\+E\+N\+\_\+\+B\+A\+T\+T\+E\+RY@{D\+T\+\_\+\+S\+E\+N\+\_\+\+B\+A\+T\+T\+E\+RY}}\item[{\em 
+D\+T\+\_\+\+S\+E\+N\+\_\+\+B\+A\+T\+T\+E\+RY\hypertarget{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638bae66329cc9c95818953b8388b5c0c03a4}{}\label{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638bae66329cc9c95818953b8388b5c0c03a4}
+}]배터리센서 \index{D\+T\+\_\+\+S\+E\+N\+\_\+\+A\+DC@{D\+T\+\_\+\+S\+E\+N\+\_\+\+A\+DC}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+T\+\_\+\+S\+E\+N\+\_\+\+A\+DC@{D\+T\+\_\+\+S\+E\+N\+\_\+\+A\+DC}}\item[{\em 
+D\+T\+\_\+\+S\+E\+N\+\_\+\+A\+DC\hypertarget{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba983e90409f2fba773aa532ce28d70113}{}\label{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba983e90409f2fba773aa532ce28d70113}
+}]A\+DC 변환된 Raw값 센서(?) \index{D\+T\+\_\+\+S\+E\+N\+\_\+\+U\+N\+K\+N\+O\+WN@{D\+T\+\_\+\+S\+E\+N\+\_\+\+U\+N\+K\+N\+O\+WN}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+T\+\_\+\+S\+E\+N\+\_\+\+U\+N\+K\+N\+O\+WN@{D\+T\+\_\+\+S\+E\+N\+\_\+\+U\+N\+K\+N\+O\+WN}}\item[{\em 
+D\+T\+\_\+\+S\+E\+N\+\_\+\+U\+N\+K\+N\+O\+WN\hypertarget{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba96e3f6f871ca6e321f22af380cee66e3}{}\label{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba96e3f6f871ca6e321f22af380cee66e3}
+}]알수없는 센서 \index{D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+I\+D\+E\+W\+I\+N\+D\+OW@{D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+I\+D\+E\+W\+I\+N\+D\+OW}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+I\+D\+E\+W\+I\+N\+D\+OW@{D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+I\+D\+E\+W\+I\+N\+D\+OW}}\item[{\em 
+D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+I\+D\+E\+W\+I\+N\+D\+OW\hypertarget{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638bafb28bfb6dfe0a56ce3c3887a965b15c6}{}\label{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638bafb28bfb6dfe0a56ce3c3887a965b15c6}
+}]측창 구동기 \index{D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+I\+D\+E\+W\+I\+N\+D\+O\+W\+\_\+1@{D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+I\+D\+E\+W\+I\+N\+D\+O\+W\+\_\+1}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+I\+D\+E\+W\+I\+N\+D\+O\+W\+\_\+1@{D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+I\+D\+E\+W\+I\+N\+D\+O\+W\+\_\+1}}\item[{\em 
+D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+I\+D\+E\+W\+I\+N\+D\+O\+W\+\_\+1\hypertarget{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba7b0ddb82868644b3f6d062021d2f993d}{}\label{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba7b0ddb82868644b3f6d062021d2f993d}
+}]1중 측창 구동기 \index{D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+I\+D\+E\+W\+I\+N\+D\+O\+W\+\_\+2@{D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+I\+D\+E\+W\+I\+N\+D\+O\+W\+\_\+2}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+I\+D\+E\+W\+I\+N\+D\+O\+W\+\_\+2@{D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+I\+D\+E\+W\+I\+N\+D\+O\+W\+\_\+2}}\item[{\em 
+D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+I\+D\+E\+W\+I\+N\+D\+O\+W\+\_\+2\hypertarget{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638bab41e61b5e1251264e53580bf922fe9ad}{}\label{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638bab41e61b5e1251264e53580bf922fe9ad}
+}]2중 측창 구동기 \index{D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+I\+D\+E\+W\+I\+N\+D\+O\+W\+\_\+3@{D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+I\+D\+E\+W\+I\+N\+D\+O\+W\+\_\+3}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+I\+D\+E\+W\+I\+N\+D\+O\+W\+\_\+3@{D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+I\+D\+E\+W\+I\+N\+D\+O\+W\+\_\+3}}\item[{\em 
+D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+I\+D\+E\+W\+I\+N\+D\+O\+W\+\_\+3\hypertarget{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638baaf0529050789187448e7e6ac9c319efb}{}\label{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638baaf0529050789187448e7e6ac9c319efb}
+}]3중 측창 구동기 \index{D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+I\+D\+E\+W\+I\+N\+D\+O\+W\+\_\+4@{D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+I\+D\+E\+W\+I\+N\+D\+O\+W\+\_\+4}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+I\+D\+E\+W\+I\+N\+D\+O\+W\+\_\+4@{D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+I\+D\+E\+W\+I\+N\+D\+O\+W\+\_\+4}}\item[{\em 
+D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+I\+D\+E\+W\+I\+N\+D\+O\+W\+\_\+4\hypertarget{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638bad899f8e47dd328601ce3fe93a32d8eca}{}\label{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638bad899f8e47dd328601ce3fe93a32d8eca}
+}]4중 측창 구동기 \index{D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+I\+D\+E\+W\+I\+N\+D\+O\+W\+\_\+5@{D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+I\+D\+E\+W\+I\+N\+D\+O\+W\+\_\+5}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+I\+D\+E\+W\+I\+N\+D\+O\+W\+\_\+5@{D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+I\+D\+E\+W\+I\+N\+D\+O\+W\+\_\+5}}\item[{\em 
+D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+I\+D\+E\+W\+I\+N\+D\+O\+W\+\_\+5\hypertarget{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638babf3f5b6c9cdc03d6706577fb4017884b}{}\label{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638babf3f5b6c9cdc03d6706577fb4017884b}
+}]5중 측창 구동기 \index{D\+T\+\_\+\+M\+O\+T\+\_\+\+R\+O\+O\+F\+W\+I\+N\+D\+OW@{D\+T\+\_\+\+M\+O\+T\+\_\+\+R\+O\+O\+F\+W\+I\+N\+D\+OW}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+T\+\_\+\+M\+O\+T\+\_\+\+R\+O\+O\+F\+W\+I\+N\+D\+OW@{D\+T\+\_\+\+M\+O\+T\+\_\+\+R\+O\+O\+F\+W\+I\+N\+D\+OW}}\item[{\em 
+D\+T\+\_\+\+M\+O\+T\+\_\+\+R\+O\+O\+F\+W\+I\+N\+D\+OW\hypertarget{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638bac45ada5f13c6b334980d1691ee27e2e1}{}\label{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638bac45ada5f13c6b334980d1691ee27e2e1}
+}]천창 구동기 \index{D\+T\+\_\+\+M\+O\+T\+\_\+\+R\+O\+O\+F\+W\+I\+N\+D\+O\+W\+\_\+1@{D\+T\+\_\+\+M\+O\+T\+\_\+\+R\+O\+O\+F\+W\+I\+N\+D\+O\+W\+\_\+1}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+T\+\_\+\+M\+O\+T\+\_\+\+R\+O\+O\+F\+W\+I\+N\+D\+O\+W\+\_\+1@{D\+T\+\_\+\+M\+O\+T\+\_\+\+R\+O\+O\+F\+W\+I\+N\+D\+O\+W\+\_\+1}}\item[{\em 
+D\+T\+\_\+\+M\+O\+T\+\_\+\+R\+O\+O\+F\+W\+I\+N\+D\+O\+W\+\_\+1\hypertarget{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba77f820de92bdb51d5efc74ec8c27258b}{}\label{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba77f820de92bdb51d5efc74ec8c27258b}
+}]1중 천창 구동기 \index{D\+T\+\_\+\+M\+O\+T\+\_\+\+R\+O\+O\+F\+W\+I\+N\+D\+O\+W\+\_\+2@{D\+T\+\_\+\+M\+O\+T\+\_\+\+R\+O\+O\+F\+W\+I\+N\+D\+O\+W\+\_\+2}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+T\+\_\+\+M\+O\+T\+\_\+\+R\+O\+O\+F\+W\+I\+N\+D\+O\+W\+\_\+2@{D\+T\+\_\+\+M\+O\+T\+\_\+\+R\+O\+O\+F\+W\+I\+N\+D\+O\+W\+\_\+2}}\item[{\em 
+D\+T\+\_\+\+M\+O\+T\+\_\+\+R\+O\+O\+F\+W\+I\+N\+D\+O\+W\+\_\+2\hypertarget{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba4c9920073abb328bb1b3183d51ce2901}{}\label{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba4c9920073abb328bb1b3183d51ce2901}
+}]2중 천창 구동기 \index{D\+T\+\_\+\+M\+O\+T\+\_\+\+R\+O\+O\+F\+W\+I\+N\+D\+O\+W\+\_\+3@{D\+T\+\_\+\+M\+O\+T\+\_\+\+R\+O\+O\+F\+W\+I\+N\+D\+O\+W\+\_\+3}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+T\+\_\+\+M\+O\+T\+\_\+\+R\+O\+O\+F\+W\+I\+N\+D\+O\+W\+\_\+3@{D\+T\+\_\+\+M\+O\+T\+\_\+\+R\+O\+O\+F\+W\+I\+N\+D\+O\+W\+\_\+3}}\item[{\em 
+D\+T\+\_\+\+M\+O\+T\+\_\+\+R\+O\+O\+F\+W\+I\+N\+D\+O\+W\+\_\+3\hypertarget{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638bad995cab1b506c3a430b9eb6717007fee}{}\label{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638bad995cab1b506c3a430b9eb6717007fee}
+}]3중 천창 구동기 \index{D\+T\+\_\+\+M\+O\+T\+\_\+\+R\+O\+O\+F\+W\+I\+N\+D\+O\+W\+\_\+4@{D\+T\+\_\+\+M\+O\+T\+\_\+\+R\+O\+O\+F\+W\+I\+N\+D\+O\+W\+\_\+4}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+T\+\_\+\+M\+O\+T\+\_\+\+R\+O\+O\+F\+W\+I\+N\+D\+O\+W\+\_\+4@{D\+T\+\_\+\+M\+O\+T\+\_\+\+R\+O\+O\+F\+W\+I\+N\+D\+O\+W\+\_\+4}}\item[{\em 
+D\+T\+\_\+\+M\+O\+T\+\_\+\+R\+O\+O\+F\+W\+I\+N\+D\+O\+W\+\_\+4\hypertarget{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba761986b908d090252bfdf3d1e3746fb0}{}\label{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba761986b908d090252bfdf3d1e3746fb0}
+}]4중 천창 구동기 \index{D\+T\+\_\+\+M\+O\+T\+\_\+\+R\+O\+O\+F\+W\+I\+N\+D\+O\+W\+\_\+5@{D\+T\+\_\+\+M\+O\+T\+\_\+\+R\+O\+O\+F\+W\+I\+N\+D\+O\+W\+\_\+5}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+T\+\_\+\+M\+O\+T\+\_\+\+R\+O\+O\+F\+W\+I\+N\+D\+O\+W\+\_\+5@{D\+T\+\_\+\+M\+O\+T\+\_\+\+R\+O\+O\+F\+W\+I\+N\+D\+O\+W\+\_\+5}}\item[{\em 
+D\+T\+\_\+\+M\+O\+T\+\_\+\+R\+O\+O\+F\+W\+I\+N\+D\+O\+W\+\_\+5\hypertarget{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba21a8f2e72be64dda185875016c50f895}{}\label{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba21a8f2e72be64dda185875016c50f895}
+}]5중 천창 구동기 \index{D\+T\+\_\+\+M\+O\+T\+\_\+\+R\+O\+O\+F\+C\+U\+R\+T\+A\+IN@{D\+T\+\_\+\+M\+O\+T\+\_\+\+R\+O\+O\+F\+C\+U\+R\+T\+A\+IN}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+T\+\_\+\+M\+O\+T\+\_\+\+R\+O\+O\+F\+C\+U\+R\+T\+A\+IN@{D\+T\+\_\+\+M\+O\+T\+\_\+\+R\+O\+O\+F\+C\+U\+R\+T\+A\+IN}}\item[{\em 
+D\+T\+\_\+\+M\+O\+T\+\_\+\+R\+O\+O\+F\+C\+U\+R\+T\+A\+IN\hypertarget{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba71341552702bbd6dfedb293c82a27d49}{}\label{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba71341552702bbd6dfedb293c82a27d49}
+}]천장보온커튼 구동기 \index{D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+I\+D\+E\+C\+U\+R\+T\+A\+IN@{D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+I\+D\+E\+C\+U\+R\+T\+A\+IN}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+I\+D\+E\+C\+U\+R\+T\+A\+IN@{D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+I\+D\+E\+C\+U\+R\+T\+A\+IN}}\item[{\em 
+D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+I\+D\+E\+C\+U\+R\+T\+A\+IN\hypertarget{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba405a860d35382e14488e77f42f3da814}{}\label{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba405a860d35382e14488e77f42f3da814}
+}]측면보온커튼 구동기 \index{D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+H\+A\+D\+I\+N\+G\+C\+U\+R\+T\+A\+IN@{D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+H\+A\+D\+I\+N\+G\+C\+U\+R\+T\+A\+IN}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+H\+A\+D\+I\+N\+G\+C\+U\+R\+T\+A\+IN@{D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+H\+A\+D\+I\+N\+G\+C\+U\+R\+T\+A\+IN}}\item[{\em 
+D\+T\+\_\+\+M\+O\+T\+\_\+\+S\+H\+A\+D\+I\+N\+G\+C\+U\+R\+T\+A\+IN\hypertarget{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba05c7601d193592960552a84dd6d0d81c}{}\label{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba05c7601d193592960552a84dd6d0d81c}
+}]차광커튼 구동기 \index{D\+T\+\_\+\+M\+O\+T\+\_\+\+U\+N\+K\+N\+O\+WN@{D\+T\+\_\+\+M\+O\+T\+\_\+\+U\+N\+K\+N\+O\+WN}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+T\+\_\+\+M\+O\+T\+\_\+\+U\+N\+K\+N\+O\+WN@{D\+T\+\_\+\+M\+O\+T\+\_\+\+U\+N\+K\+N\+O\+WN}}\item[{\em 
+D\+T\+\_\+\+M\+O\+T\+\_\+\+U\+N\+K\+N\+O\+WN\hypertarget{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba8cb81b6b95d360c67e0d8a83e4b30239}{}\label{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba8cb81b6b95d360c67e0d8a83e4b30239}
+}]알수없는 모터형 구동기 \index{D\+T\+\_\+\+S\+W\+C\+\_\+\+F\+AN@{D\+T\+\_\+\+S\+W\+C\+\_\+\+F\+AN}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+T\+\_\+\+S\+W\+C\+\_\+\+F\+AN@{D\+T\+\_\+\+S\+W\+C\+\_\+\+F\+AN}}\item[{\em 
+D\+T\+\_\+\+S\+W\+C\+\_\+\+F\+AN\hypertarget{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638baa41938fdbff1314b5097729dd13929ea}{}\label{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638baa41938fdbff1314b5097729dd13929ea}
+}]팬 \index{D\+T\+\_\+\+S\+W\+C\+\_\+\+F\+L\+O\+W\+F\+AN@{D\+T\+\_\+\+S\+W\+C\+\_\+\+F\+L\+O\+W\+F\+AN}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+T\+\_\+\+S\+W\+C\+\_\+\+F\+L\+O\+W\+F\+AN@{D\+T\+\_\+\+S\+W\+C\+\_\+\+F\+L\+O\+W\+F\+AN}}\item[{\em 
+D\+T\+\_\+\+S\+W\+C\+\_\+\+F\+L\+O\+W\+F\+AN\hypertarget{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba587c147fb0838a84e824091eae5441cc}{}\label{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba587c147fb0838a84e824091eae5441cc}
+}]유동팬 \index{D\+T\+\_\+\+S\+W\+C\+\_\+\+V\+E\+N\+T\+F\+AN@{D\+T\+\_\+\+S\+W\+C\+\_\+\+V\+E\+N\+T\+F\+AN}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+T\+\_\+\+S\+W\+C\+\_\+\+V\+E\+N\+T\+F\+AN@{D\+T\+\_\+\+S\+W\+C\+\_\+\+V\+E\+N\+T\+F\+AN}}\item[{\em 
+D\+T\+\_\+\+S\+W\+C\+\_\+\+V\+E\+N\+T\+F\+AN\hypertarget{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba5140b22b3eac4cc3d4a970e7079d764f}{}\label{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba5140b22b3eac4cc3d4a970e7079d764f}
+}]환기팬 \index{D\+T\+\_\+\+S\+W\+C\+\_\+\+U\+N\+K\+N\+O\+WN@{D\+T\+\_\+\+S\+W\+C\+\_\+\+U\+N\+K\+N\+O\+WN}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!D\+T\+\_\+\+S\+W\+C\+\_\+\+U\+N\+K\+N\+O\+WN@{D\+T\+\_\+\+S\+W\+C\+\_\+\+U\+N\+K\+N\+O\+WN}}\item[{\em 
+D\+T\+\_\+\+S\+W\+C\+\_\+\+U\+N\+K\+N\+O\+WN\hypertarget{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba17d37725180938061f8273c85111e8c5}{}\label{cvtcode_8h_ae8e34073e35cef0bb47c7fa535fc638ba17d37725180938061f8273c85111e8c5}
+}]알수없는 스위치형 구동기 \end{description}
+\end{Desc}
+\index{cvtcode.\+h@{cvtcode.\+h}!obsunit\+\_\+t@{obsunit\+\_\+t}}
+\index{obsunit\+\_\+t@{obsunit\+\_\+t}!cvtcode.\+h@{cvtcode.\+h}}
+\subsubsection[{\texorpdfstring{obsunit\+\_\+t}{obsunit_t}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf stdcvt\+::obsunit\+\_\+t}}\hypertarget{cvtcode_8h_file_a6d4ed81d95144c5eedcd08eda1e800a4}{}\label{cvtcode_8h_file_a6d4ed81d95144c5eedcd08eda1e800a4}
+센서 관측치 단위 타입 \begin{Desc}
+\item[열거형 멤버]\par
+\begin{description}
+\index{O\+U\+\_\+\+N\+O\+NE@{O\+U\+\_\+\+N\+O\+NE}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!O\+U\+\_\+\+N\+O\+NE@{O\+U\+\_\+\+N\+O\+NE}}\item[{\em 
+O\+U\+\_\+\+N\+O\+NE\hypertarget{cvtcode_8h_a6d4ed81d95144c5eedcd08eda1e800a4ab389c85cef8b594c44331d7c8ca6a7c1}{}\label{cvtcode_8h_a6d4ed81d95144c5eedcd08eda1e800a4ab389c85cef8b594c44331d7c8ca6a7c1}
+}]단위가 없는 무차원 값 \index{O\+U\+\_\+\+C\+E\+L\+S\+I\+US@{O\+U\+\_\+\+C\+E\+L\+S\+I\+US}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!O\+U\+\_\+\+C\+E\+L\+S\+I\+US@{O\+U\+\_\+\+C\+E\+L\+S\+I\+US}}\item[{\em 
+O\+U\+\_\+\+C\+E\+L\+S\+I\+US\hypertarget{cvtcode_8h_a6d4ed81d95144c5eedcd08eda1e800a4aac2ae852cb924efaac29ba2f9117b930}{}\label{cvtcode_8h_a6d4ed81d95144c5eedcd08eda1e800a4aac2ae852cb924efaac29ba2f9117b930}
+}]℃ \index{O\+U\+\_\+\+P\+E\+R\+C\+E\+NT@{O\+U\+\_\+\+P\+E\+R\+C\+E\+NT}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!O\+U\+\_\+\+P\+E\+R\+C\+E\+NT@{O\+U\+\_\+\+P\+E\+R\+C\+E\+NT}}\item[{\em 
+O\+U\+\_\+\+P\+E\+R\+C\+E\+NT\hypertarget{cvtcode_8h_a6d4ed81d95144c5eedcd08eda1e800a4a0ed8a0f64d38958d41762c3c6af20776}{}\label{cvtcode_8h_a6d4ed81d95144c5eedcd08eda1e800a4a0ed8a0f64d38958d41762c3c6af20776}
+}]\% \index{O\+U\+\_\+\+P\+PM@{O\+U\+\_\+\+P\+PM}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!O\+U\+\_\+\+P\+PM@{O\+U\+\_\+\+P\+PM}}\item[{\em 
+O\+U\+\_\+\+P\+PM\hypertarget{cvtcode_8h_a6d4ed81d95144c5eedcd08eda1e800a4a1a5b3cd131b299341970ca21786feacd}{}\label{cvtcode_8h_a6d4ed81d95144c5eedcd08eda1e800a4a1a5b3cd131b299341970ca21786feacd}
+}]ppm \index{O\+U\+\_\+\+W\+\_\+\+P\+E\+R\+\_\+\+M\+SQ@{O\+U\+\_\+\+W\+\_\+\+P\+E\+R\+\_\+\+M\+SQ}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!O\+U\+\_\+\+W\+\_\+\+P\+E\+R\+\_\+\+M\+SQ@{O\+U\+\_\+\+W\+\_\+\+P\+E\+R\+\_\+\+M\+SQ}}\item[{\em 
+O\+U\+\_\+\+W\+\_\+\+P\+E\+R\+\_\+\+M\+SQ\hypertarget{cvtcode_8h_a6d4ed81d95144c5eedcd08eda1e800a4a161ec92b841f5d2483756dd6457e16a2}{}\label{cvtcode_8h_a6d4ed81d95144c5eedcd08eda1e800a4a161ec92b841f5d2483756dd6457e16a2}
+}]W/㎡ \index{O\+U\+\_\+\+D\+E\+G\+R\+EE@{O\+U\+\_\+\+D\+E\+G\+R\+EE}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!O\+U\+\_\+\+D\+E\+G\+R\+EE@{O\+U\+\_\+\+D\+E\+G\+R\+EE}}\item[{\em 
+O\+U\+\_\+\+D\+E\+G\+R\+EE\hypertarget{cvtcode_8h_a6d4ed81d95144c5eedcd08eda1e800a4a2477e0ae5415693ec33f3f1a1c737567}{}\label{cvtcode_8h_a6d4ed81d95144c5eedcd08eda1e800a4a2477e0ae5415693ec33f3f1a1c737567}
+}]°. \index{O\+U\+\_\+\+M\+\_\+\+P\+E\+R\+\_\+\+S\+EC@{O\+U\+\_\+\+M\+\_\+\+P\+E\+R\+\_\+\+S\+EC}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!O\+U\+\_\+\+M\+\_\+\+P\+E\+R\+\_\+\+S\+EC@{O\+U\+\_\+\+M\+\_\+\+P\+E\+R\+\_\+\+S\+EC}}\item[{\em 
+O\+U\+\_\+\+M\+\_\+\+P\+E\+R\+\_\+\+S\+EC\hypertarget{cvtcode_8h_a6d4ed81d95144c5eedcd08eda1e800a4adc921867ba34c438dc3d2358bfba2668}{}\label{cvtcode_8h_a6d4ed81d95144c5eedcd08eda1e800a4adc921867ba34c438dc3d2358bfba2668}
+}]m/s \index{O\+U\+\_\+\+M\+M\+O\+L\+\_\+\+P\+E\+R\+\_\+\+M\+S\+Q\+S\+EC@{O\+U\+\_\+\+M\+M\+O\+L\+\_\+\+P\+E\+R\+\_\+\+M\+S\+Q\+S\+EC}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!O\+U\+\_\+\+M\+M\+O\+L\+\_\+\+P\+E\+R\+\_\+\+M\+S\+Q\+S\+EC@{O\+U\+\_\+\+M\+M\+O\+L\+\_\+\+P\+E\+R\+\_\+\+M\+S\+Q\+S\+EC}}\item[{\em 
+O\+U\+\_\+\+M\+M\+O\+L\+\_\+\+P\+E\+R\+\_\+\+M\+S\+Q\+S\+EC\hypertarget{cvtcode_8h_a6d4ed81d95144c5eedcd08eda1e800a4a9ef4e9cdc097e47043ceee52fa548302}{}\label{cvtcode_8h_a6d4ed81d95144c5eedcd08eda1e800a4a9ef4e9cdc097e47043ceee52fa548302}
+}]μmol/㎡/s. \index{O\+U\+\_\+\+K\+PA@{O\+U\+\_\+\+K\+PA}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!O\+U\+\_\+\+K\+PA@{O\+U\+\_\+\+K\+PA}}\item[{\em 
+O\+U\+\_\+\+K\+PA\hypertarget{cvtcode_8h_a6d4ed81d95144c5eedcd08eda1e800a4ac274d1237282daca5bdfd0d295cc2c8e}{}\label{cvtcode_8h_a6d4ed81d95144c5eedcd08eda1e800a4ac274d1237282daca5bdfd0d295cc2c8e}
+}]k\+Pa \index{O\+U\+\_\+\+D\+S\+\_\+\+P\+E\+R\+\_\+M@{O\+U\+\_\+\+D\+S\+\_\+\+P\+E\+R\+\_\+M}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!O\+U\+\_\+\+D\+S\+\_\+\+P\+E\+R\+\_\+M@{O\+U\+\_\+\+D\+S\+\_\+\+P\+E\+R\+\_\+M}}\item[{\em 
+O\+U\+\_\+\+D\+S\+\_\+\+P\+E\+R\+\_\+M\hypertarget{cvtcode_8h_a6d4ed81d95144c5eedcd08eda1e800a4a6a8ac4f9f10fcf8cd489093f7a2a7964}{}\label{cvtcode_8h_a6d4ed81d95144c5eedcd08eda1e800a4a6a8ac4f9f10fcf8cd489093f7a2a7964}
+}]d\+S/m \index{O\+U\+\_\+\+PH@{O\+U\+\_\+\+PH}!cvtcode.\+h@{cvtcode.\+h}}\index{cvtcode.\+h@{cvtcode.\+h}!O\+U\+\_\+\+PH@{O\+U\+\_\+\+PH}}\item[{\em 
+O\+U\+\_\+\+PH\hypertarget{cvtcode_8h_a6d4ed81d95144c5eedcd08eda1e800a4a2da644064ead05926a8bdacbfcad778f}{}\label{cvtcode_8h_a6d4ed81d95144c5eedcd08eda1e800a4a2da644064ead05926a8bdacbfcad778f}
+}]pH \end{description}
+\end{Desc}

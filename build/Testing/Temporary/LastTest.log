@@ -1,0 +1,297 @@
+Start testing: Mar 20 18:28 KST
+----------------------------------------------------------
+1/7 Testing: dstest_0
+1/7 Test: dstest_0
+Command: "/home/tombraid/Works/ebio/cvtdriver/build/test_so_load" "dsdriver"
+Directory: /home/tombraid/Works/ebio/cvtdriver/build
+"dstest_0" start time: Mar 20 18:28 KST
+Output:
+----------------------------------------------------------
+I0320 18:28:51.079618  5294 test_so_load.cpp:43] Loading the plugin
+I0320 18:28:51.081923  5294 test_so_load.cpp:50] pdevice->getid() : 10
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"dstest_0" end time: Mar 20 18:28 KST
+"dstest_0" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/7 Testing: dstest_1
+2/7 Test: dstest_1
+Command: "/home/tombraid/Works/ebio/cvtdriver/build/test_asio" "dsdriver"
+Directory: /home/tombraid/Works/ebio/cvtdriver/build
+"dstest_1" start time: Mar 20 18:28 KST
+Output:
+----------------------------------------------------------
+I0320 18:28:51.085129  5295 test_asio.cpp:88] Loading the plugin
+I0320 18:28:52.087348  5295 test_asio.cpp:58] 0
+I0320 18:28:53.087350  5295 test_asio.cpp:58] 1
+I0320 18:28:53.620498  5295 dssampledriver.cpp:158] read message: ^
+I0320 18:28:54.087352  5295 test_asio.cpp:58] 2
+I0320 18:28:55.087354  5295 test_asio.cpp:58] 3
+I0320 18:28:56.087354  5295 test_asio.cpp:58] 4
+I0320 18:28:57.087350  5295 test_asio.cpp:58] 5
+I0320 18:28:58.087350  5295 test_asio.cpp:58] 6
+I0320 18:28:59.087350  5295 test_asio.cpp:58] 7
+I0320 18:29:00.087317  5295 test_asio.cpp:58] 8
+I0320 18:29:01.087311  5295 test_asio.cpp:58] 9
+I0320 18:29:02.087352  5295 test_asio.cpp:58] 10
+I0320 18:29:03.087350  5295 test_asio.cpp:58] 11
+I0320 18:29:03.412009  5295 dssampledriver.cpp:158] read message: ^s 10 20.9 1
+I0320 18:29:03.412168  5295 dssampledriver.cpp:158] read message: ^s 11 21.8 1
+I0320 18:29:03.414966  5295 dssampledriver.cpp:158] read message: ^m 20 0 0 0 0
+I0320 18:29:03.415040  5295 dssampledriver.cpp:158] read message: ^m 21 0 0 0 0
+I0320 18:29:03.415060  5295 dssampledriver.cpp:158] read message: ^w 30 0 0
+I0320 18:29:03.417212  5295 dssampledriver.cpp:158] read message: ^w 31 0 0
+I0320 18:29:04.087345  5295 test_asio.cpp:58] 12
+I0320 18:29:04.087406  5295 test_asio.cpp:54] Final count is 12
+<end of output>
+Test time =  13.01 sec
+----------------------------------------------------------
+Test Passed.
+"dstest_1" end time: Mar 20 18:29 KST
+"dstest_1" time elapsed: 00:00:13
+----------------------------------------------------------
+
+3/7 Testing: dstest_2
+3/7 Test: dstest_2
+Command: "/home/tombraid/Works/ebio/cvtdriver/build/test_multi_device" "dsdriver"
+Directory: /home/tombraid/Works/ebio/cvtdriver/build
+"dstest_2" start time: Mar 20 18:29 KST
+Output:
+----------------------------------------------------------
+I0320 18:29:04.094774  5315 test_multi_device.cpp:94] Loading the plugin
+I0320 18:29:05.098163  5315 test_multi_device.cpp:58] 0
+I0320 18:29:06.098167  5315 test_multi_device.cpp:58] 1
+I0320 18:29:06.630877  5315 dssampledriver.cpp:158] read message: ^
+I0320 18:29:07.098139  5315 test_multi_device.cpp:58] 2
+I0320 18:29:08.098176  5315 test_multi_device.cpp:58] 3
+I0320 18:29:09.098140  5315 test_multi_device.cpp:58] 4
+I0320 18:29:10.098132  5315 test_multi_device.cpp:58] 5
+I0320 18:29:11.098170  5315 test_multi_device.cpp:58] 6
+I0320 18:29:12.098132  5315 test_multi_device.cpp:58] 7
+I0320 18:29:13.098168  5315 test_multi_device.cpp:58] 8
+I0320 18:29:14.098134  5315 test_multi_device.cpp:58] 9
+I0320 18:29:15.098176  5315 test_multi_device.cpp:58] 10
+I0320 18:29:16.098137  5315 test_multi_device.cpp:58] 11
+I0320 18:29:16.422533  5315 dssampledriver.cpp:158] read message: ^s 10 20.5 1
+I0320 18:29:16.422683  5315 dssampledriver.cpp:158] read message: ^s 11 21.7 1
+I0320 18:29:16.425514  5315 dssampledriver.cpp:158] read message: ^m 20 0 0 0 0
+I0320 18:29:16.425590  5315 dssampledriver.cpp:158] read message: ^m 21 0 0 0 0
+I0320 18:29:16.425609  5315 dssampledriver.cpp:158] read message: ^w 30 0 0
+I0320 18:29:16.427908  5315 dssampledriver.cpp:158] read message: ^w 31 0 0
+I0320 18:29:17.098170  5315 test_multi_device.cpp:58] 12
+I0320 18:29:17.098233  5315 test_multi_device.cpp:65] device id : 10
+I0320 18:29:17.098289  5315 test_multi_device.cpp:66] device info : CvtDevice(10) [CvtDeviceSpec type : 10200, target : 1001, section : 10103010102, manufacturer : , model : ], status : 101
+I0320 18:29:17.098302  5315 test_multi_device.cpp:65] device id : 11
+I0320 18:29:17.098317  5315 test_multi_device.cpp:66] device info : CvtDevice(11) [CvtDeviceSpec type : 10100, target : 1001, section : 10103010102, manufacturer : , model : ], status : 101
+I0320 18:29:17.098331  5315 test_multi_device.cpp:65] device id : 20
+I0320 18:29:17.098343  5315 test_multi_device.cpp:66] device info : CvtDevice(20) [CvtDeviceSpec type : 20100, target : 3001, section : 10103010102, manufacturer : , model : ], status : 303
+I0320 18:29:17.098356  5315 test_multi_device.cpp:65] device id : 21
+I0320 18:29:17.098367  5315 test_multi_device.cpp:66] device info : CvtDevice(21) [CvtDeviceSpec type : 20100, target : 3001, section : 10103010102, manufacturer : , model : ], status : 303
+I0320 18:29:17.098379  5315 test_multi_device.cpp:65] device id : 30
+I0320 18:29:17.098390  5315 test_multi_device.cpp:66] device info : CvtDevice(30) [CvtDeviceSpec type : 30100, target : 3001, section : 10103010102, manufacturer : , model : ], status : 202
+I0320 18:29:17.098397  5315 test_multi_device.cpp:65] device id : 31
+I0320 18:29:17.098409  5315 test_multi_device.cpp:66] device info : CvtDevice(31) [CvtDeviceSpec type : 30100, target : 3001, section : 10103010102, manufacturer : , model : ], status : 202
+I0320 18:29:17.098592  5315 test_multi_device.cpp:54] Final count is 12
+<end of output>
+Test time =  13.01 sec
+----------------------------------------------------------
+Test Passed.
+"dstest_2" end time: Mar 20 18:29 KST
+"dstest_2" time elapsed: 00:00:13
+----------------------------------------------------------
+
+4/7 Testing: dstest_3
+4/7 Test: dstest_3
+Command: "/home/tombraid/Works/ebio/cvtdriver/build/test_actuator" "dsdriver"
+Directory: /home/tombraid/Works/ebio/cvtdriver/build
+"dstest_3" start time: Mar 20 18:29 KST
+Output:
+----------------------------------------------------------
+I0320 18:29:17.106093  5340 test_actuator.cpp:158] Loading the plugin
+I0320 18:29:18.109421  5340 test_actuator.cpp:111] 0
+I0320 18:29:19.109436  5340 test_actuator.cpp:111] 1
+I0320 18:29:19.642266  5340 dssampledriver.cpp:158] read message: ^
+I0320 18:29:20.109457  5340 test_actuator.cpp:111] 2
+I0320 18:29:21.109376  5340 test_actuator.cpp:111] 3
+I0320 18:29:22.109422  5340 test_actuator.cpp:111] 4
+I0320 18:29:23.109432  5340 test_actuator.cpp:111] 5
+I0320 18:29:24.109382  5340 test_actuator.cpp:111] 6
+I0320 18:29:25.109413  5340 test_actuator.cpp:111] 7
+I0320 18:29:26.109429  5340 test_actuator.cpp:111] 8
+I0320 18:29:27.109423  5340 test_actuator.cpp:111] 9
+I0320 18:29:28.109442  5340 test_actuator.cpp:111] 10
+I0320 18:29:29.109400  5340 test_actuator.cpp:111] 11
+I0320 18:29:29.433537  5340 dssampledriver.cpp:158] read message: ^s 10 20.9 1
+I0320 18:29:29.433622  5340 dssampledriver.cpp:158] read message: ^s 11 21.7 1
+I0320 18:29:29.436497  5340 dssampledriver.cpp:158] read message: ^m 20 0 0 0 0
+I0320 18:29:29.436543  5340 dssampledriver.cpp:158] read message: ^m 21 0 0 0 0
+I0320 18:29:29.436547  5340 dssampledriver.cpp:158] read message: ^w 30 0 0
+I0320 18:29:29.438885  5340 dssampledriver.cpp:158] read message: ^w 31 0 0
+I0320 18:29:30.109397  5340 test_actuator.cpp:111] 12
+I0320 18:29:30.109464  5340 test_actuator.cpp:75] before : CvtActuator [CvtDevice(30) [CvtDeviceSpec type : 30100, target : 3001, section : 10103010102, manufacturer : , model : ], status : 202], lastcmdid : 0, onoff : 0
+I0320 18:29:30.109472  5340 test_actuator.cpp:77] after: CvtActuator [CvtDevice(30) [CvtDeviceSpec type : 30100, target : 3001, section : 10103010102, manufacturer : , model : ], status : 202], lastcmdid : 1, onoff : 1
+I0320 18:29:30.109474  5340 test_actuator.cpp:75] before : CvtActuator [CvtDevice(31) [CvtDeviceSpec type : 30100, target : 3001, section : 10103010102, manufacturer : , model : ], status : 202], lastcmdid : 0, onoff : 0
+I0320 18:29:30.109478  5340 test_actuator.cpp:77] after: CvtActuator [CvtDevice(31) [CvtDeviceSpec type : 30100, target : 3001, section : 10103010102, manufacturer : , model : ], status : 202], lastcmdid : 1, onoff : 1
+I0320 18:29:30.109557  5340 dssampledriver.cpp:206] send command : ^w 30 1 1$
+I0320 18:29:30.109653  5340 dssampledriver.cpp:206] send command : ^w 31 1 1$
+I0320 18:29:30.491091  5340 dssampledriver.cpp:158] read message: ^
+I0320 18:29:30.491138  5340 dssampledriver.cpp:158] read message: ^
+I0320 18:29:31.109388  5340 test_actuator.cpp:111] 13
+I0320 18:29:32.109396  5340 test_actuator.cpp:111] 14
+I0320 18:29:33.109388  5340 test_actuator.cpp:111] 15
+I0320 18:29:34.109383  5340 test_actuator.cpp:111] 16
+I0320 18:29:35.109383  5340 test_actuator.cpp:111] 17
+I0320 18:29:36.109400  5340 test_actuator.cpp:111] 18
+I0320 18:29:37.109396  5340 test_actuator.cpp:111] 19
+I0320 18:29:38.109400  5340 test_actuator.cpp:111] 20
+I0320 18:29:39.109385  5340 test_actuator.cpp:111] 21
+I0320 18:29:40.007169  5340 dssampledriver.cpp:158] read message: ^s 10 20.1 1
+I0320 18:29:40.007228  5340 dssampledriver.cpp:158] read message: ^s 11 21.6 1
+I0320 18:29:40.010141  5340 dssampledriver.cpp:158] read message: ^m 20 0 0 0 0
+I0320 18:29:40.010170  5340 dssampledriver.cpp:158] read message: ^m 21 0 0 0 0
+I0320 18:29:40.010187  5340 dssampledriver.cpp:158] read message: ^w 30 1 1
+I0320 18:29:40.012356  5340 dssampledriver.cpp:158] read message: ^w 31 1 1
+I0320 18:29:40.109346  5340 test_actuator.cpp:111] 22
+I0320 18:29:40.109395  5340 test_actuator.cpp:95] new message : CvtActuator [CvtDevice(30) [CvtDeviceSpec type : 30100, target : 3001, section : 10103010102, manufacturer : , model : ], status : 201], lastcmdid : 0, onoff : 1
+I0320 18:29:40.109400  5340 test_actuator.cpp:95] new message : CvtActuator [CvtDevice(31) [CvtDeviceSpec type : 30100, target : 3001, section : 10103010102, manufacturer : , model : ], status : 201], lastcmdid : 0, onoff : 1
+I0320 18:29:40.109421  5340 test_actuator.cpp:60] Final count is 22
+<end of output>
+Test time =  23.01 sec
+----------------------------------------------------------
+Test Passed.
+"dstest_3" end time: Mar 20 18:29 KST
+"dstest_3" time elapsed: 00:00:23
+----------------------------------------------------------
+
+5/7 Testing: dstest_4
+5/7 Test: dstest_4
+Command: "/home/tombraid/Works/ebio/cvtdriver/build/test_motor" "dsdriver"
+Directory: /home/tombraid/Works/ebio/cvtdriver/build
+"dstest_4" start time: Mar 20 18:29 KST
+Output:
+----------------------------------------------------------
+I0320 18:29:40.112099  5363 test_motor.cpp:159] Loading the plugin
+I0320 18:29:41.113775  5363 test_motor.cpp:112] 0
+I0320 18:29:42.113739  5363 test_motor.cpp:112] 1
+I0320 18:29:42.646795  5363 dssampledriver.cpp:158] read message: ^
+I0320 18:29:43.113786  5363 test_motor.cpp:112] 2
+I0320 18:29:44.113772  5363 test_motor.cpp:112] 3
+I0320 18:29:45.113786  5363 test_motor.cpp:112] 4
+I0320 18:29:46.113775  5363 test_motor.cpp:112] 5
+I0320 18:29:47.113775  5363 test_motor.cpp:112] 6
+I0320 18:29:48.113772  5363 test_motor.cpp:112] 7
+I0320 18:29:49.113812  5363 test_motor.cpp:112] 8
+I0320 18:29:50.113816  5363 test_motor.cpp:112] 9
+I0320 18:29:51.113822  5363 test_motor.cpp:112] 10
+I0320 18:29:52.113816  5363 test_motor.cpp:112] 11
+I0320 18:29:52.437674  5363 dssampledriver.cpp:158] read message: ^s 10 20.0 1
+I0320 18:29:52.437809  5363 dssampledriver.cpp:158] read message: ^s 11 21.6 1
+I0320 18:29:52.440640  5363 dssampledriver.cpp:158] read message: ^m 20 0 0 0 0
+I0320 18:29:52.440718  5363 dssampledriver.cpp:158] read message: ^m 21 0 0 0 0
+I0320 18:29:52.440738  5363 dssampledriver.cpp:158] read message: ^w 30 0 0
+I0320 18:29:52.442879  5363 dssampledriver.cpp:158] read message: ^w 31 0 0
+I0320 18:29:53.113821  5363 test_motor.cpp:112] 12
+I0320 18:29:53.113941  5363 test_motor.cpp:75] before : CvtMotor [CvtDevice(20) [CvtDeviceSpec type : 20100, target : 3001, section : 10103010102, manufacturer : , model : ], status : 303], lastcmdid : 0], current : 0.000000, onoff : 0, target : 0.000000
+I0320 18:29:53.113976  5363 test_motor.cpp:77] after: CvtMotor [CvtDevice(20) [CvtDeviceSpec type : 20100, target : 3001, section : 10103010102, manufacturer : , model : ], status : 303], lastcmdid : 1], current : 0.000000, onoff : 1, target : 0.100000
+I0320 18:29:53.114001  5363 test_motor.cpp:75] before : CvtMotor [CvtDevice(21) [CvtDeviceSpec type : 20100, target : 3001, section : 10103010102, manufacturer : , model : ], status : 303], lastcmdid : 0], current : 0.000000, onoff : 0, target : 0.000000
+I0320 18:29:53.114022  5363 test_motor.cpp:77] after: CvtMotor [CvtDevice(21) [CvtDeviceSpec type : 20100, target : 3001, section : 10103010102, manufacturer : , model : ], status : 303], lastcmdid : 1], current : 0.000000, onoff : 1, target : 0.100000
+I0320 18:29:53.114231  5363 dssampledriver.cpp:206] send command : ^m 20 1 10$
+I0320 18:29:53.114447  5363 dssampledriver.cpp:206] send command : ^m 21 1 10$
+I0320 18:29:53.495079  5363 dssampledriver.cpp:158] read message: ^
+I0320 18:29:53.495136  5363 dssampledriver.cpp:158] read message: ^
+I0320 18:29:54.113808  5363 test_motor.cpp:112] 13
+I0320 18:29:55.113827  5363 test_motor.cpp:112] 14
+I0320 18:29:56.113824  5363 test_motor.cpp:112] 15
+I0320 18:29:57.113790  5363 test_motor.cpp:112] 16
+I0320 18:29:58.113803  5363 test_motor.cpp:112] 17
+I0320 18:29:59.113780  5363 test_motor.cpp:112] 18
+I0320 18:30:00.113819  5363 test_motor.cpp:112] 19
+I0320 18:30:01.113813  5363 test_motor.cpp:112] 20
+I0320 18:30:02.113816  5363 test_motor.cpp:112] 21
+I0320 18:30:03.010633  5363 dssampledriver.cpp:158] read message: ^s 10 20.0 1
+I0320 18:30:03.010710  5363 dssampledriver.cpp:158] read message: ^s 11 21.6 1
+I0320 18:30:03.013586  5363 dssampledriver.cpp:158] read message: ^m 20 1 9 10 1
+I0320 18:30:03.013650  5363 dssampledriver.cpp:158] read message: ^m 21 1 9 10 1
+I0320 18:30:03.015987  5363 dssampledriver.cpp:158] read message: ^w 30 0 0
+I0320 18:30:03.016048  5363 dssampledriver.cpp:158] read message: ^w 31 0 0
+I0320 18:30:03.113819  5363 test_motor.cpp:112] 22
+I0320 18:30:03.113903  5363 test_motor.cpp:95] new message : CvtMotor [CvtDevice(20) [CvtDeviceSpec type : 20100, target : 3001, section : 10103010102, manufacturer : , model : ], status : 301], lastcmdid : 0], current : 0.090000, onoff : 1, target : 0.100000
+W0320 18:30:03.113921  5363 test_motor.cpp:101] 20 is not applied yet. 
+I0320 18:30:03.113943  5363 test_motor.cpp:95] new message : CvtMotor [CvtDevice(21) [CvtDeviceSpec type : 20100, target : 3001, section : 10103010102, manufacturer : , model : ], status : 301], lastcmdid : 0], current : 0.090000, onoff : 1, target : 0.100000
+W0320 18:30:03.113951  5363 test_motor.cpp:101] 21 is not applied yet. 
+I0320 18:30:03.114007  5363 test_motor.cpp:130] wait once more.
+I0320 18:30:04.113821  5363 test_motor.cpp:112] 23
+I0320 18:30:05.113814  5363 test_motor.cpp:112] 24
+I0320 18:30:06.113819  5363 test_motor.cpp:112] 25
+I0320 18:30:07.113823  5363 test_motor.cpp:112] 26
+I0320 18:30:08.113818  5363 test_motor.cpp:112] 27
+I0320 18:30:09.113819  5363 test_motor.cpp:112] 28
+I0320 18:30:10.113782  5363 test_motor.cpp:112] 29
+I0320 18:30:11.113814  5363 test_motor.cpp:112] 30
+I0320 18:30:12.113814  5363 test_motor.cpp:112] 31
+I0320 18:30:13.113783  5363 test_motor.cpp:112] 32
+I0320 18:30:13.882911  5363 dssampledriver.cpp:158] read message: ^s 10 20.2 1
+I0320 18:30:13.882992  5363 dssampledriver.cpp:158] read message: ^s 11 21.5 1
+I0320 18:30:13.885874  5363 dssampledriver.cpp:158] read message: ^m 20 1 10 10 0
+I0320 18:30:13.885936  5363 dssampledriver.cpp:158] read message: ^m 21 1 10 10 0
+I0320 18:30:13.888412  5363 dssampledriver.cpp:158] read message: ^w 30 0 0
+I0320 18:30:13.888473  5363 dssampledriver.cpp:158] read message: ^w 31 0 0
+I0320 18:30:14.113826  5363 test_motor.cpp:112] 33
+I0320 18:30:14.113911  5363 test_motor.cpp:95] new message : CvtMotor [CvtDevice(20) [CvtDeviceSpec type : 20100, target : 3001, section : 10103010102, manufacturer : , model : ], status : 303], lastcmdid : 0], current : 0.100000, onoff : 1, target : 0.100000
+I0320 18:30:14.113936  5363 test_motor.cpp:95] new message : CvtMotor [CvtDevice(21) [CvtDeviceSpec type : 20100, target : 3001, section : 10103010102, manufacturer : , model : ], status : 303], lastcmdid : 0], current : 0.100000, onoff : 1, target : 0.100000
+I0320 18:30:14.114006  5363 test_motor.cpp:60] Final count is 33
+<end of output>
+Test time =  34.00 sec
+----------------------------------------------------------
+Test Passed.
+"dstest_4" end time: Mar 20 18:30 KST
+"dstest_4" time elapsed: 00:00:34
+----------------------------------------------------------
+
+6/7 Testing: sstest_0
+6/7 Test: sstest_0
+Command: "/home/tombraid/Works/ebio/cvtdriver/build/test_so_load" "ssdriver"
+Directory: /home/tombraid/Works/ebio/cvtdriver/build
+"sstest_0" start time: Mar 20 18:30 KST
+Output:
+----------------------------------------------------------
+I0320 18:30:14.121644  5411 test_so_load.cpp:43] Loading the plugin
+I0320 18:30:14.122124  5411 sssampledriver.cpp:108] SSSampleDriver initialized.
+I0320 18:30:14.122156  5411 test_so_load.cpp:50] pdevice->getid() : 10
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"sstest_0" end time: Mar 20 18:30 KST
+"sstest_0" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/7 Testing: sstest_2
+7/7 Test: sstest_2
+Command: "/home/tombraid/Works/ebio/cvtdriver/build/test_multi_device" "ssdriver"
+Directory: /home/tombraid/Works/ebio/cvtdriver/build
+"sstest_2" start time: Mar 20 18:30 KST
+Output:
+----------------------------------------------------------
+I0320 18:30:14.128851  5412 test_multi_device.cpp:94] Loading the plugin
+I0320 18:30:14.129343  5412 sssampledriver.cpp:108] SSSampleDriver initialized.
+I0320 18:30:15.129541  5412 test_multi_device.cpp:58] 0
+I0320 18:30:15.129598  5412 test_multi_device.cpp:65] device id : 10
+I0320 18:30:15.129650  5412 test_multi_device.cpp:66] device info : CvtDevice(10) [CvtDeviceSpec type : 10100, target : 1001, section : 10103000002, manufacturer : , model : ], status : 101
+I0320 18:30:15.129662  5412 test_multi_device.cpp:65] device id : 20
+I0320 18:30:15.129676  5412 test_multi_device.cpp:66] device info : CvtDevice(20) [CvtDeviceSpec type : 20100, target : 3001, section : 10103000002, manufacturer : , model : ], status : 303
+I0320 18:30:15.129683  5412 test_multi_device.cpp:65] device id : 30
+I0320 18:30:15.129695  5412 test_multi_device.cpp:66] device info : CvtDevice(30) [CvtDeviceSpec type : 30100, target : 3001, section : 10103000002, manufacturer : , model : ], status : 202
+I0320 18:30:15.129712  5412 test_multi_device.cpp:54] Final count is 0
+<end of output>
+Test time =   1.01 sec
+----------------------------------------------------------
+Test Passed.
+"sstest_2" end time: Mar 20 18:30 KST
+"sstest_2" time elapsed: 00:00:01
+----------------------------------------------------------
+
+End testing: Mar 20 18:30 KST
