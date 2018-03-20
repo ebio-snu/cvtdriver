@@ -47,8 +47,7 @@ int main(int argc, char* argv[]) {
 
     plugin->initialize (option);
     CvtDevice *pdevice = plugin->getdevice(0);
-    CvtSensor *psensor = static_cast<CvtSensor *>(pdevice);
-    LOG(INFO) << "psensor->getid() : " << psensor->getid() << std::endl;
+    LOG(INFO) << "pdevice->getid() : " << pdevice->getid() << std::endl;
 
     return 0;
 }
