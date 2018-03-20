@@ -16,8 +16,8 @@ cvtdriver 는 [스마트팜장비 연동을 위한 컨버터 개발](https://git
 * [CvtDeviceSpec](@ref stdcvt::CvtDeviceSpec) : 드라이버에서 다루는 장비의 스펙을 다루는 클래스이다. 장비종류, 설치위치, 장비의 작동대상, 제조사, 모델명을 처리한다.
 * [CvtDevice](@ref stdcvt::CvtDevice) : 드라이버에서 다루는 장비의 인터페이스가 되는 가상 클래스이다. 
   * [CvtSensor](@ref stdcvt::CvtSensor) : 센서의 인터페이스가 되는 클래스이다. 간단한 경우라면 직접 사용이 가능하다.
-  * [CvtMotor](@ref stdcvt::CvtMotor) : 모터형 구동기의 인터페이스가 되는 클래스이다. 간단한 경우라면 직접 사용이 가능하다. 
-  * [CvtSwitch](@ref stdcvt::CvtSwitch) : 스위치형 구동기의 경우 간단하여 구현되어 있지 않다. CvtDevice를 그냥 사용한다.
+  * [CvtActuator](@ref stdcvt::CvtActuator) : 일반 구동기의 인터페이스가 되는 클래스이다. 스위치형 구동기에 사용하면 된다. 
+  * [CvtMotor](@ref stdcvt::CvtMotor) : 모터형 구동기의 인터페이스가 되는 클래스로 CvtActuator를 상속한다. 간단한 경우라면 직접 사용이 가능하다. 
 * [CvtCommand](@ref stdcvt::CvtCommand) : 구동기에서 처리하는 명령의 인터페이스가 되는 클래스이다.
   * [CvtRatioCommand](@ref stdcvt::CvtRatioCommand) : 구동기 전달하는 명령이 비율(퍼센트)인 경우에 사용하는 클래스이다. 모터형 구동기에 적합한 명령클래스라고 할 수 있다.
 

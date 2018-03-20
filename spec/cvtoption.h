@@ -45,7 +45,7 @@ public:
 
     /**
      복잡한 옵션을 사용하고자 할때에는 옵션의 값을 리턴한다.
-     @param 
+     @param path JSONPATH 로 나타낸 경로
      @return 옵션의 값
     */
     json getjson (string path) {

@@ -213,9 +213,7 @@ private:
 
 public:
     /**
-     새로운 SS드라이버를 생성한다.
-     @param modelcode 모델코드
-     @param apispec API 버전
+     새로운 DS드라이버를 생성한다.
     */
     DSSampleDriver()
         : stdcvt::CvtDriver (2001, 100) {
