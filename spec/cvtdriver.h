@@ -12,6 +12,8 @@
 #ifndef _CVT_DRIVER_
 #define _CVT_DRIVER_
 
+#include <ctime>
+
 #include "cvtdevice.h"
 
 namespace stdcvt {
@@ -23,6 +25,7 @@ class CvtDriver {
 private:
     int _modelcode;     ///< 모델코드. 회사코드에 개별모델의 번호를 합하여 만든다.
     int _apispec;       ///< 적용API버전. API 버전에 따라 메소드구성에 차이가 있을 수 있다.
+    time_t _updated;    ///< 드라이버 최근 업데이트 시각. 드라이버의 내용이 업데이트되면 이 시간을 업데이트 해야한다.
 
 public:
     /**
@@ -33,6 +36,7 @@ public:
     CvtDriver(int modelcode, int apispec) {
         _modelcode = modelcode;
         _apispec = apispec;
+        _updated = 0;   // 데이터가 업데이트되지 않은 상태라면 0
     }
 
     /**
@@ -49,6 +53,23 @@ public:
     */
     int getapispec() {
         return _apispec;
+    }
+
+    /**
+     드라이버 가장 최근 업데이트된 시간을 확인한다. 
+     @return 드라이버의 최근 업데이트 시각
+    */
+    time_t getlastupdated() {
+        return _updated;
+    }
+
+    /**
+     드라이버의 내용이 업데이트되면 호출한다. 
+     관리하고 있는 장비의 데이터가 변경되면 무조건 호출해 주어야 한다.
+     현재는 최종업데이트 시간만을 관리한다.
+    */
+    void updated () {
+        _updated = time(0);
     }
 
     /**

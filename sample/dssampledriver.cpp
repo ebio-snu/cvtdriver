@@ -121,6 +121,8 @@ private:
                 //LOG(INFO) << "wrong message : " << _msg;
                 return false;
         }
+        updated ();
+
         return true;
     }
 

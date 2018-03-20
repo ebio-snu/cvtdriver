@@ -7,10 +7,13 @@ package stdcvt {
     abstract class CvtDriver {
      - modelcode : int
      - apispec : int
+     - updated : time_t
 
      .. Company, Model, Simple Version ..
      + int getmodelcode ();     // company code + model code
      + int getapispec ();
+     + time_t getlastupdated ();
+     + void updated ();
 
      + virtual string getversion ();
      + virtual string getmodel ();
