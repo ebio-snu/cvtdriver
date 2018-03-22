@@ -59,8 +59,6 @@ private:
 public:
     /**
      새로운 DS드라이버를 생성한다.
-     @param modelcode 모델코드
-     @param apispec API 버전
     */
     SSSampleDriver() : stdcvt::CvtDriver (2001, 100),
         _sensor(10, DT_SEN_TEMPERATURE, 10103000002, DO_ENV_ATMOSPHERE, DS_SEN_NORMAL, OU_CELSIUS),

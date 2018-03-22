@@ -126,7 +126,23 @@ package stdcvt {
      double getdouble (string key);
      string get (string key);
      void *getobject (string key);
+     CvtDeviceFactory *getdevfactory ();
     }
+    
+    class CvtDeviceFactory {
+     - sensors : json
+     - motors : json
+     - switches : json
+     void setsensors (json sensors)
+     void setmotors (json motors)
+     void setswitches (json switches)
+     CvtSensor *newsensor(int idx);
+     CvtMotor *newmotor(int idx);
+     CvtActuator *newswitch(int idx);
+    }
+    
+    CvtOption "1" *-- "1" CvtDeviceFactory
+     
 
     CvtCommand <|-- CvtRatioCommand
 

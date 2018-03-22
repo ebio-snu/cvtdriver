@@ -38,7 +38,7 @@ private:
 public:
     /**
      새로운 옵션를 생성한다.
-     @param poption 특정 드라이버를 위한 옵션. json 타입의 포인터.
+     @param option 특정 드라이버를 위한 옵션. json 타입의 포인터.
     */
     CvtOption(json option) {
         _option = option;

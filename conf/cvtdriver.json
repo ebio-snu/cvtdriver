@@ -10,7 +10,7 @@
     "driver": "libdssample.so",
     "option": {
       "port": "/dev/ttyUSB0",
-      "baudrate": 115200
+      "baudrate": 115200,
       "_sensors" : [{
         "id" : "10",
         "type" : "DT_SEN_HUMIDITY",

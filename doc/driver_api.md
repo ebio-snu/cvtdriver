@@ -35,29 +35,3 @@ DeviceSpec은 서로 다른 드라이버 사이에서 정보를 교환할때 기
 
 획득한 명령을 다른 드라이버로 전달하기 위해서 bool control(CvtCommand *pcmd); 메소드를 활용한다.
 
-## 드라이버 설정
-드라이버의 설정은 conf/cvtdriver.json 에 기록되어 있다. 설정파일은 ssdriver 와 dsdriver 로 나뉘어지는데 기본적인 구조는 동일하다.
-
-```
-{
-    "ssdriver": [{
-        "driver": "libsssample.so",
-        "option": {
-            "value": "value.json",
-            "command": "command.json"
-        }
-    }],
-    "dsdriver": [{
-        "driver": "libdssample.so",
-        "option": {
-            "port": "/dev/ttyUSB0",
-            "baudrate": 115200
-        }
-    }]
-}
-```
-
-하나의 드라이버에 대한 설정은 드라이버 파일명("driver")과 해당 드라이버 구동을 위한 옵션("option")으로 구성된다. 드라이버 파일명은 추후 협회의 시스템이 구축될때 내부적인 규칙에 따라 정리될 예정이다. 드라이버의 옵션은 해당드라이버에 맞게 개발자가 설정하면 된다.
-
-위에서 SSSampleDriver 는 파일에 정보를 기록하고, 파일로부터 명령을 읽는 구조를 가지고 있어 해당 파일명들이 옵션에 기록되고, DSSampleDriver는 시리얼 통신을 통해 샘플노드와 통신을 하는 드라이버이기 때문에 옵션으로 port와  baudrate를 가지고 있다.
-

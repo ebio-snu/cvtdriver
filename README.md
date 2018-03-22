@@ -15,6 +15,7 @@
 * [드라이버 API 설명](doc/driver_api.md)
 * [드라이버에서 사용할 코드테이블](doc/code_table.md)
 * [드라이버 API 스펙](https://ebio-snu.github.io/cvtdriver/)
+* [드라이버 설정](doc/driver_config.md)
 
 
 ## 사용법
@@ -53,6 +54,9 @@ make test
 test 폴더에는 드라이버 테스트를 위한 코드들이 들어있는데, 이 코드를 활용하면 신규 드라이버를 테스트할 수 있다. 
 * test_so_load : 드라이버가 로딩되는지 테스트 한다.
 * test_asio : asio::io_service 를 전달하여 이를 통한 통신이 진행되는지 테스트한다.
+* test_multi_device : 여러 장비에 대한 정보가 처리되는지 테스트한다.
+* test_actuator : 연결된 장비중 스위치형 구동기를 모두 On 하는 테스트를 수행한다.
+* test_motor : 연결된 장비중 모터형 구동기를 모두 10% 여는 테스트를 수행한다.
 * 테스트가 추가되는데로 여기에 기록한다.
 
 테스트 코드들은 설정파일을 기반으로 동작하기 때문에 /conf/cvtdriver.json 파일의 내용을 개발하는 드라이버의 정보로 변경한 뒤 make test 명령을 통해 신규 드라이버 테스트가 가능하다.
