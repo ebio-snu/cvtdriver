@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['order',['order',['../classstdcvt_1_1CvtActuator.html#a4ad6f7f3c6155ad3be892a94d28c844c',1,'stdcvt::CvtActuator::order()'],['../classstdcvt_1_1CvtMotor.html#ad3ce43f87cbeaf7febac055bab4a0fbe',1,'stdcvt::CvtMotor::order()']]]
+  ['newmotor',['newmotor',['../classstdcvt_1_1CvtDeviceFactory.html#ae4485cd12b0cee58271b3d0f28606613',1,'stdcvt::CvtDeviceFactory']]],
+  ['newsensor',['newsensor',['../classstdcvt_1_1CvtDeviceFactory.html#a23f10e21b60fe130064c3eba29df03de',1,'stdcvt::CvtDeviceFactory']]],
+  ['newswitch',['newswitch',['../classstdcvt_1_1CvtDeviceFactory.html#afcc77f3aa30943d21b1e874279b01956',1,'stdcvt::CvtDeviceFactory']]]
 ];

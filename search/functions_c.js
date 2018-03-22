@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['writeobservation',['writeobservation',['../classstdcvt_1_1CvtSensor.html#aba7a61d2f5fac1c100a17a8831727b29',1,'stdcvt::CvtSensor']]]
+  ['updated',['updated',['../classstdcvt_1_1CvtDriver.html#abbaba1b9dd80aae9648dac8a44f31589',1,'stdcvt::CvtDriver']]]
 ];

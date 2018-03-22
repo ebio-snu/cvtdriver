@@ -97,8 +97,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'검색');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public 멤버 함수</h2></td></tr>
-<tr class="memitem:ad649195a46bae2714aafe069084bea7a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstdcvt_1_1CvtOption.html#ad649195a46bae2714aafe069084bea7a">CvtOption</a> (json *poption)</td></tr>
-<tr class="separator:ad649195a46bae2714aafe069084bea7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a990c2f1a811ad9cd2d438995754243f3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstdcvt_1_1CvtOption.html#a990c2f1a811ad9cd2d438995754243f3">CvtOption</a> (json option)</td></tr>
+<tr class="separator:a990c2f1a811ad9cd2d438995754243f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a912926db2ba4ae39269cdbdfcd0a82b4"><td class="memItemLeft" align="right" valign="top">json&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstdcvt_1_1CvtOption.html#a912926db2ba4ae39269cdbdfcd0a82b4">getjson</a> (string path)</td></tr>
 <tr class="separator:a912926db2ba4ae39269cdbdfcd0a82b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add9602ed4e44ebb336dcb177b19210d2"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstdcvt_1_1CvtOption.html#add9602ed4e44ebb336dcb177b19210d2">get</a> (string key)</td></tr>
@@ -111,9 +111,11 @@ Public 멤버 함수</h2></td></tr>
 <tr class="separator:add9d9f444a0cc5fcbf476cc87abd4de4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a552fcb035d6288e44cd3f5da11be28aa"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstdcvt_1_1CvtOption.html#a552fcb035d6288e44cd3f5da11be28aa">setobject</a> (string key, void *object)</td></tr>
 <tr class="separator:a552fcb035d6288e44cd3f5da11be28aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28a6eb128ab00700327aaad28ff8b234"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstdcvt_1_1CvtDeviceFactory.html">CvtDeviceFactory</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstdcvt_1_1CvtOption.html#a28a6eb128ab00700327aaad28ff8b234">getdevfactory</a> ()</td></tr>
+<tr class="separator:a28a6eb128ab00700327aaad28ff8b234"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">생성자 &amp; 소멸자 문서화</h2>
-<a class="anchor" id="ad649195a46bae2714aafe069084bea7a"></a>
+<a class="anchor" id="a990c2f1a811ad9cd2d438995754243f3"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -123,8 +125,8 @@ Public 멤버 함수</h2></td></tr>
         <tr>
           <td class="memname">stdcvt::CvtOption::CvtOption </td>
           <td>(</td>
-          <td class="paramtype">json *&#160;</td>
-          <td class="paramname"><em>poption</em></td><td>)</td>
+          <td class="paramtype">json&#160;</td>
+          <td class="paramname"><em>option</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -136,7 +138,7 @@ Public 멤버 함수</h2></td></tr>
 </div><div class="memdoc">
 <p>새로운 옵션를 생성한다. </p><dl class="params"><dt>매개변수</dt><dd>
   <table class="params">
-    <tr><td class="paramname">poption</td><td>특정 드라이버를 위한 옵션. json 타입의 포인터. </td></tr>
+    <tr><td class="paramname">option</td><td>특정 드라이버를 위한 옵션. json 타입의 포인터. </td></tr>
   </table>
   </dd>
 </dl>
@@ -172,6 +174,30 @@ Public 멤버 함수</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>반환값</dt><dd>옵션의 문자열 값 </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a28a6eb128ab00700327aaad28ff8b234"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstdcvt_1_1CvtDeviceFactory.html">CvtDeviceFactory</a>* stdcvt::CvtOption::getdevfactory </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>디바이스팩토리를 얻는다. </p><dl class="section return"><dt>반환값</dt><dd>디바이스팩토리의 포인터 </dd></dl>
 
 </div>
 </div>
@@ -347,7 +373,7 @@ Public 멤버 함수</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-생성시간 : 화 3월 20 2018 18:54:16, 프로젝트명 : cvtdriver, 생성자 :  &#160;<a href="http://www.doxygen.org/index.html">
+생성시간 : 목 3월 22 2018 14:05:14, 프로젝트명 : cvtdriver, 생성자 :  &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

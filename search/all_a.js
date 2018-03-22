@@ -1,6 +1,22 @@
 var searchData=
 [
-  ['tostring',['tostring',['../classstdcvt_1_1CvtDevice.html#a93b54587e1940918b825d78b18f48062',1,'stdcvt::CvtDevice::tostring()'],['../classstdcvt_1_1CvtSensor.html#aa9f10c534408e35f1d761941a8320e50',1,'stdcvt::CvtSensor::tostring()'],['../classstdcvt_1_1CvtActuator.html#a088f0d1854430c12199e9f2b6bee3453',1,'stdcvt::CvtActuator::tostring()'],['../classstdcvt_1_1CvtMotor.html#a93295bdf3c61854878f663fad712adaa',1,'stdcvt::CvtMotor::tostring()'],['../classstdcvt_1_1CvtDeviceSpec.html#ad3513bc7aad4705052c3ddc4e362294d',1,'stdcvt::CvtDeviceSpec::tostring()']]],
-  ['turnoff',['turnoff',['../classstdcvt_1_1CvtActuator.html#aa90cc45faf4243f23b8d8ee12b101c82',1,'stdcvt::CvtActuator']]],
-  ['turnon',['turnon',['../classstdcvt_1_1CvtActuator.html#aba92e55391d3a2e8c64933ec50a5db34',1,'stdcvt::CvtActuator']]]
+  ['setcommand',['setcommand',['../classstdcvt_1_1CvtActuator.html#a5ec24f9d3a1e487ee60c1dc92c6c8a73',1,'stdcvt::CvtActuator']]],
+  ['setcurrent',['setcurrent',['../classstdcvt_1_1CvtMotor.html#a8fba087788280da5317b60a68a8ffe5c',1,'stdcvt::CvtMotor']]],
+  ['setmanufacturer',['setmanufacturer',['../classstdcvt_1_1CvtDeviceSpec.html#a492062d0e23014d77efd75b56d8d21ce',1,'stdcvt::CvtDeviceSpec']]],
+  ['setmodel',['setmodel',['../classstdcvt_1_1CvtDeviceSpec.html#ad1d1d18f459c2648f325407774f0a44b',1,'stdcvt::CvtDeviceSpec']]],
+  ['setmotors',['setmotors',['../classstdcvt_1_1CvtDeviceFactory.html#a52508fb1ec996fd26261915881bd6525',1,'stdcvt::CvtDeviceFactory']]],
+  ['setobject',['setobject',['../classstdcvt_1_1CvtOption.html#a552fcb035d6288e44cd3f5da11be28aa',1,'stdcvt::CvtOption']]],
+  ['setonoff',['setonoff',['../classstdcvt_1_1CvtCommand.html#a933894d3d822018066d4761d56e091f7',1,'stdcvt::CvtCommand']]],
+  ['setsensors',['setsensors',['../classstdcvt_1_1CvtDeviceFactory.html#a7eb53ef66ec3170720dcfbd12076cb44',1,'stdcvt::CvtDeviceFactory']]],
+  ['setstatus',['setstatus',['../classstdcvt_1_1CvtDevice.html#a6962f56199cccff1c0687ad5087cb211',1,'stdcvt::CvtDevice']]],
+  ['setswitches',['setswitches',['../classstdcvt_1_1CvtDeviceFactory.html#a5e42711a7c699bd5f545473463497762',1,'stdcvt::CvtDeviceFactory']]],
+  ['settarget',['settarget',['../classstdcvt_1_1CvtMotor.html#a309437a51deaa58ac18ead369c1ccfe9',1,'stdcvt::CvtMotor']]],
+  ['setunit',['setunit',['../classstdcvt_1_1CvtSensor.html#a0e13dd86635e5077dbadc6c0fe396b5e',1,'stdcvt::CvtSensor']]],
+  ['sharedevice',['sharedevice',['../classstdcvt_1_1CvtDriver.html#aeedcd62d3b6ed95f0584db5a7259f642',1,'stdcvt::CvtDriver::sharedevice()'],['../classebiodriver_1_1DSSampleDriver.html#a027286ae7b53a82d8d46731cfabcfea3',1,'ebiodriver::DSSampleDriver::sharedevice()'],['../classebiodriver_1_1SSSampleDriver.html#a268e69de75c71df87c32ad3d4aa29a91',1,'ebiodriver::SSSampleDriver::sharedevice()']]],
+  ['ssmotor',['SSMotor',['../classebiodriver_1_1SSMotor.html',1,'ebiodriver']]],
+  ['sssampledriver',['SSSampleDriver',['../classebiodriver_1_1SSSampleDriver.html',1,'ebiodriver']]],
+  ['sssampledriver',['SSSampleDriver',['../classebiodriver_1_1SSSampleDriver.html#afac6e5429ff3a9550925c1f62074ff3e',1,'ebiodriver::SSSampleDriver']]],
+  ['sssampledriver_2ecpp',['sssampledriver.cpp',['../sssampledriver_8cpp.html',1,'']]],
+  ['sssensor',['SSSensor',['../classebiodriver_1_1SSSensor.html',1,'ebiodriver']]],
+  ['ssswitch',['SSSwitch',['../classebiodriver_1_1SSSwitch.html',1,'ebiodriver']]]
 ];
