@@ -60,13 +60,13 @@ TARGET_LINK_LIBRARIES(sssample ${Boost_LIBRARIES} ${GLOG_LIBRARIES} pthread)
 
 ENABLE_TESTING ()
 
-ADD_EXECUTABLE (test_so_load test/test_so_load.cpp ${CODEDICSRC})
+ADD_EXECUTABLE (test_so_load test/test_so_load.cpp)
 TARGET_LINK_LIBRARIES (test_so_load ${Boost_LIBRARIES} ${GLOG_LIBRARIES} pthread dl ${GTEST_LIBRARIES})
 
 SET (TESTSRC asio;multi_device;actuator;motor)
 
 foreach(TNAME ${TESTSRC}) 
-    ADD_EXECUTABLE (test_${TNAME} test/test.cpp test/test_${TNAME}.cpp ${CODEDICSRC})
+    ADD_EXECUTABLE (test_${TNAME} test/test.cpp test/test_${TNAME}.cpp)
     TARGET_LINK_LIBRARIES (test_${TNAME} ${Boost_LIBRARIES} ${GLOG_LIBRARIES} pthread dl ${GTEST_LIBRARIES})
 endforeach()
 

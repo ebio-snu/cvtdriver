@@ -19,6 +19,7 @@
 #include "cvtcodedic.h"
 
 using namespace std;
+using namespace stdcvt;
 
 using jsoncons::json;
 using jsoncons::jsonpath::json_query;

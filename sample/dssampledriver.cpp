@@ -46,21 +46,21 @@ private:
     vector<CvtDevice *> _devices;
 
     // 관리하는 장비 초기화를 위한 메소드 
-    void loaddevices(CvtDeviceFactory devfac) {
+    void loaddevices(CvtDeviceFactory *pdevfac) {
         CvtSensor *psensor;
-        for (int i = 0; (psensor = devfac.newsensor(i)) != nullptr; i++) {
+        for (int i = 0; (psensor = pdevfac->newsensor(i)) != nullptr; i++) {
             LOG(INFO) << "add sensor: " << psensor->tostring ();
             _sensor[psensor->getid ()] = psensor;
             _devices.push_back(psensor);
         }
         CvtMotor *pmotor;
-        for (int i = 0; (pmotor = devfac.newmotor(i)) != nullptr; i++) {
+        for (int i = 0; (pmotor = pdevfac->newmotor(i)) != nullptr; i++) {
             LOG(INFO) << "add motor: " << pmotor->tostring ();
             _motor[pmotor->getid ()] = pmotor;
             _devices.push_back(pmotor);
         }
         CvtActuator *pswitch;
-        for (int i = 0; (pswitch = devfac.newswitch(i)) != nullptr; i++) {
+        for (int i = 0; (pswitch = pdevfac->newswitch(i)) != nullptr; i++) {
             LOG(INFO) << "add switch: " << pswitch->tostring ();
             _switch[pswitch->getid ()] = pswitch;
             _devices.push_back(pswitch);
@@ -250,12 +250,11 @@ public:
     /**
      드라이버를 초기화 한다. 드라이버 동작을 위한 option 은 key-value 형식으로 전달된다.
      @param option 드라이버동작을 위한 옵션
-     @param devfac 드라이버설정에 포함된 장비
      @return 초기화 성공 여부
     */
-    bool initialize (CvtOption option, CvtDeviceFactory devfac) {
+    bool initialize (CvtOption option) {
         // load device
-        loaddevices (devfac);
+        loaddevices (option.getdevfactory());
 
         boost::asio::io_service *io_service = (boost::asio::io_service *) 
                                     option.getobject(CVT_OPTION_ASIO_SERVICE);
@@ -278,14 +277,17 @@ public:
                                             iter != _sensor.end(); ++iter) {
             delete (*iter).second;
         }
+        _sensor.clear ();
         for (map<string, CvtMotor *>::iterator iter = _motor.begin(); 
                                             iter != _motor.end(); ++iter) {
             delete (*iter).second;
         }
+        _motor.clear ();
         for (map<string, CvtActuator *>::iterator iter = _switch.begin(); 
                                             iter != _switch.end(); ++iter) {
             delete (*iter).second;
         }
+        _switch.clear ();
 
         return true;
     }

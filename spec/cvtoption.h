@@ -15,6 +15,9 @@
 #include <jsoncons/json.hpp>
 #include <jsoncons_ext/jsonpath/json_query.hpp>
 
+#include "cvtdevice.h"
+#include "cvtdevicefactory.h"
+
 using namespace std;
 
 using jsoncons::json;
@@ -30,6 +33,7 @@ class CvtOption {
 private:
     map<string, void *> _objects;   ///< 컨버터에서 등록해주는 Objects
     json _option;                   ///< 설정파일에서 드라이버에 할당된 옵션
+    CvtDeviceFactory _devfac;       ///< 장비 설정을 기반으로 장비를 생성하는 팩토리
 
 public:
     /**
@@ -38,6 +42,15 @@ public:
     */
     CvtOption(json option) {
         _option = option;
+        if (option.has_key("_sensors")) {
+            _devfac.setsensors (option["_sensors"]);
+        }
+        if (option.has_key("_motors")) {
+            _devfac.setmotors (option["_motors"]);
+        }
+        if (option.has_key("_switches")) {
+            _devfac.setswitches (option["_switches"]);
+        }
     }
 
     ~CvtOption() {
@@ -110,6 +123,14 @@ public:
         }
 
         return (void *)(ret.first->second);
+    }
+
+    /**
+     디바이스팩토리를 얻는다.
+     @return 디바이스팩토리의 포인터
+    */
+    CvtDeviceFactory *getdevfactory () {
+        return &_devfac;
     }
 };
 

@@ -11,47 +11,47 @@
     "option": {
       "port": "/dev/ttyUSB0",
       "baudrate": 115200
-    },
-    "sensors" : [{
-      "id" : "10",
-      "type" : "DT_SEN_HUMIDITY",
-      "section" : "DL_DEFAULT_PLANTZONE",
-      "target" : "DO_ENV_ATMOSPHERE",
-      "status" : "DS_SEN_NORMAL",
-      "unit" : "OU_PERCENT"
-    }, {
-      "id" : "11",
-      "type" : "DT_SEN_TEMPERATURE",
-      "section" : "DL_DEFAULT_PLANTZONE",
-      "target" : "DO_ENV_ATMOSPHERE",
-      "status" : "DS_SEN_NORMAL",
-      "unit" : "OU_CELSIUS"
-    }],
-    "switches" : [{
-      "id" : "30",
-      "type" : "DT_SWC_FAN",
-      "section" : "DL_DEFAULT_PLANTZONE",
-      "target" : "DO_EQUIPMENT",
-      "status" : "DS_SWC_OFF"
-    }, {
-      "id" : "31",
-      "type" : "DT_SWC_FAN",
-      "section" : "DL_DEFAULT_PLANTZONE",
-      "target" : "DO_EQUIPMENT",
-      "status" : "DS_SWC_OFF"
-    }],
-    "motors" : [{
-      "id" : "20",
-      "type" : "DT_MOT_SIDEWINDOW",
-      "section" : "DL_DEFAULT_PLANTZONE",
-      "target" : "DO_EQUIPMENT",
-      "status" : "DS_MOT_STOP"
-    }, {
-      "id" : "21",
-      "type" : "DT_MOT_SIDEWINDOW",
-      "section" : "DL_DEFAULT_PLANTZONE",
-      "target" : "DO_EQUIPMENT",
-      "status" : "DS_MOT_STOP"
-    }]
+      "_sensors" : [{
+        "id" : "10",
+        "type" : "DT_SEN_HUMIDITY",
+        "section" : "DL_DEFAULT_PLANTZONE",
+        "target" : "DO_ENV_ATMOSPHERE",
+        "status" : "DS_SEN_NORMAL",
+        "unit" : "OU_PERCENT"
+      }, {
+        "id" : "11",
+        "type" : "DT_SEN_TEMPERATURE",
+        "section" : "DL_DEFAULT_PLANTZONE",
+        "target" : "DO_ENV_ATMOSPHERE",
+        "status" : "DS_SEN_NORMAL",
+        "unit" : "OU_CELSIUS"
+      }],
+      "_switches" : [{
+        "id" : "30",
+        "type" : "DT_SWC_FAN",
+        "section" : "DL_DEFAULT_PLANTZONE",
+        "target" : "DO_EQUIPMENT",
+        "status" : "DS_SWC_OFF"
+      }, {
+        "id" : "31",
+        "type" : "DT_SWC_FAN",
+        "section" : "DL_DEFAULT_PLANTZONE",
+        "target" : "DO_EQUIPMENT",
+        "status" : "DS_SWC_OFF"
+      }],
+      "_motors" : [{
+        "id" : "20",
+        "type" : "DT_MOT_SIDEWINDOW",
+        "section" : "DL_DEFAULT_PLANTZONE",
+        "target" : "DO_EQUIPMENT",
+        "status" : "DS_MOT_STOP"
+      }, {
+        "id" : "21",
+        "type" : "DT_MOT_SIDEWINDOW",
+        "section" : "DL_DEFAULT_PLANTZONE",
+        "target" : "DO_EQUIPMENT",
+        "status" : "DS_MOT_STOP"
+      }]
+    }
   }]
 }

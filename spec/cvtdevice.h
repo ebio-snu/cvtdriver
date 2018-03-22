@@ -17,13 +17,12 @@
 #include <glog/logging.h>
 
 #include "cvtcode.h"
-#include "cvtoption.h"
 #include "cvtdevicespec.h"
 #include "cvtcommand.h"
 
-namespace stdcvt {
-
 using namespace std;
+
+namespace stdcvt {
 
 /*
  @brief CvtDevice 는 개별 장비를 추상화한 클래스이다.

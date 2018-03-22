@@ -1,8 +1,8 @@
 /*
  Copyright © 2018 ebio lab. SNU. All Rights Reserved.
 
- @file test_so_load.cpp
- @date 2018-02-27, JoonYong
+ @file test.cpp
+ @date 2018-02-30, JoonYong
  @author Kim, JoonYong <tombraid@snu.ac.kr>
 
  This file is for unit tests of a driver.
@@ -41,29 +41,12 @@ int main(int argc, char* argv[]) {
     CvtOption option(driver["option"]);
     option.setobject (CVT_OPTION_ASIO_SERVICE, (void *)&io_service);
 
-    CvtDeviceFactory devfac;
-    if (driver.has_key("sensors")) {
-        devfac.setsensors (driver["sensors"]);
-        CvtSensor *psensor = devfac.newsensor(0);
-        LOG(INFO) << "sensor: " << psensor->getid ();
-    }
-    if (driver.has_key("motors")) {
-        devfac.setmotors (driver["motors"]);
-        CvtMotor *pmotor = devfac.newmotor(0);
-        LOG(INFO) << "motor: " << pmotor->getid ();
-    }
-    if (driver.has_key("switches")) {
-        devfac.setswitches (driver["switches"]);
-        CvtActuator *pswitch = devfac.newswitch(0);
-        LOG(INFO) << "switch: " << pswitch->getid ();
-    }
-
     LOG(INFO) << "Loading the plugin";
 
     plugin = dll::import<CvtDriver>(driverfile, "plugin",                
                     dll::load_mode::append_decorations);
 
-    plugin->initialize (option, devfac);
+    plugin->initialize (option);
 
     Tester t(io_service, &plugin);
     io_service.run();

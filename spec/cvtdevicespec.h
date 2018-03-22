@@ -18,7 +18,6 @@
 #include <glog/logging.h>
 
 #include "cvtcode.h"
-#include "cvtoption.h"
 
 using namespace std;
 
