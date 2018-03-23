@@ -2,31 +2,42 @@
  Copyright © 2018 ebio lab. SNU. All Rights Reserved.
 
  @file sssampledriver.cpp
- @date 2018-02-27, JoonYong
+ @date 2018-03-22, JoonYong
  @author Kim, JoonYong <tombraid@snu.ac.kr>
 
- This file is for sample driver.
+ This file is for server-side sample driver.
  refer from: https://github.com/ebio-snu/cvtdriver
 */
 
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <queue>
 
 #include <boost/config.hpp>
 
 #include <glog/logging.h>
 
+#include <mysql_connection.h>
+#include <cppconn/driver.h>
+#include <cppconn/exception.h>
+#include <cppconn/resultset.h>
+#include <cppconn/statement.h>
+#include <cppconn/prepared_statement.h>
+
+
 #include "../spec/cvtdevice.h"
 #include "../spec/cvtdriver.h"
 
-#define BUFSIZE     128
-
-namespace ebiodriver {
 
 using namespace std;
 using namespace stdcvt;
 
+namespace ebiodriver {
+
+// 센서에 기능을 추가하고 싶을때 사용할 수 있다는 예시
+// CvtSensor 는 id로 문자열을 처리하지만, SSSensor는 숫자로 처리함
+// 실제로 사용하지는 않음
 class SSSensor : public CvtSensor {
 public:
     SSSensor(int devid, stdcvt::devtype_t devtype, stdcvt::devsec_t section,
@@ -35,6 +46,9 @@ public:
     }
 };
 
+// 모터에 기능을 추가하고 싶을때 사용할 수 있다는 예시
+// CvtMotor 는 id로 문자열을 처리하지만, SSMotor는 숫자로 처리함
+// 실제로 사용하지는 않음
 class SSMotor : public CvtMotor{
 public:
     SSMotor(int devid, stdcvt::devtype_t devtype, stdcvt::devsec_t section,
@@ -42,6 +56,10 @@ public:
         : stdcvt::CvtMotor(to_string(devid), devtype, section, target, devstatus) {
     }
 };
+
+// 스위치에 기능을 추가하고 싶을때 사용할 수 있다는 예시
+// CvtActuator는 id로 문자열을 처리하지만, SSSwitch는 숫자로 처리함
+// 실제로 사용하지는 않음
 class SSSwitch : public CvtActuator {
 public:
     SSSwitch(int devid, stdcvt::devtype_t devtype, stdcvt::devsec_t section,
@@ -52,24 +70,28 @@ public:
 
 class SSSampleDriver : public CvtDriver {
 private:
-    SSSensor _sensor;
-    SSSwitch _switch;
-    SSMotor _motor;
+    int _lastcmdid;                 ///< 명령아이디 시퀀스
+    queue<CvtCommand *> _cmdq;      ///< 명령 큐
+    vector<CvtDevice *> _devvec;    ///< 디바이스 벡터
+    string _host;                   ///< 디비 호스트
+    string _user;                   ///< 디비 사용자
+    string _pass;                   ///< 디비 사용자 암호
+    string _db;                     ///< 디비명
+
+    sql::Driver *_driver;           ///< 디비 드라이버
+    sql::Connection *_con;          ///< 디비 연결자
 
 public:
     /**
-     새로운 DS드라이버를 생성한다.
+     새로운 SS드라이버를 생성한다.
     */
-    SSSampleDriver() : stdcvt::CvtDriver (2001, 100),
-        _sensor(10, DT_SEN_TEMPERATURE, 10103000002, DO_ENV_ATMOSPHERE, DS_SEN_NORMAL, OU_CELSIUS),
-        _motor(20, DT_MOT_SIDEWINDOW, 10103000002, DO_EQUIPMENT, DS_MOT_STOP),
-        _switch(30, DT_SWC_FAN, 10103000002, DO_EQUIPMENT, DS_SWC_OFF) {
-
-        updated(); // 현재는 통신을 수행하지 않기 때문에, 테스트 통과를 위해서 넣음.
+    SSSampleDriver() : stdcvt::CvtDriver (2001, 100) {
+        _lastcmdid = 0;
+        _host = _user = _pass = _db = "";
+        updated(); // 샘플 SS드라이버는 직접 통신을 수행하지 않기 때문에, 테스트 통과를 위해서 넣음.
     }
 
     ~SSSampleDriver () {
-        finalize ();
     }
 
     /**
@@ -85,7 +107,7 @@ public:
      @return 문자열 형식의 모델번호
     */
     string getmodel () {
-        return "ebiods_v1";
+        return "ebioss_v1";
     }
 
     /**
@@ -104,6 +126,22 @@ public:
     */
     bool initialize (CvtOption option) {
         LOG(INFO) << "SSSampleDriver initialized.";
+        _host = option.get("host");
+        _user = option.get("user");
+        _pass = option.get("pass");
+        _db = option.get("db");
+
+        try {
+            _driver = get_driver_instance();
+            _con = _driver->connect(_host, _user, _pass);
+            _con->setSchema(_db);
+
+        } catch (sql::SQLException &e) {
+            LOG(ERROR) << "# ERR: SQLException " << e.what()
+                       << " (MySQL error code: " << e.getErrorCode()
+                       << ", SQLState: " << e.getSQLState() << " )";
+            return false;
+        }
         return true;
     }
 
@@ -112,6 +150,8 @@ public:
      @return 종료 성공 여부
     */
     bool finalize () {
+        delete _con;
+        LOG(INFO) << "SSSampleDriver finalized.";
         return true;
     }
 
@@ -120,6 +160,41 @@ public:
      @return 전처리 성공 여부
     */
     bool preprocess () {
+        //read command from DB
+        try {
+            sql::Statement *stmt;
+            sql::ResultSet *res;
+            CvtCommand *pcmd;
+
+            stmt = _con->createStatement();
+            res = stmt->executeQuery("SELECT id, devtype, section, target, onoff, ratio from commands");
+            while (res->next()) {
+                if (CvtDevice::getgroup((devtype_t)res->getInt(2)) == DG_MOTOR) {
+                    CvtDeviceSpec tmpspec((devtype_t)res->getInt(2), 
+                            (devsec_t)res->getInt64(3), (devtarget_t)res->getInt(4));
+                    pcmd = new CvtRatioCommand (res->getInt(1), &tmpspec, 
+                            (res->getInt(5) > 0) ? true: false, res->getDouble(6));
+                } else if (res->getInt(2) / 10000 == DG_SWITCH) {
+                    CvtDeviceSpec tmpspec((devtype_t)res->getInt(2), 
+                            (devsec_t)res->getInt64(3), (devtarget_t)res->getInt(4));
+                    pcmd = new CvtCommand (res->getInt(1), &tmpspec, 
+                                            res->getInt(5)>0? true: false);
+                } else {
+                    continue;
+                }
+                _cmdq.push (pcmd);
+            }
+
+            delete res;
+            delete stmt;
+        } catch (sql::SQLException &e) {
+            LOG(ERROR) << "# ERR: SQLException " << e.what()
+                       << " (MySQL error code: " << e.getErrorCode()
+                       << ", SQLState: " << e.getSQLState() << " )";
+            return false;
+        } 
+
+        updated(); // 샘플 SS드라이버는 직접 통신을 수행하지 않기 때문에, 테스트 통과를 위해서 넣음.
         return true;
     }
 
@@ -128,9 +203,47 @@ public:
      @return 후처리 성공 여부
     */
     bool postprocess () {
-        LOG(INFO) << _sensor.tostring ();
-        LOG(INFO) << _motor.tostring ();
-        LOG(INFO) << _switch.tostring ();
+        //write observation to DB
+        try {
+            sql::Statement *stmt;
+            sql::PreparedStatement  *prepstmt;
+
+            stmt = _con->createStatement();
+            stmt->executeQuery("TRUNCATE TABLE DEVICES");
+            delete stmt;
+
+            prepstmt = _con->prepareStatement(
+                "INSERT INTO devices(id, devtype, section, target, status, value, unit)"
+                "  VALUES (?, ?, ?, ?, ?, ?, ?)");
+
+            for (vector<CvtDevice *>::size_type i = 0; i < _devvec.size(); ++i) {
+                prepstmt->setString(1, _devvec[i]->getid());
+                prepstmt->setInt(2, (_devvec[i]->getspec())->gettype());
+                prepstmt->setInt64(3, (_devvec[i]->getspec())->getsection());
+                prepstmt->setInt(4, (_devvec[i]->getspec())->gettarget());
+                prepstmt->setInt(5, _devvec[i]->getstatus());
+                if (CvtSensor *psensor = dynamic_cast<CvtSensor *>(_devvec[i])) {
+                    prepstmt->setDouble(6, psensor->readobservation ());
+                    prepstmt->setInt(7, psensor->getunit ());
+                } else if (CvtActuator *pactuator = dynamic_cast<CvtActuator *>(_devvec[i])) {
+                    prepstmt->setDouble(6, 0);
+                    prepstmt->setInt(7, OU_NONE);
+                } else if (CvtMotor *pmotor= dynamic_cast<CvtMotor *>(_devvec[i])) {
+                    prepstmt->setDouble(6, pmotor->getcurrent ());
+                    prepstmt->setInt(7, OU_NONE);
+                }
+                prepstmt->execute ();
+                delete _devvec[i];
+            }
+            delete prepstmt;
+            _devvec.clear ();
+
+        } catch (sql::SQLException &e) {
+            LOG(ERROR) << "# ERR: SQLException " << e.what()
+                << " (MySQL error code: " << e.getErrorCode()
+                << ", SQLState: " << e.getSQLState() << " )";
+            return false;
+        }
         return true;
     }
 
@@ -140,16 +253,7 @@ public:
      @return 인덱스에 해당하는 장비의 포인터. NULL 이라면 이후에 장비가 없다는 의미이다.
     */
     CvtDevice *getdevice(int index) {
-        switch (index) {
-            case 0:
-                return &_sensor;
-            case 1:
-                return &_motor;
-            case 2:
-                return &_switch;
-            default:
-                return NULL;
-        }
+        return nullptr;
     }
 
     /**
@@ -159,17 +263,22 @@ public:
       @return 성공여부. 관심이 없는 장비인 경우라도 문제가 없으면 true를 리턴한다.
      */
     bool sharedevice(CvtDevice *pdevice) {
+        CvtDevice *newdev = pdevice->clone ();
+        _devvec.push_back (newdev);
         return true;
     }
 
     /**
       다른 드라이버가 관리하고 있는 장비를 제어하고자 할때 명령을 전달한다.
       명령을 전달하지 않는 드라이버라면 그냥 NULL을 리턴하도록 만들면 된다.
-      @param index 얻고자 하는 명령의 인덱스 번호. 0에서 시작한다.
       @return 인덱스에 해당하는 명령의 포인터. NULL 이라면 이후에 명령이 없다는 의미이다.
      */
-    CvtCommand *getcommand(int index) {
-        return (CvtCommand *)0;
+    CvtCommand *getcommand() {
+        if (_cmdq.empty ())
+            return nullptr;
+        CvtCommand *pcmd = _cmdq.front();
+        _cmdq.pop ();
+        return pcmd;
     }
 
     /**

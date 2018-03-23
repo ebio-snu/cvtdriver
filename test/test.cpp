@@ -51,6 +51,8 @@ int main(int argc, char* argv[]) {
     Tester t(io_service, &plugin);
     io_service.run();
 
+    plugin->finalize ();
+
     return 0;
 }
 

@@ -56,7 +56,7 @@ SET (ALLSRC sample/dssampledriver.cpp sample/sssampledriver.cpp)
 ADD_LIBRARY (dssample SHARED sample/dssampledriver.cpp ${CODEDICSRC})
 TARGET_LINK_LIBRARIES(dssample ${Boost_LIBRARIES} ${GLOG_LIBRARIES} pthread)
 ADD_LIBRARY (sssample SHARED sample/sssampledriver.cpp ${CODEDICSRC})
-TARGET_LINK_LIBRARIES(sssample ${Boost_LIBRARIES} ${GLOG_LIBRARIES} pthread)
+TARGET_LINK_LIBRARIES(sssample ${Boost_LIBRARIES} ${GLOG_LIBRARIES} pthread mysqlcppconn)
 
 ENABLE_TESTING ()
 

@@ -8,8 +8,10 @@
     "ssdriver": [{
         "driver": "libsssample.so",
         "option": {
-            "value": "value.json",
-            "command": "command.json"
+            "host": "tcp://127.0.0.1:3306",
+            "user": "ssdriver",
+            "pass": "sssample",
+            "db": "sssample"
         }
     }],
     "dsdriver": [{

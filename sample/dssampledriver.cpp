@@ -219,7 +219,6 @@ public:
     }
 
     ~DSSampleDriver () {
-        finalize ();
     }
 
     /**
@@ -253,6 +252,7 @@ public:
      @return 초기화 성공 여부
     */
     bool initialize (CvtOption option) {
+        LOG (INFO) << "DSSampleDriver initialize.";
         // load device
         loaddevices (option.getdevfactory());
 
@@ -272,6 +272,7 @@ public:
      @return 종료 성공 여부
     */
     bool finalize () {
+        LOG (INFO) << "DSSampleDriver finalize.";
         _port->close ();
         for (map<string, CvtSensor *>::iterator iter = _sensor.begin(); 
                                             iter != _sensor.end(); ++iter) {
@@ -346,10 +347,9 @@ public:
       다른 드라이버가 관리하고 있는 장비를 제어하고자 할때 명령을 전달한다.
       명령을 전달하지 않는 드라이버라면 그냥 NULL을 리턴하도록 만들면 된다.
       DSDriver 에서는 구현할 필요가 없다.
-      @param index 얻고자 하는 명령의 인덱스 번호. 0에서 시작한다.
-      @return 인덱스에 해당하는 명령의 포인터. NULL 이라면 이후에 명령이 없다는 의미이다.
+      @return 명령의 포인터. NULL 이라면 이후에 명령이 없다는 의미이다.
     */
-    CvtCommand *getcommand(int index) {
+    CvtCommand *getcommand() {
         return (CvtCommand *)0;
     }
 

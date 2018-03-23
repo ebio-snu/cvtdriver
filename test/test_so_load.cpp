@@ -47,7 +47,11 @@ int main(int argc, char* argv[]) {
 
     plugin->initialize (option);
     CvtDevice *pdevice = plugin->getdevice(0);
-    LOG(INFO) << "pdevice->getid() : " << pdevice->getid() << std::endl;
+    if (pdevice) {
+        LOG(INFO) << "pdevice->getid() : " << pdevice->getid();
+    } else {
+        LOG(INFO) << "No device!!";
+    }
     plugin->finalize ();
 
     return 0;
