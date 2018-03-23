@@ -45,3 +45,16 @@
 ```
 typedef long devsec_t;
 ```
+
+## 디폴트 값
+
+설치 구역정보를 용이하게 다루기 위해서 다음과 같은 미리 정의된 값들이 있다.
+
+```
+#define DL_UNKNOWN              -2              ///< 설치구역 알수 없음
+#define DL_OUTSIDE              -1              ///< 설치구역 외부
+#define DL_DEFAULT_ROOTZONE     10103010101     ///< 디폴트 설치구역 지하부
+#define DL_DEFAULT_PLANTZONE    10103010102     ///< 디폴트 설치구역 작물부
+#define DL_DEFAULT_ROOFZONE     10103010103     ///< 디폴드 설치구역 작물상부
+```
+

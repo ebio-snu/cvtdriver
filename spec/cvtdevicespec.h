@@ -66,6 +66,17 @@ private:
 public:
     /**
      새로운 장비스펙을 생성한다.
+    */
+    CvtDeviceSpec () {
+        _type = DT_DEV_UNKNOWN;
+        _section = DL_UNKNOWN;
+        _target = DO_UNKNOWN;
+        _manufacturer = "";
+        _model = "";
+    }
+
+    /**
+     새로운 장비스펙을 생성한다.
      @param devtype 장비의 종류
      @param section 장비 설치 구역
      @param target 장비의 대상
@@ -153,7 +164,7 @@ public:
      장비의 속성을 복사한다.
      @param pdevspec 복사할 소스 장비스펙에 대한 포인터
     */
-    bool copyspec(CvtDeviceSpec *pdevspec) {
+    bool copy(CvtDeviceSpec *pdevspec) {
         _type = pdevspec->_type;
         _section = pdevspec->_section;
         _target = pdevspec->_target;

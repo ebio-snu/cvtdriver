@@ -139,10 +139,10 @@ public:
     /**
      다른 드라이버가 관리하고 있는 장비를 제어하고자 할때 명령을 전달한다.
      명령을 전달하지 않는 드라이버라면 그냥 NULL을 리턴하도록 만들면 된다.
-     @param index 얻고자 하는 명령의 인덱스 번호. 0에서 시작한다.
-     @return 인덱스에 해당하는 명령의 포인터. NULL 이라면 이후에 명령이 없다는 의미이다.
+     NULL이 나올때까지 반복적으로 호출한다.
+     @return 명령의 포인터. NULL 이라면 이후에 명령이 없다는 의미이다.
     */
-    virtual CvtCommand *getcommand(int index) = 0;
+    virtual CvtCommand *getcommand() = 0;
     
     /**
      다른 드라이버로부터 명령을 받아 처리한다.

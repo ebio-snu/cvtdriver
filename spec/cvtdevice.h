@@ -33,7 +33,27 @@ private:
     CvtDeviceSpec _devspec; ///< 장비의 스펙
     devstat_t _status;      ///< 장비 상태
 
+protected:
+    void _copy(CvtDevice *pdevice) {
+        _id = pdevice->_id;
+        _devspec.copy (pdevice->getspec ());
+        _status = pdevice->_status;
+    }
+
 public:
+
+    /**
+     새로운 장비를 생성한다.
+     @param devid 장비의 아이디
+     @param pdevspec 장비의 스펙
+     @param devstatus 장비의 상태
+    */
+    CvtDevice(string devid, CvtDeviceSpec *pdevspec, devstat_t devstatus) {
+        _id = devid;
+        _devspec.copy (pdevspec);
+        _status = devstatus;
+    }
+
     /**
      새로운 장비를 생성한다.
      @param devid 장비의 아이디
@@ -94,6 +114,25 @@ public:
         return "CvtDevice(" + _id + ") [" +  _devspec.tostring() 
             + "], status : " + std::to_string(_status);
     }
+    
+    /**
+     장비의 클론을 만든다.
+     @return 클론의 포인터
+    */
+    virtual CvtDevice *clone() = 0;
+
+    /**
+     장비 정보를 복사한다.
+     @return 복사가 성공하면 true.
+    */
+    virtual bool copy(CvtDevice *pdevice) = 0;
+
+    /**
+     장비 그룹정보를 확인한다.
+    */
+    static devgroup_t getgroup(devtype_t devtype) {
+        return (devgroup_t) (devtype / 10000);
+    }
 };
 
 /*
@@ -105,6 +144,19 @@ private:
     double _value;            ///< 센서의 관측치
 
 public:
+    /**
+     새로운 센서를 생성한다.
+     @param devid 센서의 아이디
+     @param pdevspec 장비 스펙
+     @param devstatus 센서의 상태
+     @param unit 관측치의 단위
+    */
+    CvtSensor (string devid, CvtDeviceSpec *pdevspec, 
+                    devstat_t devstatus, obsunit_t unit) 
+        : CvtDevice (devid, pdevspec, devstatus) {
+        _unit = unit;
+        _value = 0;
+    }
 
     /**
      새로운 센서를 생성한다.
@@ -120,6 +172,34 @@ public:
         : CvtDevice (devid, devtype, section, target, devstatus) {
         _unit = unit;
         _value = 0;
+    }
+
+    /**
+     장비의 클론을 만든다.
+     @return 클론의 포인터
+    */
+    CvtDevice *clone() {
+        CvtSensor *psensor = new CvtSensor(getid(), getspec(), getstatus(), _unit);
+        if (psensor) {
+            psensor->writeobservation (_value);
+            return (CvtDevice *)psensor;
+        }
+        return nullptr;
+    }
+
+    /**
+     장비 정보를 복사한다.
+     @return 복사가 성공하면 true.
+    */
+    bool copy(CvtDevice *pdevice) {
+        CvtSensor *psensor = dynamic_cast<CvtSensor *>(pdevice);
+        if (psensor) {
+            _copy (pdevice);
+            _unit = psensor->_unit;
+            _value = psensor->_value;
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -189,6 +269,18 @@ public:
     /**
      새로운 구동기를 생성한다.
      @param devid 장비의 아이디
+     @param pdevspce 장비의 스펙
+     @param devstatus 장비의 상태
+    */
+    CvtActuator(string devid, CvtDeviceSpec *pdevspec, devstat_t devstatus) 
+        : CvtDevice (devid, pdevspec, devstatus) {
+        _lastcmdid = -1;
+        _onoff = false; // off
+    }
+
+    /**
+     새로운 구동기를 생성한다.
+     @param devid 장비의 아이디
      @param devtype 장비의 종류
      @param section 장비 설치 구역
      @param target 장비의 대상
@@ -199,6 +291,34 @@ public:
         : CvtDevice (devid, devtype, section, target, devstatus) {
         _lastcmdid = -1;
         _onoff = false; // off
+    }
+
+    /**
+     장비의 클론을 만든다.
+     @return 클론의 포인터
+    */
+    CvtDevice *clone() {
+        CvtActuator *pactuator = new CvtActuator(getid(), getspec(), getstatus());
+        if (pactuator) {
+            pactuator->copy (this);
+            return (CvtDevice *)pactuator;
+        }
+        return nullptr;
+    }
+
+    /**
+     장비 정보를 복사한다.
+     @return 복사가 성공하면 true.
+    */
+    bool copy(CvtDevice *pdevice) {
+        CvtActuator *pactuator = dynamic_cast<CvtActuator *>(pdevice);
+        if (pactuator) {
+            _copy (pdevice);
+            _lastcmdid = pactuator->_lastcmdid;
+            _onoff = pactuator->_onoff;
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -279,6 +399,18 @@ public:
     /**
      새로운 모터형 구동기를 생성한다.
      @param devid 장비의 아이디
+     @param pdevspce 장비의 스펙
+     @param devstatus 장비의 상태
+    */
+    CvtMotor (string devid, CvtDeviceSpec *pdevspec, devstat_t devstatus) 
+        : CvtActuator (devid, pdevspec, devstatus) {
+        _current = 0;
+        _target = 0;
+    }
+
+    /**
+     새로운 모터형 구동기를 생성한다.
+     @param devid 장비의 아이디
      @param devtype 장비의 종류
      @param section 장비 설치 구역
      @param target 장비의 대상
@@ -289,6 +421,34 @@ public:
         : CvtActuator (devid, devtype, section, target, devstatus) {
         _current = 0;
         _target = 0;
+    }
+
+    /**
+     장비의 클론을 만든다.
+     @return 클론의 포인터
+    */
+    CvtDevice *clone() {
+        CvtMotor *pmotor = new CvtMotor(getid(), getspec(), getstatus());
+        if (pmotor) {
+            pmotor->copy (this);
+            return (CvtDevice *)pmotor;
+        }
+        return nullptr;
+    }
+
+    /**
+     장비 정보를 복사한다.
+     @return 복사가 성공하면 true.
+    */
+    bool copy(CvtDevice *pdevice) {
+        CvtMotor *pmotor = dynamic_cast<CvtMotor *>(pdevice);
+        if (pmotor) {
+            pmotor->CvtActuator::copy(pdevice);
+            _current = pmotor->_current;
+            _target = pmotor->_target;
+            return true;
+        }
+        return false;
     }
 
     /**

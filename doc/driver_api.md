@@ -26,12 +26,16 @@ DeviceSpec은 서로 다른 드라이버 사이에서 정보를 교환할때 기
 
 드라이버로부터 장비 정보를 획득하기 위해서는 CvtDevice *getdevice(int index); 메소드를 활용한다. index는 0부터 시작하고, 값을 하나씩 올려가면서 장비를 꺼낼 수 있다. 이때 리턴값이 nullptr(NULL)인 경우 관리하는 장비가 더이상 없다는 의미이다.
 
-장비의 정보를 다른 드라이버로 전달하기 위해서 bool sharedevice(CvtDevice *pdevice); 메소드를 활용한다.
+getdevice 메소드를 통해서 얻은 포인터는 DSDriver내부에서 관리하고 있는 장비에 대한 것이기 때문에 외부에서 delete를 수행하지 않는다.
+
+장비의 정보를 다른 드라이버로 전달하기 위해서 bool sharedevice(CvtDevice *pdevice); 메소드를 활용한다. sharedevice 메소드 안에서는 pdevice로부터 정보만을 추출하거나, pdevice->clone()을 이용해서 사본을 만들어서 활용한다. 
+
+
 
 ## 다른 드라이버로 제어명령 전달
 장비에 대한 명령도 다른 드라이버로 전달될 수 있다. 다만 초기버전에서는 SSDriver가 하나만 존재하고, SSDriver에서만 명령을 전달할 수 있는 것으로한다.
 
-하나의 드라이버(SSDriver)가 전달하고자 하는 명령은 CvtCommand *getcommand(int index); 메소드를 이용해 얻을 수 있다. index는 0부터 시작하고, 값을 하나씩 올려가면서 명령을 꺼낼 수 있다. 이때 리턴값이 nullptr(NULL)인 경우 더이상의 명령이 없다는 의미이다.
+하나의 드라이버(SSDriver)가 전달하고자 하는 명령은 CvtCommand *getcommand(); 메소드를 이용해 얻을 수 있다. 반복적으로 호출하여 명령을 꺼낼 수 있다. 이때 리턴값이 nullptr(NULL)인 경우 더이상의 명령이 없다는 의미이다.
 
-획득한 명령을 다른 드라이버로 전달하기 위해서 bool control(CvtCommand *pcmd); 메소드를 활용한다.
+획득한 명령을 다른 드라이버로 전달하기 위해서 bool control(CvtCommand *pcmd); 메소드를 활용한다. control 메소드에 의해서 전달받은 pcmd 는 명령의 정보만을 추출해 사용한다.
 

@@ -22,7 +22,7 @@ namespace stdcvt {
 class CvtCommand {
 private:
     int _id;                    ///< 명령 ID
-    CvtDeviceSpec *_pdevspec;   ///< 명령 수행 장비의 스펙
+    CvtDeviceSpec _devspec;     ///< 명령 수행 장비의 스펙
     bool _onoff;                ///< on/off 명령 true면 on
 
 public:
@@ -35,7 +35,7 @@ public:
     CvtCommand(int cmdid, CvtDeviceSpec *pdevspec, bool onoff) {
         _id = cmdid;
         _onoff = onoff;
-        _pdevspec = pdevspec;
+        _devspec.copy (pdevspec);
     }
 
     virtual ~CvtCommand() {
@@ -50,11 +50,21 @@ public:
     }
 
     /**
+     명령에 부여된 아이디를 세팅한다.
+     @param id 새로운 명령 아이디
+     @return 새로 저장된 명령의 아이디
+    */
+    int setid(int id) {
+        _id = id;
+        return _id;
+    }
+
+    /**
      명령에 부여된 장비스펙을 리턴한다.
      @return 명령을 실행할 장비스펙
     */
     CvtDeviceSpec *getdevspec() {
-        return _pdevspec;
+        return &_devspec;
     }
 
     /**
