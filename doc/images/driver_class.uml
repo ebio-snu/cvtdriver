@@ -28,7 +28,7 @@ package stdcvt {
      .. Process ..
      + virtual CvtDevice *getdevice (int index);
      + virtual bool *sharedevice(CvtDevice *pdevice);
-     + virtual CvtCommand *getcommand(int index);
+     + virtual CvtCommand *getcommand();
      + virtual bool control(CvtCommand *pcmd);
     }
 
@@ -45,6 +45,7 @@ package stdcvt {
      devsec_t getsection ();
      devtarget_t gettarget ();
      bool ismatched ();
+     bool copy(CvtDeviceSpec *pdevspec);
     }
 
     abstract class CvtDevice {
@@ -67,6 +68,10 @@ package stdcvt {
      + CvtDeviceSpec *getspec(); // Sensor, Motor, Switch, Controller
 
      + string tostring();
+     
+     .. Copy ..
+     + virtual bool copy (CvtDevice *pdevice);
+     + virtual CvtDevice *clone ();
     }
 
     class CvtSensor {
