@@ -1,0 +1,16 @@
+[{
+    "cmdid" : 1,
+    "type" : "DT_SWC_FAN",
+    "section" : "DL_DEFAULT_PLANTZONE",
+    "target" : "DO_EQUIPMENT",
+    "status" : "DS_SWC_OFF",
+    "onoff" : "on"
+}, {
+    "cmdid" : 2,
+    "type" : "DT_MOT_SIDEWINDOW",
+    "section" : "DL_DEFAULT_PLANTZONE",
+    "target" : "DO_EQUIPMENT",
+    "status" : "DS_MOT_STOP",
+    "onoff" : "on",
+    "ratio" : "0.1"
+}]

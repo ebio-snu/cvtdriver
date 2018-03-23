@@ -1,0 +1,47 @@
+{
+  "_sensors" : [{
+    "id" : "10",
+    "type" : "DT_SEN_HUMIDITY",
+    "section" : "DL_DEFAULT_PLANTZONE",
+    "target" : "DO_ENV_ATMOSPHERE",
+    "status" : "DS_SEN_NORMAL",
+    "unit" : "OU_PERCENT",
+    "value" : "23"
+  }, {
+    "id" : "11",
+    "type" : "DT_SEN_TEMPERATURE",
+    "section" : "DL_DEFAULT_PLANTZONE",
+    "target" : "DO_ENV_ATMOSPHERE",
+    "status" : "DS_SEN_NORMAL",
+    "unit" : "OU_CELSIUS",
+    "value" : "12.3"
+  }],
+  "_switches" : [{
+    "id" : "30",
+    "type" : "DT_SWC_FAN",
+    "section" : "DL_DEFAULT_PLANTZONE",
+    "target" : "DO_EQUIPMENT",
+    "status" : "DS_SWC_ON"
+  }, {
+    "id" : "31",
+    "type" : "DT_SWC_FAN",
+    "section" : "DL_DEFAULT_PLANTZONE",
+    "target" : "DO_EQUIPMENT",
+    "status" : "DS_SWC_OFF"
+  }],
+  "_motors" : [{
+    "id" : "20",
+    "type" : "DT_MOT_SIDEWINDOW",
+    "section" : "DL_DEFAULT_PLANTZONE",
+    "target" : "DO_EQUIPMENT",
+    "status" : "DS_MOT_STOP",
+    "ratio" : "0.1"
+  }, {
+    "id" : "21",
+    "type" : "DT_MOT_SIDEWINDOW",
+    "section" : "DL_DEFAULT_PLANTZONE",
+    "target" : "DO_EQUIPMENT",
+    "status" : "DS_MOT_STOP",
+    "ratio" : "0.1"
+  }]
+}

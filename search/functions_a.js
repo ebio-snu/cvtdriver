@@ -2,6 +2,7 @@ var searchData=
 [
   ['setcommand',['setcommand',['../classstdcvt_1_1CvtActuator.html#a5ec24f9d3a1e487ee60c1dc92c6c8a73',1,'stdcvt::CvtActuator']]],
   ['setcurrent',['setcurrent',['../classstdcvt_1_1CvtMotor.html#a8fba087788280da5317b60a68a8ffe5c',1,'stdcvt::CvtMotor']]],
+  ['setid',['setid',['../classstdcvt_1_1CvtCommand.html#a087a6ee4b39d207fe89193fa22c6a903',1,'stdcvt::CvtCommand']]],
   ['setmanufacturer',['setmanufacturer',['../classstdcvt_1_1CvtDeviceSpec.html#a492062d0e23014d77efd75b56d8d21ce',1,'stdcvt::CvtDeviceSpec']]],
   ['setmodel',['setmodel',['../classstdcvt_1_1CvtDeviceSpec.html#ad1d1d18f459c2648f325407774f0a44b',1,'stdcvt::CvtDeviceSpec']]],
   ['setmotors',['setmotors',['../classstdcvt_1_1CvtDeviceFactory.html#a52508fb1ec996fd26261915881bd6525',1,'stdcvt::CvtDeviceFactory']]],

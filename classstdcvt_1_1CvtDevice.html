@@ -89,9 +89,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'검색');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public 멤버 함수</a>  </div>
+<a href="#pub-methods">Public 멤버 함수</a> &#124;
+<a href="#pub-static-methods">정적 Public 멤버 함수</a> &#124;
+<a href="#pro-methods">Protected 멤버 함수</a>  </div>
   <div class="headertitle">
-<div class="title">stdcvt::CvtDevice 클래스 참조</div>  </div>
+<div class="title">stdcvt::CvtDevice 클래스 참조<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="dynheader">
@@ -111,6 +113,8 @@ stdcvt::CvtDevice에 대한 상속 다이어그램 : </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public 멤버 함수</h2></td></tr>
+<tr class="memitem:a508a5f65e813b0d58d5068c182a92d8a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstdcvt_1_1CvtDevice.html#a508a5f65e813b0d58d5068c182a92d8a">CvtDevice</a> (string devid, <a class="el" href="classstdcvt_1_1CvtDeviceSpec.html">CvtDeviceSpec</a> *pdevspec, <a class="el" href="cvtcode_8h.html#ad21cd565f839adc5b19a0993e7da7278">devstat_t</a> devstatus)</td></tr>
+<tr class="separator:a508a5f65e813b0d58d5068c182a92d8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a551fc68d0c8cbcbc8f6c82b375ea3cb0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstdcvt_1_1CvtDevice.html#a551fc68d0c8cbcbc8f6c82b375ea3cb0">CvtDevice</a> (string devid, <a class="el" href="cvtcode_8h.html#ae8e34073e35cef0bb47c7fa535fc638b">devtype_t</a> devtype, <a class="el" href="cvtcode_8h.html#a268eebb73363e24b9e65fd51973bd9c0">devsec_t</a> section, <a class="el" href="cvtcode_8h.html#a2b37fd5cc4d40c0b8c4b987c271e5ceb">devtarget_t</a> target, <a class="el" href="cvtcode_8h.html#ad21cd565f839adc5b19a0993e7da7278">devstat_t</a> devstatus)</td></tr>
 <tr class="separator:a551fc68d0c8cbcbc8f6c82b375ea3cb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa575c9dda49790224ccee5f6c4302aaf"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstdcvt_1_1CvtDevice.html#aa575c9dda49790224ccee5f6c4302aaf">getid</a> ()</td></tr>
@@ -123,8 +127,71 @@ Public 멤버 함수</h2></td></tr>
 <tr class="separator:a6962f56199cccff1c0687ad5087cb211"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93b54587e1940918b825d78b18f48062"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstdcvt_1_1CvtDevice.html#a93b54587e1940918b825d78b18f48062">tostring</a> ()</td></tr>
 <tr class="separator:a93b54587e1940918b825d78b18f48062"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d2af21d4a08f228d0df8786e5933baf"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classstdcvt_1_1CvtDevice.html">CvtDevice</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstdcvt_1_1CvtDevice.html#a6d2af21d4a08f228d0df8786e5933baf">clone</a> ()=0</td></tr>
+<tr class="separator:a6d2af21d4a08f228d0df8786e5933baf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c7f891cb77caae466e6cc37e8b80071"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstdcvt_1_1CvtDevice.html#a8c7f891cb77caae466e6cc37e8b80071">copy</a> (<a class="el" href="classstdcvt_1_1CvtDevice.html">CvtDevice</a> *pdevice)=0</td></tr>
+<tr class="separator:a8c7f891cb77caae466e6cc37e8b80071"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+정적 Public 멤버 함수</h2></td></tr>
+<tr class="memitem:abd551441c8f0e004eff00528fc7e7abd"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="cvtcode_8h.html#a2b770a849c30d4f4786dc06b59aef47c">devgroup_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstdcvt_1_1CvtDevice.html#abd551441c8f0e004eff00528fc7e7abd">getgroup</a> (<a class="el" href="cvtcode_8h.html#ae8e34073e35cef0bb47c7fa535fc638b">devtype_t</a> devtype)</td></tr>
+<tr class="separator:abd551441c8f0e004eff00528fc7e7abd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected 멤버 함수</h2></td></tr>
+<tr class="memitem:a2b8537adf0451937afcec8d5b57732e8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2b8537adf0451937afcec8d5b57732e8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>_copy</b> (<a class="el" href="classstdcvt_1_1CvtDevice.html">CvtDevice</a> *pdevice)</td></tr>
+<tr class="separator:a2b8537adf0451937afcec8d5b57732e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">생성자 &amp; 소멸자 문서화</h2>
+<a class="anchor" id="a508a5f65e813b0d58d5068c182a92d8a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">stdcvt::CvtDevice::CvtDevice </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>devid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classstdcvt_1_1CvtDeviceSpec.html">CvtDeviceSpec</a> *&#160;</td>
+          <td class="paramname"><em>pdevspec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="cvtcode_8h.html#ad21cd565f839adc5b19a0993e7da7278">devstat_t</a>&#160;</td>
+          <td class="paramname"><em>devstatus</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>새로운 장비를 생성한다. </p><dl class="params"><dt>매개변수</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">devid</td><td>장비의 아이디 </td></tr>
+    <tr><td class="paramname">pdevspec</td><td>장비의 스펙 </td></tr>
+    <tr><td class="paramname">devstatus</td><td>장비의 상태 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a551fc68d0c8cbcbc8f6c82b375ea3cb0"></a>
 <div class="memitem">
 <div class="memproto">
@@ -188,6 +255,84 @@ Public 멤버 함수</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">멤버 함수 문서화</h2>
+<a class="anchor" id="a6d2af21d4a08f228d0df8786e5933baf"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classstdcvt_1_1CvtDevice.html">CvtDevice</a>* stdcvt::CvtDevice::clone </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>장비의 클론을 만든다. </p><dl class="section return"><dt>반환값</dt><dd>클론의 포인터 </dd></dl>
+
+<p><a class="el" href="classstdcvt_1_1CvtMotor.html#a04f992fda2615637e7159f7e5ea7a8aa">stdcvt::CvtMotor</a>, <a class="el" href="classstdcvt_1_1CvtActuator.html#a4bebb1e6af37998544666eb34a5edbe5">stdcvt::CvtActuator</a>, <a class="el" href="classstdcvt_1_1CvtSensor.html#a981a4c1711affd06c85bc678713b0ab5">stdcvt::CvtSensor</a>에서 구현되었습니다.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8c7f891cb77caae466e6cc37e8b80071"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool stdcvt::CvtDevice::copy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classstdcvt_1_1CvtDevice.html">CvtDevice</a> *&#160;</td>
+          <td class="paramname"><em>pdevice</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>장비 정보를 복사한다. </p><dl class="section return"><dt>반환값</dt><dd>복사가 성공하면 true. </dd></dl>
+
+<p><a class="el" href="classstdcvt_1_1CvtMotor.html#a534b80343568840dcce52fd8f8645b8f">stdcvt::CvtMotor</a>, <a class="el" href="classstdcvt_1_1CvtActuator.html#a132288d8d9593857729e840ef9b30d22">stdcvt::CvtActuator</a>, <a class="el" href="classstdcvt_1_1CvtSensor.html#acc3aa31dfad09843b9ae9be4463d42f4">stdcvt::CvtSensor</a>에서 구현되었습니다.</p>
+
+</div>
+</div>
+<a class="anchor" id="abd551441c8f0e004eff00528fc7e7abd"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="cvtcode_8h.html#a2b770a849c30d4f4786dc06b59aef47c">devgroup_t</a> stdcvt::CvtDevice::getgroup </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="cvtcode_8h.html#ae8e34073e35cef0bb47c7fa535fc638b">devtype_t</a>&#160;</td>
+          <td class="paramname"><em>devtype</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>장비 그룹정보를 확인한다. </p>
+
+</div>
+</div>
 <a class="anchor" id="aa575c9dda49790224ccee5f6c4302aaf"></a>
 <div class="memitem">
 <div class="memproto">
@@ -321,7 +466,7 @@ Public 멤버 함수</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-생성시간 : 목 3월 22 2018 14:05:14, 프로젝트명 : cvtdriver, 생성자 :  &#160;<a href="http://www.doxygen.org/index.html">
+생성시간 : 금 3월 23 2018 22:37:46, 프로젝트명 : cvtdriver, 생성자 :  &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

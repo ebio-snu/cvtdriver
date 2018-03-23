@@ -126,8 +126,8 @@ Public 멤버 함수</h2></td></tr>
 <tr class="separator:a3dcd13870509c3139c6c0ad7ba22cbed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a027286ae7b53a82d8d46731cfabcfea3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classebiodriver_1_1DSSampleDriver.html#a027286ae7b53a82d8d46731cfabcfea3">sharedevice</a> (<a class="el" href="classstdcvt_1_1CvtDevice.html">CvtDevice</a> *pdevice)</td></tr>
 <tr class="separator:a027286ae7b53a82d8d46731cfabcfea3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfccb95870864ce6dc5f99ab94c214fa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstdcvt_1_1CvtCommand.html">CvtCommand</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classebiodriver_1_1DSSampleDriver.html#acfccb95870864ce6dc5f99ab94c214fa">getcommand</a> (int index)</td></tr>
-<tr class="separator:acfccb95870864ce6dc5f99ab94c214fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c0ab496d6cea1c78d03d2f0597f4d39"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstdcvt_1_1CvtCommand.html">CvtCommand</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classebiodriver_1_1DSSampleDriver.html#a9c0ab496d6cea1c78d03d2f0597f4d39">getcommand</a> ()</td></tr>
+<tr class="separator:a9c0ab496d6cea1c78d03d2f0597f4d39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0fe50dbf8dd10f4568f25e83e7e3e873"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classebiodriver_1_1DSSampleDriver.html#a0fe50dbf8dd10f4568f25e83e7e3e873">control</a> (<a class="el" href="classstdcvt_1_1CvtCommand.html">CvtCommand</a> *pcmd)</td></tr>
 <tr class="separator:a0fe50dbf8dd10f4568f25e83e7e3e873"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -216,7 +216,7 @@ Public 멤버 함수</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="acfccb95870864ce6dc5f99ab94c214fa"></a>
+<a class="anchor" id="a9c0ab496d6cea1c78d03d2f0597f4d39"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -226,8 +226,7 @@ Public 멤버 함수</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="classstdcvt_1_1CvtCommand.html">CvtCommand</a>* ebiodriver::DSSampleDriver::getcommand </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>index</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -237,15 +236,9 @@ Public 멤버 함수</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>다른 드라이버가 관리하고 있는 장비를 제어하고자 할때 명령을 전달한다. 명령을 전달하지 않는 드라이버라면 그냥 NULL을 리턴하도록 만들면 된다. DSDriver 에서는 구현할 필요가 없다. </p><dl class="params"><dt>매개변수</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">index</td><td>얻고자 하는 명령의 인덱스 번호. 0에서 시작한다. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>반환값</dt><dd>인덱스에 해당하는 명령의 포인터. NULL 이라면 이후에 명령이 없다는 의미이다. </dd></dl>
+<p>다른 드라이버가 관리하고 있는 장비를 제어하고자 할때 명령을 전달한다. 명령을 전달하지 않는 드라이버라면 그냥 NULL을 리턴하도록 만들면 된다. DSDriver 에서는 구현할 필요가 없다. </p><dl class="section return"><dt>반환값</dt><dd>명령의 포인터. NULL 이라면 이후에 명령이 없다는 의미이다. </dd></dl>
 
-<p><a class="el" href="classstdcvt_1_1CvtDriver.html#ad0378635152f2e35c0686c4fe92996e6">stdcvt::CvtDriver</a>를 구현.</p>
+<p><a class="el" href="classstdcvt_1_1CvtDriver.html#a845e1a414c216184b10235327470644b">stdcvt::CvtDriver</a>를 구현.</p>
 
 </div>
 </div>
@@ -484,7 +477,7 @@ Public 멤버 함수</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-생성시간 : 목 3월 22 2018 14:05:14, 프로젝트명 : cvtdriver, 생성자 :  &#160;<a href="http://www.doxygen.org/index.html">
+생성시간 : 금 3월 23 2018 22:37:45, 프로젝트명 : cvtdriver, 생성자 :  &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>
