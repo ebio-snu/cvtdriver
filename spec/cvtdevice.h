@@ -269,7 +269,7 @@ public:
     /**
      새로운 구동기를 생성한다.
      @param devid 장비의 아이디
-     @param pdevspce 장비의 스펙
+     @param pdevspec 장비의 스펙
      @param devstatus 장비의 상태
     */
     CvtActuator(string devid, CvtDeviceSpec *pdevspec, devstat_t devstatus) 
@@ -399,7 +399,7 @@ public:
     /**
      새로운 모터형 구동기를 생성한다.
      @param devid 장비의 아이디
-     @param pdevspce 장비의 스펙
+     @param pdevspec 장비의 스펙
      @param devstatus 장비의 상태
     */
     CvtMotor (string devid, CvtDeviceSpec *pdevspec, devstat_t devstatus) 
