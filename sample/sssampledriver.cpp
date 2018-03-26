@@ -137,7 +137,7 @@ public:
             _con->setSchema(_db);
 
         } catch (sql::SQLException &e) {
-            LOG(ERROR) << "# ERR: SQLException " << e.what()
+            LOG(ERROR) << "# open ERR: SQLException " << e.what()
                        << " (MySQL error code: " << e.getErrorCode()
                        << ", SQLState: " << e.getSQLState() << " )";
             return false;
@@ -188,11 +188,24 @@ public:
             delete res;
             delete stmt;
         } catch (sql::SQLException &e) {
-            LOG(ERROR) << "# ERR: SQLException " << e.what()
+            LOG(ERROR) << "# command select ERR: SQLException " << e.what()
                        << " (MySQL error code: " << e.getErrorCode()
                        << ", SQLState: " << e.getSQLState() << " )";
             return false;
         } 
+
+        try {
+            sql::Statement *stmt;
+
+            stmt = _con->createStatement();
+            stmt->execute ("TRUNCATE TABLE commands");
+            delete stmt;
+        } catch (sql::SQLException &e) {
+            LOG(ERROR) << "# Truncate commands ERR: SQLException " << e.what()
+                << " (MySQL error code: " << e.getErrorCode()
+                << ", SQLState: " << e.getSQLState() << " )";
+            return false;
+        }
 
         updated(); // 샘플 SS드라이버는 직접 통신을 수행하지 않기 때문에, 테스트 통과를 위해서 넣음.
         return true;
@@ -206,12 +219,19 @@ public:
         //write observation to DB
         try {
             sql::Statement *stmt;
-            sql::PreparedStatement  *prepstmt;
 
             stmt = _con->createStatement();
-            stmt->executeQuery("TRUNCATE TABLE DEVICES");
+            stmt->execute ("TRUNCATE TABLE devices");
             delete stmt;
+        } catch (sql::SQLException &e) {
+            LOG(ERROR) << "# Truncate devices ERR: SQLException " << e.what()
+                << " (MySQL error code: " << e.getErrorCode()
+                << ", SQLState: " << e.getSQLState() << " )";
+            return false;
+        }
 
+        try {
+            sql::PreparedStatement  *prepstmt;
             prepstmt = _con->prepareStatement(
                 "INSERT INTO devices(id, devtype, section, target, status, value, unit)"
                 "  VALUES (?, ?, ?, ?, ?, ?, ?)");
@@ -222,24 +242,27 @@ public:
                 prepstmt->setInt64(3, (_devvec[i]->getspec())->getsection());
                 prepstmt->setInt(4, (_devvec[i]->getspec())->gettarget());
                 prepstmt->setInt(5, _devvec[i]->getstatus());
-                if (CvtSensor *psensor = dynamic_cast<CvtSensor *>(_devvec[i])) {
-                    prepstmt->setDouble(6, psensor->readobservation ());
-                    prepstmt->setInt(7, psensor->getunit ());
+                if (CvtMotor *pmotor= dynamic_cast<CvtMotor *>(_devvec[i])) { // younger first
+                    LOG(INFO) << "motor : " << pmotor->tostring();
+                    LOG(INFO) << "motor current : " << pmotor->getcurrent();
+                    prepstmt->setDouble(6, pmotor->getcurrent ());
+                    prepstmt->setInt(7, OU_NONE);
                 } else if (CvtActuator *pactuator = dynamic_cast<CvtActuator *>(_devvec[i])) {
                     prepstmt->setDouble(6, 0);
                     prepstmt->setInt(7, OU_NONE);
-                } else if (CvtMotor *pmotor= dynamic_cast<CvtMotor *>(_devvec[i])) {
-                    prepstmt->setDouble(6, pmotor->getcurrent ());
-                    prepstmt->setInt(7, OU_NONE);
+                } else if (CvtSensor *psensor = dynamic_cast<CvtSensor *>(_devvec[i])) {
+                    prepstmt->setDouble(6, psensor->readobservation ());
+                    prepstmt->setInt(7, psensor->getunit ());
                 }
                 prepstmt->execute ();
                 delete _devvec[i];
             }
+            _con->commit ();
             delete prepstmt;
             _devvec.clear ();
 
         } catch (sql::SQLException &e) {
-            LOG(ERROR) << "# ERR: SQLException " << e.what()
+            LOG(ERROR) << "# Insert devices ERR: SQLException " << e.what()
                 << " (MySQL error code: " << e.getErrorCode()
                 << ", SQLState: " << e.getSQLState() << " )";
             return false;
