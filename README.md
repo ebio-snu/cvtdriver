@@ -27,7 +27,7 @@ git clone https://github.com/ebio-snu/cvtdriver.git
 
 ### 빌드를 위한 패키지 설치
 ```
-sudo apt install build-essential cmake libgoogle-glog-dev libasio-dev libjansson-dev libboost-all-dev
+sudo apt install build-essential cmake libgoogle-glog-dev libasio-dev libjansson-dev libboost-all-dev libmysqlcppconn-dev
 ```
 boost.dll 은 1.61이후 버전부터 지원한다. Raspbian stretch를 사용하는 경우 libboost-all-dev는 1.62.0.1 버전이지만, jessie나 wheezy를 사용하는 경우에는 버전이 낮아서 1.61 이상의 소스를 받아서 설치해야 한다. 
 
@@ -67,6 +67,7 @@ test 폴더에는 드라이버 테스트를 위한 코드들이 들어있는데,
   * [google glog](https://github.com/google/glog) : Google 에서 공개한 로깅라이브러리
   * [jsoncons](https://danielaparker.github.io/jsoncons/) : JSON 라이브러리
   * [Boost](http://www.boost.org/) : [asio](https://think-async.com/)와 [dll](http://www.boost.org/doc/libs/1_65_1/doc/html/boost_dll.html)을 주로 사용
+  * [mysql c++ connector](https://dev.mysql.com/doc/connector-cpp/en/) : mysql c++ library
   * 개별 드라이버 개발을 위해 필요한 라이브러리를 사용할 수 있다.
 
 * 개발환경
