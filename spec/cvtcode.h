@@ -16,7 +16,7 @@
 
 namespace stdcvt {
     /** 장비 설치 구역 타입 */
-    typedef long devsec_t;
+    typedef int64_t devsec_t;
 
 #define DL_UNKNOWN              -2              ///< 설치구역 알수 없음
 #define DL_OUTSIDE              -1              ///< 설치구역 외부

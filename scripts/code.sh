@@ -13,7 +13,7 @@ using namespace std;
 
 namespace stdcvt {
 
-map<string, long> _codedic = { " > $1
+map<string, int64_t> _codedic = { " > $1
 
 grep -E '=' spec/cvtcode.h | tr -d ',' | awk '{print "{\""$1"\", "$3"},"}' >> $1
 grep ' DL_' spec/cvtcode.h | awk '{print "{\""$2"\","$3"},"}' >> $1

@@ -16,7 +16,7 @@ using namespace std;
 
 namespace stdcvt {
 
-extern map<string, long> _codedic;  
+extern map<string, int64_t> _codedic;  
 
 };
 #endif
