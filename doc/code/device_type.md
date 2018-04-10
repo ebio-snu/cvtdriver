@@ -18,7 +18,7 @@
 | DT_SEN_RAINFALL | 1 | 10700 | 센서 | 강우량센서 | 강우량을 측정하는 센서. |
 | DT_SEN_PHOTONFLUX | 1 | 10800 | 센서 | PAR센서 | 유효광량을 측정하는 센서. |
 | DT_SEN_SOILMOISTURE | 1 | 10900 | 센서 | 토양함수율센서 | 토양 함수율을 측정하는 센서. |
-| DT_SEN_SOILMOISTURETENSION | 1 | 11000 | 토양수분장력센서 |  토양수분장력을 측정하는 센서. |
+| DT_SEN_SOILMOISTURETENSION | 1 | 11000 | 센서 | 토양수분장력센서 |  토양수분장력을 측정하는 센서. |
 | DT_SEN_EC | 1 | 11100 | 센서 | EC센서 | EC를 측정하는 센서. |
 | DT_SEN_PH | 1 | 11200 | 센서 | pH센서 | pH를 측정하는 센서. |
 | DT_SEN_BATTERY | 1 | 11300 | 센서 | 배터리센서 | 배터리의 상태를 확인하는 센서. |

@@ -27,7 +27,7 @@ git clone https://github.com/ebio-snu/cvtdriver.git
 
 ### 빌드를 위한 패키지 설치
 ```
-sudo apt install build-essential cmake libgoogle-glog-dev libasio-dev libjansson-dev libboost-all-dev libmysqlcppconn-dev
+sudo apt install build-essential cmake libgoogle-glog-dev libboost-all-dev libmysqlcppconn-dev
 ```
 boost.dll 은 1.61이후 버전부터 지원한다. Raspbian stretch를 사용하는 경우 libboost-all-dev는 1.62.0.1 버전이지만, jessie나 wheezy를 사용하는 경우에는 버전이 낮아서 1.61 이상의 소스를 받아서 설치해야 한다. 
 
