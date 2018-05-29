@@ -76,6 +76,7 @@ namespace stdcvt {
         DT_SEN_PH = 11200,              ///< pH센서
         DT_SEN_BATTERY = 11300,         ///< 배터리센서
         DT_SEN_ADC = 11400,             ///< ADC 변환된 Raw값 센서(?)
+        DT_SEN_CO2 = 11500,             ///< 이산화탄소센서
         DT_SEN_UNKNOWN = 19000,         ///< 알수없는 센서  
         DT_MOT_SIDEWINDOW = 20100,      ///< 측창 구동기  
         DT_MOT_SIDEWINDOW_1 = 20101,    ///< 1중 측창 구동기  
